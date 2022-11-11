@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2022-11-13T00:16:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/</loc>
     <lastmod>2022-11-13T00:16:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -10,34 +17,6 @@
   
   <url>
     <loc>http://localhost:1313/post/</loc>
-    <lastmod>2022-11-13T00:16:35+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/post/%E6%8D%8F%E4%BD%93%E5%9E%8B%E6%96%B9%E6%A1%88/</loc>
-    <lastmod>2022-11-12T00:45:33+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2022-11-13T00:16:35+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/post/instantoc/</loc>
-    <lastmod>2022-11-13T00:16:35+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/tags/lod/</loc>
     <lastmod>2022-11-13T00:16:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -59,6 +38,34 @@
   
   <url>
     <loc>http://localhost:1313/categories/unity/</loc>
+    <lastmod>2022-11-13T00:16:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/%E6%A8%A1%E5%9E%8B/</loc>
+    <lastmod>2022-11-12T00:45:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/%E6%8D%8F%E4%BD%93%E5%9E%8B%E6%96%B9%E6%A1%88/</loc>
+    <lastmod>2022-11-12T00:45:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/instantoc/</loc>
+    <lastmod>2022-11-13T00:16:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/lod/</loc>
     <lastmod>2022-11-13T00:16:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
