@@ -1,38 +1,44 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Unity on Dand&#39;s Blog</title>
-    <link>https://dandkong.github.io/categories/unity/</link>
-    <description>Recent content in Unity on Dand&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Sat, 12 Nov 2022 20:58:13 +0800</lastBuildDate><atom:link href="https://dandkong.github.io/categories/unity/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>《游戏逻辑思想》学习笔记</title>
-      <link>https://dandkong.github.io/post/%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E6%80%9D%E6%83%B3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Sat, 12 Nov 2022 20:58:13 +0800</pubDate>
-      
-      <guid>https://dandkong.github.io/post/%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E6%80%9D%E6%83%B3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
-      <description>前言 这本书忘记从哪里下载了，和别的技术书籍不太一样，大多的内容都比较贴合项目开发，所以有一定的参考价值。 里面有几个章节觉得有收获的，主要是框</description>
-    </item>
-    
-    <item>
-      <title>捏体型方案</title>
-      <link>https://dandkong.github.io/post/%E6%8D%8F%E4%BD%93%E5%9E%8B%E6%96%B9%E6%A1%88/</link>
-      <pubDate>Sat, 12 Nov 2022 00:45:33 +0800</pubDate>
-      
-      <guid>https://dandkong.github.io/post/%E6%8D%8F%E4%BD%93%E5%9E%8B%E6%96%B9%E6%A1%88/</guid>
-      <description>总览 捏脸主要是通过复制一份骨骼（称为编辑骨骼）的Transform值，带动蒙皮来实现体型的变化，主要技术点在实现方式，编辑器开发，骨骼数据的</description>
-    </item>
-    
-    <item>
-      <title>InstantOC &#43; LOD</title>
-      <link>https://dandkong.github.io/post/instantoc/</link>
-      <pubDate>Sat, 12 Nov 2022 00:16:35 +0800</pubDate>
-      
-      <guid>https://dandkong.github.io/post/instantoc/</guid>
-      <description></description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Unity - 分类 - Dand&#39;s Blog</title>
+        <link>https://dandkong.github.io/categories/unity/</link>
+        <description>Unity - 分类 - Dand&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 12 Nov 2022 20:58:13 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/categories/unity/" rel="self" type="application/rss+xml" /><item>
+    <title>《游戏逻辑思想》学习笔记</title>
+    <link>https://dandkong.github.io/%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E6%80%9D%E6%83%B3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+    <pubDate>Sat, 12 Nov 2022 20:58:13 &#43;0800</pubDate>
+    <author>Dand</author>
+    <guid>https://dandkong.github.io/%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E6%80%9D%E6%83%B3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+    <description><![CDATA[前言 这本书忘记从哪里下载了，和别的技术书籍不太一样，大多的内容都比较贴合项目开发，所以有一定的参考价值。
+里面有几个章节觉得有收获的，主要是框架的设计，以及一些解决问题的思路，大致做了笔记或者摘录。
+一、基础内容交流 代码规范 可读代码：由于动态语言的类型灵活性，可以在变量前加上变量类型简称
+正确使用断言与返回 注意什么时候可以为空，不要盲目返回
+可拓展接口使用 多参数，下面演示了三种写法，最终应该在保留必要参数的情况下，可选参数做成table
+1 2 3 4 5 addModulePower(nModuleId, nPower); addModulePower(nModuleId,nPower,bSyncMsg,bSendEvent, bOnlyBoss) if( tOption &amp;&amp; tOption.bSyncMsg){ //做这个参数该干的事情 } 调试的思维与逻辑 正向和逆向思维，逆向更快 不易复现的bug，埋下日志，下次使用 培养敏锐的异常反应 注意生命周期的创建与销毁
+代码修改与重构 我们在项目中秉持一个原则，如果有个接口让你不舒服，比如说多传了几个参数，那么我们一定要提出来，那一定是接口的设计不够简单或者没有提供更简单的接口形式。
+优雅的使用外部代码 我们的一个原则就是要尽可能少去直接和引擎进行交互，而是更多的进行局部缓存，把战场拉回到更加通用的逻辑里面。 1 2 3 4 5 6 7 8 9 10 11 12 13 修改后的代码为： let levelSlider = Core.createBitmapByName(&#34;slider_png&#34;); let nSliderX = 0; if(XXX){ nSliderX += 6; } if(XXX){ nSliderX += 8; } if(XXX){ nSliderX -= 2; } levelSlider.]]></description>
+</item>
+<item>
+    <title>捏体型方案</title>
+    <link>https://dandkong.github.io/%E6%8D%8F%E4%BD%93%E5%9E%8B%E6%96%B9%E6%A1%88/</link>
+    <pubDate>Sat, 12 Nov 2022 00:45:33 &#43;0800</pubDate>
+    <author>Dand</author>
+    <guid>https://dandkong.github.io/%E6%8D%8F%E4%BD%93%E5%9E%8B%E6%96%B9%E6%A1%88/</guid>
+    <description><![CDATA[总览 捏脸主要是通过复制一份骨骼（称为编辑骨骼）的Transform值，带动蒙皮来实现体型的变化，主要技术点在实现方式，编辑器开发，骨骼数据的组织方式，数据的存取。
+主要的类和方法 CommonCustomizeDNA 自定义部位可以改变的值，包括Transform的各个分量，共9个，加一个整体缩放
+1 2 3 4 5 6 public XXX { scaleX, rotaionX ... } CommonCustomizeDNAConfig 自定义部位可以改变的值范围，包括Transform的各个分量，共9个，加一个整体缩放
+1 2 3 4 5 6 public XXX { scaleXmin, scaleYmin, ... } BodyCustomizeDNA 预定义的可调节部分，可能作用于单根骨骼，也可以一个参数作用于多个骨骼，也可以改变整体缩放（单独处理）
+还包括了自定义的DNA属性
+1 2 3 4 5 6 7 8 9 //在z轴方向缩放，改骨骼scale值 [LabelOverride(&#34;胸腔前后&#34;,&#34;上身&#34;)] [Range(160,60)] public upperBodyFB; //偏移 [LabelOverride(&#34;胸部左右&#34;,&#34;上身&#34;)] [Range(160,60)] public bustOffsetLR； BodyCustomizableSlot 数据类，可编辑的最小单位，主要存数据，包括操作的细项属性，原骨骼，编辑的骨骼
+BodyCustomizableController 定义每个槽位的信息，包括了名字，操作的骨骼名字，编辑模式（改变自身，改变自身和子对象，改变自身以及非BIP骨骼） 初始化做了 根据固定槽位列表，找到对应的bone 整合固定的槽位列表和自定义的槽位列表 根据上面的数据，按模式生成编辑骨骼，生成一份一模一样的骨骼（Transform信息也一致），放到原骨骼下面，如果编辑模式为修改自己以及子对象，则把原骨骼的子对象都放到编辑骨骼下面。生成一份新的骨骼放在原骨骼的子节点，编辑骨骼可以受到动画和自定义值的双重影响，其子节点能受到自定义值得影响。 把编辑骨骼替换原有骨骼整合到蒙皮中，mesh.bones，使其能够影响蒙皮 ApplyDna方法，主要把配置的值（BodyCustomizeDNA）赋值到可编辑骨骼中 根据BodyCustomizeDNA值对BodyCustomizableSlot的编辑骨骼进行三维度缩放（放大缩小效果） BodyCustomizeDNA的配置值直接对特定BodyCustomizableSlot的编辑骨骼进行旋转处理（偏移效果） 处理自定义槽位的编辑骨骼旋转缩放位置，以及镜像编辑骨骼的旋转缩放位置 LateUpdate中处理某些父子骨骼的位置关系（脖子和头），子骨骼跟着父编辑骨骼走，主要针对BIP骨骼会被anim控制，也希望能受到父编辑骨骼的影响。 体型变化实现原理 分三种操作类型]]></description>
+</item>
+<item>
+    <title>InstantOC &#43; LOD</title>
+    <link>https://dandkong.github.io/instantoc/</link>
+    <pubDate>Sat, 12 Nov 2022 00:16:35 &#43;0800</pubDate>
+    <author>Dand</author>
+    <guid>https://dandkong.github.io/instantoc/</guid>
+    <description><![CDATA[描述描述]]></description>
+</item>
+</channel>
 </rss>

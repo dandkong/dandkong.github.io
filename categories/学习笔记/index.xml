@@ -1,20 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>学习笔记 on Dand&#39;s Blog</title>
-    <link>https://dandkong.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
-    <description>Recent content in 学习笔记 on Dand&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Sat, 12 Nov 2022 20:58:13 +0800</lastBuildDate><atom:link href="https://dandkong.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>《游戏逻辑思想》学习笔记</title>
-      <link>https://dandkong.github.io/post/%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E6%80%9D%E6%83%B3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Sat, 12 Nov 2022 20:58:13 +0800</pubDate>
-      
-      <guid>https://dandkong.github.io/post/%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E6%80%9D%E6%83%B3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
-      <description>前言 这本书忘记从哪里下载了，和别的技术书籍不太一样，大多的内容都比较贴合项目开发，所以有一定的参考价值。 里面有几个章节觉得有收获的，主要是框</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>学习笔记 - 分类 - Dand&#39;s Blog</title>
+        <link>https://dandkong.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+        <description>学习笔记 - 分类 - Dand&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 12 Nov 2022 20:58:13 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="self" type="application/rss+xml" /><item>
+    <title>《游戏逻辑思想》学习笔记</title>
+    <link>https://dandkong.github.io/%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E6%80%9D%E6%83%B3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+    <pubDate>Sat, 12 Nov 2022 20:58:13 &#43;0800</pubDate>
+    <author>Dand</author>
+    <guid>https://dandkong.github.io/%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E6%80%9D%E6%83%B3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+    <description><![CDATA[前言 这本书忘记从哪里下载了，和别的技术书籍不太一样，大多的内容都比较贴合项目开发，所以有一定的参考价值。
+里面有几个章节觉得有收获的，主要是框架的设计，以及一些解决问题的思路，大致做了笔记或者摘录。
+一、基础内容交流 代码规范 可读代码：由于动态语言的类型灵活性，可以在变量前加上变量类型简称
+正确使用断言与返回 注意什么时候可以为空，不要盲目返回
+可拓展接口使用 多参数，下面演示了三种写法，最终应该在保留必要参数的情况下，可选参数做成table
+1 2 3 4 5 addModulePower(nModuleId, nPower); addModulePower(nModuleId,nPower,bSyncMsg,bSendEvent, bOnlyBoss) if( tOption &amp;&amp; tOption.bSyncMsg){ //做这个参数该干的事情 } 调试的思维与逻辑 正向和逆向思维，逆向更快 不易复现的bug，埋下日志，下次使用 培养敏锐的异常反应 注意生命周期的创建与销毁
+代码修改与重构 我们在项目中秉持一个原则，如果有个接口让你不舒服，比如说多传了几个参数，那么我们一定要提出来，那一定是接口的设计不够简单或者没有提供更简单的接口形式。
+优雅的使用外部代码 我们的一个原则就是要尽可能少去直接和引擎进行交互，而是更多的进行局部缓存，把战场拉回到更加通用的逻辑里面。 1 2 3 4 5 6 7 8 9 10 11 12 13 修改后的代码为： let levelSlider = Core.createBitmapByName(&#34;slider_png&#34;); let nSliderX = 0; if(XXX){ nSliderX += 6; } if(XXX){ nSliderX += 8; } if(XXX){ nSliderX -= 2; } levelSlider.]]></description>
+</item>
+</channel>
 </rss>
