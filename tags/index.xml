@@ -2,44 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Dand&#39;s Blog</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://dandkong.github.io/tags/</link>
     <description>Recent content in Tags on Dand&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 12 Nov 2022 00:45:33 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Nov 2022 00:45:33 +0800</lastBuildDate><atom:link href="https://dandkong.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Unity</title>
-      <link>http://localhost:1313/tags/unity/</link>
+      <link>https://dandkong.github.io/tags/unity/</link>
       <pubDate>Sat, 12 Nov 2022 00:45:33 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/unity/</guid>
+      <guid>https://dandkong.github.io/tags/unity/</guid>
       <description></description>
     </item>
     
     <item>
       <title>模型</title>
-      <link>http://localhost:1313/tags/%E6%A8%A1%E5%9E%8B/</link>
+      <link>https://dandkong.github.io/tags/%E6%A8%A1%E5%9E%8B/</link>
       <pubDate>Sat, 12 Nov 2022 00:45:33 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/%E6%A8%A1%E5%9E%8B/</guid>
+      <guid>https://dandkong.github.io/tags/%E6%A8%A1%E5%9E%8B/</guid>
       <description></description>
     </item>
     
     <item>
       <title>LOD</title>
-      <link>http://localhost:1313/tags/lod/</link>
+      <link>https://dandkong.github.io/tags/lod/</link>
       <pubDate>Sat, 12 Nov 2022 00:16:35 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/lod/</guid>
+      <guid>https://dandkong.github.io/tags/lod/</guid>
       <description></description>
     </item>
     
     <item>
       <title>场景</title>
-      <link>http://localhost:1313/tags/%E5%9C%BA%E6%99%AF/</link>
+      <link>https://dandkong.github.io/tags/%E5%9C%BA%E6%99%AF/</link>
       <pubDate>Sat, 12 Nov 2022 00:16:35 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/%E5%9C%BA%E6%99%AF/</guid>
+      <guid>https://dandkong.github.io/tags/%E5%9C%BA%E6%99%AF/</guid>
       <description></description>
     </item>
     

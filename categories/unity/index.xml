@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Unity on Dand&#39;s Blog</title>
-    <link>http://localhost:1313/categories/unity/</link>
+    <link>https://dandkong.github.io/categories/unity/</link>
     <description>Recent content in Unity on Dand&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 12 Nov 2022 00:45:33 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/unity/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Nov 2022 00:45:33 +0800</lastBuildDate><atom:link href="https://dandkong.github.io/categories/unity/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>捏体型方案</title>
-      <link>http://localhost:1313/post/%E6%8D%8F%E4%BD%93%E5%9E%8B%E6%96%B9%E6%A1%88/</link>
+      <link>https://dandkong.github.io/post/%E6%8D%8F%E4%BD%93%E5%9E%8B%E6%96%B9%E6%A1%88/</link>
       <pubDate>Sat, 12 Nov 2022 00:45:33 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/%E6%8D%8F%E4%BD%93%E5%9E%8B%E6%96%B9%E6%A1%88/</guid>
+      <guid>https://dandkong.github.io/post/%E6%8D%8F%E4%BD%93%E5%9E%8B%E6%96%B9%E6%A1%88/</guid>
       <description>总览 捏脸主要是通过复制一份骨骼（称为编辑骨骼）的Transform值，带动蒙皮来实现体型的变化，主要技术点在实现方式，编辑器开发，骨骼数据的</description>
     </item>
     
     <item>
       <title>InstantOC &#43; LOD</title>
-      <link>http://localhost:1313/post/instantoc/</link>
+      <link>https://dandkong.github.io/post/instantoc/</link>
       <pubDate>Sat, 12 Nov 2022 00:16:35 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/instantoc/</guid>
+      <guid>https://dandkong.github.io/post/instantoc/</guid>
       <description></description>
     </item>
     

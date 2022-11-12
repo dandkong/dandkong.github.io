@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>场景 on Dand&#39;s Blog</title>
-    <link>http://localhost:1313/tags/%E5%9C%BA%E6%99%AF/</link>
+    <link>https://dandkong.github.io/tags/%E5%9C%BA%E6%99%AF/</link>
     <description>Recent content in 场景 on Dand&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 12 Nov 2022 00:16:35 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%9C%BA%E6%99%AF/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Nov 2022 00:16:35 +0800</lastBuildDate><atom:link href="https://dandkong.github.io/tags/%E5%9C%BA%E6%99%AF/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>InstantOC &#43; LOD</title>
-      <link>http://localhost:1313/post/instantoc/</link>
+      <link>https://dandkong.github.io/post/instantoc/</link>
       <pubDate>Sat, 12 Nov 2022 00:16:35 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/instantoc/</guid>
+      <guid>https://dandkong.github.io/post/instantoc/</guid>
       <description></description>
     </item>
     
