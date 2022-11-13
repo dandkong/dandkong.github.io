@@ -1,7 +1,6 @@
 # InstantOC + LOD
 
 
-<!--more-->
 ## 原理
 
 - 剔除遮挡+Lod，可以组合使用
