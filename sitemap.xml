@@ -2,10 +2,11 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>https://dandkong.github.io/</loc><lastmod>2022-11-16T22:54:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://dandkong.github.io/posts/</loc><lastmod>2022-11-16T22:54:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://dandkong.github.io/ugui%E5%AF%B9%E9%BD%90%E5%B7%A5%E5%85%B7/</loc><lastmod>2022-11-16T22:54:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://dandkong.github.io/%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E6%80%9D%E6%83%B3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc><lastmod>2022-11-12T20:58:13&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://dandkong.github.io/categories/</loc><lastmod>2022-11-13T00:16:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://dandkong.github.io/</loc><lastmod>2022-11-13T00:16:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://dandkong.github.io/posts/</loc><lastmod>2022-11-13T00:16:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://dandkong.github.io/tags/</loc><lastmod>2022-11-13T00:16:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://dandkong.github.io/tags/unity/</loc><lastmod>2022-11-13T00:16:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://dandkong.github.io/categories/unity/</loc><lastmod>2022-11-13T00:16:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
