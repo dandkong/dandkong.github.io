@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <title>UGUI对齐工具 - Dand&#39;s Blog</title><meta name="Description" content="Dand&#39;s Blog"><meta property="og:title" content="UGUI对齐工具" />
 <meta property="og:description" content="前言 上半年的大半年时间都在用FGUI，最近又用回了UGUI，发现FGUI的一些工具还是很高效的，比如对齐工具，想着说移植到UGUI里面去，上网搜了一圈还真有，原理并不复杂，就是进行一些数学计算出最终的位置。
-不过也没有完全适合项目需求，针对前人的项目基础上添加了两个功能，下面介绍一下。
+不过也没有完全适合项目需求，针对原项目基础上添加了三个功能，下面介绍一下。
 一、撤销功能 原项目的工具在修改后，习惯性就按下Ctrl&#43;Z，发现并不能撤销原来的操作，查询了Unity的API后，发现有个Undo的类，可以实现撤销功能，有很多方法，主要用到了RecordObject，代码如下
 1 2 3 4 5 private static void SetTranPos(Transform tran, Vector3 pos) { Undo.RecordObject(tran, &#34;modify posstion&#34;); tran.position = pos; } 二、Selection.GameObjects不是按选择顺序的 API中的Selection.GameObjects用于获取当前选中的物件，数组的顺序和我选择的顺序无关，所以不能实现灵活的对齐，查询网上文章可以用Selection.Objects替代，里面的第一个元素就是Ctrl选中的第一个元素，以此类推，代码如下
 1 2 3 4 5 //按选中顺序获取GameObjects private static GameObject[] GetOrderedSelctionObjs() { return Selection.objects.OfType&lt;GameObject&gt;().ToArray(); } 三、添加对父节点对齐 功能就是和标题一样，原项目是没有的，代码如下
@@ -21,7 +21,7 @@
 
 <meta name="twitter:title" content="UGUI对齐工具"/>
 <meta name="twitter:description" content="前言 上半年的大半年时间都在用FGUI，最近又用回了UGUI，发现FGUI的一些工具还是很高效的，比如对齐工具，想着说移植到UGUI里面去，上网搜了一圈还真有，原理并不复杂，就是进行一些数学计算出最终的位置。
-不过也没有完全适合项目需求，针对前人的项目基础上添加了两个功能，下面介绍一下。
+不过也没有完全适合项目需求，针对原项目基础上添加了三个功能，下面介绍一下。
 一、撤销功能 原项目的工具在修改后，习惯性就按下Ctrl&#43;Z，发现并不能撤销原来的操作，查询了Unity的API后，发现有个Undo的类，可以实现撤销功能，有很多方法，主要用到了RecordObject，代码如下
 1 2 3 4 5 private static void SetTranPos(Transform tran, Vector3 pos) { Undo.RecordObject(tran, &#34;modify posstion&#34;); tran.position = pos; } 二、Selection.GameObjects不是按选择顺序的 API中的Selection.GameObjects用于获取当前选中的物件，数组的顺序和我选择的顺序无关，所以不能实现灵活的对齐，查询网上文章可以用Selection.Objects替代，里面的第一个元素就是Ctrl选中的第一个元素，以此类推，代码如下
 1 2 3 4 5 //按选中顺序获取GameObjects private static GameObject[] GetOrderedSelctionObjs() { return Selection.objects.OfType&lt;GameObject&gt;().ToArray(); } 三、添加对父节点对齐 功能就是和标题一样，原项目是没有的，代码如下
@@ -146,7 +146,7 @@
         title="https://raw.githubusercontent.com/dandkong/picgo/main/img/20221116234335.png" /></p>
 <h2 id="前言">前言</h2>
 <p>上半年的大半年时间都在用FGUI，最近又用回了UGUI，发现FGUI的一些工具还是很高效的，比如对齐工具，想着说移植到UGUI里面去，上网搜了一圈还真有，原理并不复杂，就是进行一些数学计算出最终的位置。</p>
-<p>不过也没有完全适合项目需求，针对前人的项目基础上添加了两个功能，下面介绍一下。</p>
+<p>不过也没有完全适合项目需求，针对原项目基础上添加了三个功能，下面介绍一下。</p>
 <br/>
 <h2 id="一撤销功能">一、撤销功能</h2>
 <p>原项目的工具在修改后，习惯性就按下Ctrl+Z，发现并不能撤销原来的操作，查询了Unity的API后，发现有个Undo的类，可以实现撤销功能，有很多方法，主要用到了RecordObject，代码如下</p>
@@ -802,7 +802,7 @@
 <p><a href="https://github.com/dandkong/UGUIAlign" target="_blank" rel="noopener noreffer ">https://github.com/dandkong/UGUIAlign</a></p>
 <br/>
 <h2 id="六参考">六、参考</h2>
-<p><a href="www.jingfengji.tech/2018/06/22/unity-bian-ji-qi-tuo-zhan-zhi-shi-ui-dui-qi-gong-ju/" rel="">Unity编辑器拓展之十：UI对齐工具</a></p>
+<p><a href="https://blog.csdn.net/qq_26999509/article/details/80779395" target="_blank" rel="noopener noreffer ">Unity编辑器拓展之十：UI对齐工具</a></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">

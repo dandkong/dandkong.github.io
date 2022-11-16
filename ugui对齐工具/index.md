@@ -7,7 +7,7 @@
 
 上半年的大半年时间都在用FGUI，最近又用回了UGUI，发现FGUI的一些工具还是很高效的，比如对齐工具，想着说移植到UGUI里面去，上网搜了一圈还真有，原理并不复杂，就是进行一些数学计算出最终的位置。
 
-不过也没有完全适合项目需求，针对前人的项目基础上添加了两个功能，下面介绍一下。
+不过也没有完全适合项目需求，针对原项目基础上添加了三个功能，下面介绍一下。
 
 <br/>
 
@@ -363,6 +363,8 @@ public class UGUIAlign : Editor
 
 ## 六、参考
 
-[Unity编辑器拓展之十：UI对齐工具](www.jingfengji.tech/2018/06/22/unity-bian-ji-qi-tuo-zhan-zhi-shi-ui-dui-qi-gong-ju/)
+[Unity编辑器拓展之十：UI对齐工具](https://blog.csdn.net/qq_26999509/article/details/80779395)
+
+
 
 
