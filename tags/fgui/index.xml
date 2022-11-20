@@ -1,9 +1,9 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>UGUI - 标签 - Dand&#39;s Blog</title>
-        <link>https://dandkong.github.io/tags/ugui/</link>
-        <description>UGUI - 标签 - Dand&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 18 Nov 2022 21:02:40 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/tags/ugui/" rel="self" type="application/rss+xml" /><item>
+        <title>FGUI - 标签 - Dand&#39;s Blog</title>
+        <link>https://dandkong.github.io/tags/fgui/</link>
+        <description>FGUI - 标签 - Dand&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 18 Nov 2022 21:02:40 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/tags/fgui/" rel="self" type="application/rss+xml" /><item>
     <title>UGUI对比FGUI</title>
     <link>https://dandkong.github.io/ugui%E5%AF%B9%E6%AF%94fgui/</link>
     <pubDate>Fri, 18 Nov 2022 21:02:40 &#43;0800</pubDate>
@@ -37,19 +37,6 @@ FGUI 优点：FGUI的对齐系统叫做关联系统，第一个优点是不局�
 UGUI的拓展性在于可以轻松地对编辑器进行拓展，也可以加上各种效果，一般也不会动到底层的如网格重构和渲染的代码，真想修改的话可能要和Unity进行合作然后项目搞一个魔改版的Unity。
 七、总结 总的来说两种UI解决方案都可以商用，不会有特别大的问题。
 要是策划美术拼UI的话，可以选择FGUI，相反要是程序负责的话，两者都可以，但个人感觉Unity上的操作更加熟悉一点，程序员也可以在平时的UI流程中，吸收一些FGUI的思想，做些工具提高UI的开发效率。]]></description>
-</item>
-<item>
-    <title>UGUI对齐工具</title>
-    <link>https://dandkong.github.io/ugui%E5%AF%B9%E9%BD%90%E5%B7%A5%E5%85%B7/</link>
-    <pubDate>Wed, 16 Nov 2022 22:54:00 &#43;0800</pubDate>
-    <author>Dand</author>
-    <guid>https://dandkong.github.io/ugui%E5%AF%B9%E9%BD%90%E5%B7%A5%E5%85%B7/</guid>
-    <description><![CDATA[前言 上半年的大半年时间都在用FGUI，最近又用回了UGUI，发现FGUI的一些工具还是很高效的，比如对齐工具，想着说移植到UGUI里面去，上网搜了一圈还真有，原理并不复杂，就是进行一些数学计算出最终的位置。
-不过也没有完全适合项目需求，针对原项目基础上添加了三个功能，下面介绍一下。
-一、撤销功能 原项目的工具在修改后，习惯性就按下Ctrl+Z，发现并不能撤销原来的操作，查询了Unity的API后，发现有个Undo的类，可以实现撤销功能，有很多方法，主要用到了RecordObject，代码如下
-1 2 3 4 5 private static void SetTranPos(Transform tran, Vector3 pos) { Undo.RecordObject(tran, &#34;modify posstion&#34;); tran.position = pos; } 二、Selection.GameObjects不是按选择顺序的 API中的Selection.GameObjects用于获取当前选中的物件，数组的顺序和我选择的顺序无关，所以不能实现灵活的对齐，查询网上文章可以用Selection.Objects替代，里面的第一个元素就是Ctrl选中的第一个元素，以此类推，代码如下
-1 2 3 4 5 //按选中顺序获取GameObjects private static GameObject[] GetOrderedSelctionObjs() { return Selection.objects.OfType&lt;GameObject&gt;().ToArray(); } 三、添加对父节点对齐 功能就是和标题一样，原项目是没有的，代码如下
-1 2 3 4 5 6 7 8 //如果只选中一个，对父节点对齐 if (rects.Count == 1) { if (rects[0].parent != null &amp;&amp; rects[0].parent.GetComponent&lt;RectTransform&gt;() != null) { rects.Insert(0, rects[0].parent.GetComponent&lt;RectTransform&gt;()); } } 四、代码 UGUIAlign 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197 198 199 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216 217 218 219 220 221 222 223 224 225 226 227 228 229 230 231 232 233 234 235 236 237 238 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 256 257 258 259 260 261 262 263 264 265 266 267 268 269 270 271 272 273 274 275 276 277 278 279 280 281 282 283 284 285 286 287 288 289 using System.]]></description>
 </item>
 </channel>
 </rss>

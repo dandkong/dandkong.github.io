@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>UGUI对比FGUI - Dand&#39;s Blog</title><meta name="Description" content="Dand&#39;s Blog"><meta property="og:title" content="UGUI对比FGUI" />
+<meta property="og:description" content="前言 UI是游戏中很重要的一部分，工作大多是繁复的，所以有一套功能强大，操作简单直观的UI解决方案是非常有必要的。
+上半年一直在用FGUI，和之前用的UGUI相比下来，各有优缺点，对比分析记录一下。
+一、介绍 UGUI UGUI是Unity原生提供的UI方案，提供了基本的UI组件，如图片，文本，按钮，复选框，进度条等等，正是因为UGUI是面向普遍开发，所以没有封装很多高级的组件，比如虚拟列表。
+FGUI FairyGUI（下来简称FGUI）号称易上手，直观，零代码，有一个独立的编辑器，封装了很多高级的UI组件，用起来不需要自己造轮子。
+二、编辑器使用体验 UGUI 优点：稳定。
+缺点：因为集成在Unity中，资源管理不太方便，需要项目定好规范，编写工具提交效率。
+FGUI 优点：有单独的编辑器，所有资源统一管理，美术策划也能很快上手使用。
+缺点：不稳定，经常会莫名卡住，导出的时候经常报错。
+三、基础组件 基础组件上面因为FGUI实现很多的高级功能，所以使用起来体验要么一样，要么好点。
+文本 FGUI文本支持ubb语法，富文本支持图文混排，超链接等等，自动大小的文本。
+列表 FGUI实现了虚拟列表，树列表。
+字体 字体上FGUI提供了工具制作美术字，只要把资源拖进去专用的编辑器就能很快做出一个美术字体。
+动效系统 两者都有动效系统，UGUI上叫Animation，功能上差不多，都很强大。
+四、对齐系统 对齐系统这一块，FGUI是很大的亮点。
+UGUI UGUI的锚点系统以中心点为基准，对父节点对齐，提供了上下左右，拉伸对齐方式。
+**优点：**简单直观UI默认的中心点在中心，符合人的正常思维。
+缺点：不够灵活；同级UI之前的关联对齐要依赖其他布局组件；缺乏针对同级元素的对齐工具，不过可以自己拓展实现，可以参考我的另一篇文章。
+FGUI 优点：FGUI的对齐系统叫做关联系统，第一个优点是不局限与与父节点对齐，可以对任意两个元素进行对齐。第二个优点是在拓展了对齐的维度，可以以上下左右边缘为基准，可以以上下左右为基准拉伸，复杂一点，但是学会以后可以很方便实现一些效果，比如一张图片随着文字的变长而往右移动。
+缺点：垂直布局和水平布局功能太单一；锚点在左上角各种反人类。
+五、FGUI特色功能 资源引用查找工具 可以轻易找到组件（图片）和其他组件的引用关系。
+支持多国语言 原生支持多国语言，可以导出xml维护即可。
+控制器系统 控制器系统一般用于控制显示一些UI元素的状态，可以配合动效和Tab使用，UGUI一般要通过代码控制或者自己实现一个类似的系统。
+多平台 FGUI可以一套UI，应用到不同的游戏引擎去，比如Unity和Unreal，对于后期可能更换引擎的项目，节省掉很多成本。
+插入3D物体 支持在UI层中插入任何3D物体，例如模型、粒子、骨骼动画等，UGUI中要通过修改特效和UI的渲染顺序实现，比较麻烦。
+六、拓展性 两者都有拓展性，FGUI的拓展性在于代码是开源的，可以在底层定制适合项目的功能，但是编辑器是不开源的，所以编辑器里面的东西改不了，虽然编辑器提供了脚本拓展支持，但能实现的东西不多。
+UGUI的拓展性在于可以轻松地对编辑器进行拓展，也可以加上各种效果，一般也不会动到底层的如网格重构和渲染的代码，真想修改的话可能要和Unity进行合作然后项目搞一个魔改版的Unity。
+七、总结 总的来说两种UI解决方案都可以商用，不会有特别大的问题。
+要是策划美术拼UI的话，可以选择FGUI，相反要是程序负责的话，两者都可以，但个人感觉Unity上的操作更加熟悉一点，程序员也可以在平时的UI流程中，吸收一些FGUI的思想，做些工具提高UI的开发效率。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dandkong.github.io/ugui%E5%AF%B9%E6%AF%94fgui/" /><meta property="og:image" content="https://dandkong.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-11-18T21:02:40+08:00" />
+<meta property="article:modified_time" content="2022-11-18T21:02:40+08:00" /><meta property="og:site_name" content="Dand&#39;s Blog" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://dandkong.github.io/logo.png"/>
+
+<meta name="twitter:title" content="UGUI对比FGUI"/>
+<meta name="twitter:description" content="前言 UI是游戏中很重要的一部分，工作大多是繁复的，所以有一套功能强大，操作简单直观的UI解决方案是非常有必要的。
+上半年一直在用FGUI，和之前用的UGUI相比下来，各有优缺点，对比分析记录一下。
+一、介绍 UGUI UGUI是Unity原生提供的UI方案，提供了基本的UI组件，如图片，文本，按钮，复选框，进度条等等，正是因为UGUI是面向普遍开发，所以没有封装很多高级的组件，比如虚拟列表。
+FGUI FairyGUI（下来简称FGUI）号称易上手，直观，零代码，有一个独立的编辑器，封装了很多高级的UI组件，用起来不需要自己造轮子。
+二、编辑器使用体验 UGUI 优点：稳定。
+缺点：因为集成在Unity中，资源管理不太方便，需要项目定好规范，编写工具提交效率。
+FGUI 优点：有单独的编辑器，所有资源统一管理，美术策划也能很快上手使用。
+缺点：不稳定，经常会莫名卡住，导出的时候经常报错。
+三、基础组件 基础组件上面因为FGUI实现很多的高级功能，所以使用起来体验要么一样，要么好点。
+文本 FGUI文本支持ubb语法，富文本支持图文混排，超链接等等，自动大小的文本。
+列表 FGUI实现了虚拟列表，树列表。
+字体 字体上FGUI提供了工具制作美术字，只要把资源拖进去专用的编辑器就能很快做出一个美术字体。
+动效系统 两者都有动效系统，UGUI上叫Animation，功能上差不多，都很强大。
+四、对齐系统 对齐系统这一块，FGUI是很大的亮点。
+UGUI UGUI的锚点系统以中心点为基准，对父节点对齐，提供了上下左右，拉伸对齐方式。
+**优点：**简单直观UI默认的中心点在中心，符合人的正常思维。
+缺点：不够灵活；同级UI之前的关联对齐要依赖其他布局组件；缺乏针对同级元素的对齐工具，不过可以自己拓展实现，可以参考我的另一篇文章。
+FGUI 优点：FGUI的对齐系统叫做关联系统，第一个优点是不局限与与父节点对齐，可以对任意两个元素进行对齐。第二个优点是在拓展了对齐的维度，可以以上下左右边缘为基准，可以以上下左右为基准拉伸，复杂一点，但是学会以后可以很方便实现一些效果，比如一张图片随着文字的变长而往右移动。
+缺点：垂直布局和水平布局功能太单一；锚点在左上角各种反人类。
+五、FGUI特色功能 资源引用查找工具 可以轻易找到组件（图片）和其他组件的引用关系。
+支持多国语言 原生支持多国语言，可以导出xml维护即可。
+控制器系统 控制器系统一般用于控制显示一些UI元素的状态，可以配合动效和Tab使用，UGUI一般要通过代码控制或者自己实现一个类似的系统。
+多平台 FGUI可以一套UI，应用到不同的游戏引擎去，比如Unity和Unreal，对于后期可能更换引擎的项目，节省掉很多成本。
+插入3D物体 支持在UI层中插入任何3D物体，例如模型、粒子、骨骼动画等，UGUI中要通过修改特效和UI的渲染顺序实现，比较麻烦。
+六、拓展性 两者都有拓展性，FGUI的拓展性在于代码是开源的，可以在底层定制适合项目的功能，但是编辑器是不开源的，所以编辑器里面的东西改不了，虽然编辑器提供了脚本拓展支持，但能实现的东西不多。
+UGUI的拓展性在于可以轻松地对编辑器进行拓展，也可以加上各种效果，一般也不会动到底层的如网格重构和渲染的代码，真想修改的话可能要和Unity进行合作然后项目搞一个魔改版的Unity。
+七、总结 总的来说两种UI解决方案都可以商用，不会有特别大的问题。
+要是策划美术拼UI的话，可以选择FGUI，相反要是程序负责的话，两者都可以，但个人感觉Unity上的操作更加熟悉一点，程序员也可以在平时的UI流程中，吸收一些FGUI的思想，做些工具提高UI的开发效率。"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://dandkong.github.io/ugui%E5%AF%B9%E6%AF%94fgui/" /><link rel="prev" href="https://dandkong.github.io/ugui%E5%AF%B9%E9%BD%90%E5%B7%A5%E5%85%B7/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "UGUI对比FGUI",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/dandkong.github.io\/ugui%E5%AF%B9%E6%AF%94fgui\/"
+        },"image": ["https:\/\/dandkong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Unity, UI, UGUI, FGUI","wordcount":  51 ,
+        "url": "https:\/\/dandkong.github.io\/ugui%E5%AF%B9%E6%AF%94fgui\/","datePublished": "2022-11-18T21:02:40+08:00","dateModified": "2022-11-18T21:02:40+08:00","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/dandkong.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "Dand"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Dand&#39;s Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>Dand&#39;s Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="https://github.com/dandkong" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Dand&#39;s Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>Dand&#39;s Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="https://github.com/dandkong" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">UGUI对比FGUI</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dand</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/unity/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Unity</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-18">2022-11-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 51 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#一介绍">一、介绍</a>
+      <ul>
+        <li><a href="#ugui">UGUI</a></li>
+        <li><a href="#fgui">FGUI</a></li>
+      </ul>
+    </li>
+    <li><a href="#二编辑器使用体验">二、编辑器使用体验</a>
+      <ul>
+        <li><a href="#ugui-1">UGUI</a></li>
+        <li><a href="#fgui-1">FGUI</a></li>
+      </ul>
+    </li>
+    <li><a href="#三基础组件">三、基础组件</a>
+      <ul>
+        <li><a href="#文本">文本</a></li>
+        <li><a href="#列表">列表</a></li>
+        <li><a href="#字体">字体</a></li>
+        <li><a href="#动效系统">动效系统</a></li>
+      </ul>
+    </li>
+    <li><a href="#四对齐系统">四、对齐系统</a>
+      <ul>
+        <li><a href="#ugui-2">UGUI</a></li>
+        <li><a href="#fgui-2">FGUI</a></li>
+      </ul>
+    </li>
+    <li><a href="#五fgui特色功能">五、FGUI特色功能</a>
+      <ul>
+        <li><a href="#资源引用查找工具"><strong>资源引用查找工具</strong></a></li>
+        <li><a href="#支持多国语言"><strong>支持多国语言</strong></a></li>
+        <li><a href="#控制器系统"><strong>控制器系统</strong></a></li>
+        <li><a href="#多平台"><strong>多平台</strong></a></li>
+        <li><a href="#插入3d物体">插入3D物体</a></li>
+      </ul>
+    </li>
+    <li><a href="#六拓展性">六、拓展性</a></li>
+    <li><a href="#七总结">七、总结</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="前言">前言</h2>
+<p>UI是游戏中很重要的一部分，工作大多是繁复的，所以有一套功能强大，操作简单直观的UI解决方案是非常有必要的。</p>
+<p>上半年一直在用FGUI，和之前用的UGUI相比下来，各有优缺点，对比分析记录一下。</p>
+<br/>
+<h2 id="一介绍">一、介绍</h2>
+<h3 id="ugui">UGUI</h3>
+<p>UGUI是Unity原生提供的UI方案，提供了基本的UI组件，如图片，文本，按钮，复选框，进度条等等，正是因为UGUI是面向普遍开发，所以没有封装很多高级的组件，比如虚拟列表。</p>
+<h3 id="fgui">FGUI</h3>
+<p>FairyGUI（下来简称FGUI）号称易上手，直观，零代码，有一个独立的编辑器，封装了很多高级的UI组件，用起来不需要自己造轮子。</p>
+<br/>
+<h2 id="二编辑器使用体验">二、编辑器使用体验</h2>
+<h3 id="ugui-1">UGUI</h3>
+<p>优点：稳定。</p>
+<p>缺点：因为集成在Unity中，资源管理不太方便，需要项目定好规范，编写工具提交效率。</p>
+<h3 id="fgui-1">FGUI</h3>
+<p>优点：有单独的编辑器，所有资源统一管理，美术策划也能很快上手使用。</p>
+<p>缺点：不稳定，经常会莫名卡住，导出的时候经常报错。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/dandkong/picgo/main/img/20221120114909.png"
+        data-srcset="https://raw.githubusercontent.com/dandkong/picgo/main/img/20221120114909.png, https://raw.githubusercontent.com/dandkong/picgo/main/img/20221120114909.png 1.5x, https://raw.githubusercontent.com/dandkong/picgo/main/img/20221120114909.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/dandkong/picgo/main/img/20221120114909.png"
+        title="https://raw.githubusercontent.com/dandkong/picgo/main/img/20221120114909.png" /></p>
+<br/>
+<h2 id="三基础组件">三、基础组件</h2>
+<p>基础组件上面因为FGUI实现很多的高级功能，所以使用起来体验要么一样，要么好点。</p>
+<h3 id="文本">文本</h3>
+<p>FGUI文本支持ubb语法，富文本支持图文混排，超链接等等，自动大小的文本。</p>
+<h3 id="列表">列表</h3>
+<p>FGUI实现了虚拟列表，树列表。</p>
+<h3 id="字体">字体</h3>
+<p>字体上FGUI提供了工具制作美术字，只要把资源拖进去专用的编辑器就能很快做出一个美术字体。</p>
+<h3 id="动效系统">动效系统</h3>
+<p>两者都有动效系统，UGUI上叫Animation，功能上差不多，都很强大。</p>
+<br/>
+<h2 id="四对齐系统">四、对齐系统</h2>
+<p>对齐系统这一块，FGUI是很大的亮点。</p>
+<h3 id="ugui-2">UGUI</h3>
+<p>UGUI的锚点系统以中心点为基准，对父节点对齐，提供了上下左右，拉伸对齐方式。</p>
+<p>**优点：**简单直观UI默认的中心点在中心，符合人的正常思维。</p>
+<p>缺点：不够灵活；同级UI之前的关联对齐要依赖其他布局组件；缺乏针对同级元素的对齐工具，不过可以自己拓展实现，可以参考我的另一篇文章。</p>
+<h3 id="fgui-2">FGUI</h3>
+<p>优点：FGUI的对齐系统叫做关联系统，第一个优点是不局限与与父节点对齐，可以对任意两个元素进行对齐。第二个优点是在拓展了对齐的维度，可以以上下左右边缘为基准，可以以上下左右为基准拉伸，复杂一点，但是学会以后可以很方便实现一些效果，比如一张图片随着文字的变长而往右移动。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/dandkong/picgo/main/img/image-20221118214020122.png"
+        data-srcset="https://raw.githubusercontent.com/dandkong/picgo/main/img/image-20221118214020122.png, https://raw.githubusercontent.com/dandkong/picgo/main/img/image-20221118214020122.png 1.5x, https://raw.githubusercontent.com/dandkong/picgo/main/img/image-20221118214020122.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/dandkong/picgo/main/img/image-20221118214020122.png"
+        title="https://raw.githubusercontent.com/dandkong/picgo/main/img/image-20221118214020122.png" /></p>
+<p>缺点：垂直布局和水平布局功能太单一；锚点在左上角各种反人类。</p>
+<br/>
+<h2 id="五fgui特色功能">五、FGUI特色功能</h2>
+<h3 id="资源引用查找工具"><strong>资源引用查找工具</strong></h3>
+<p>可以轻易找到组件（图片）和其他组件的引用关系。</p>
+<h3 id="支持多国语言"><strong>支持多国语言</strong></h3>
+<p>原生支持多国语言，可以导出xml维护即可。</p>
+<h3 id="控制器系统"><strong>控制器系统</strong></h3>
+<p>控制器系统一般用于控制显示一些UI元素的状态，可以配合动效和Tab使用，UGUI一般要通过代码控制或者自己实现一个类似的系统。</p>
+<h3 id="多平台"><strong>多平台</strong></h3>
+<p>FGUI可以一套UI，应用到不同的游戏引擎去，比如Unity和Unreal，对于后期可能更换引擎的项目，节省掉很多成本。</p>
+<h3 id="插入3d物体">插入3D物体</h3>
+<p>支持在UI层中插入任何3D物体，例如模型、粒子、骨骼动画等，UGUI中要通过修改特效和UI的渲染顺序实现，比较麻烦。</p>
+<br/>
+<h2 id="六拓展性">六、拓展性</h2>
+<p>两者都有拓展性，FGUI的拓展性在于代码是开源的，可以在底层定制适合项目的功能，但是编辑器是不开源的，所以编辑器里面的东西改不了，虽然编辑器提供了脚本拓展支持，但能实现的东西不多。</p>
+<p>UGUI的拓展性在于可以轻松地对编辑器进行拓展，也可以加上各种效果，一般也不会动到底层的如网格重构和渲染的代码，真想修改的话可能要和Unity进行合作然后项目搞一个魔改版的Unity。</p>
+<br/>
+<h2 id="七总结">七、总结</h2>
+<p>总的来说两种UI解决方案都可以商用，不会有特别大的问题。</p>
+<p>要是策划美术拼UI的话，可以选择FGUI，相反要是程序负责的话，两者都可以，但个人感觉Unity上的操作更加熟悉一点，程序员也可以在平时的UI流程中，吸收一些FGUI的思想，做些工具提高UI的开发效率。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-11-18</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/ugui%E5%AF%B9%E6%AF%94fgui/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/unity/">Unity</a>,&nbsp;<a href="/tags/ui/">UI</a>,&nbsp;<a href="/tags/ugui/">UGUI</a>,&nbsp;<a href="/tags/fgui/">FGUI</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/ugui%E5%AF%B9%E9%BD%90%E5%B7%A5%E5%85%B7/" class="prev" rel="prev" title="UGUI对齐工具"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>UGUI对齐工具</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.105.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Dand</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"search":{"algoliaAppID":"","algoliaIndex":"","algoliaSearchKey":"","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
