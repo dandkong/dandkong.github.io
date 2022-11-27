@@ -1,0 +1,21 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>游戏框架 - 分类 - Dand&#39;s Blog</title>
+        <link>https://dandkong.github.io/categories/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6/</link>
+        <description>游戏框架 - 分类 - Dand&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 27 Nov 2022 08:51:40 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/categories/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6/" rel="self" type="application/rss+xml" /><item>
+    <title>游戏对象框架</title>
+    <link>https://dandkong.github.io/%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E6%A1%86%E6%9E%B6/</link>
+    <pubDate>Sun, 27 Nov 2022 08:51:40 &#43;0800</pubDate>
+    <author>Dand</author>
+    <guid>https://dandkong.github.io/%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E6%A1%86%E6%9E%B6/</guid>
+    <description><![CDATA[概述 游戏对象管理一般是通过总分结构，管理器为RoleMgr，对象为Role，Role的功能由各种功能组件实现，从而实现继承和解耦。
+RoleMgr 管理类管理游戏中所有的Role，负责Role的创建、查找、销毁，一般配合UID生成器，给每一个Role分配一个唯一ID作为唯一的标识。
+Role Role是游戏中的对象，可以是角色，特效，建筑等等游戏中的一切实体，由BaseRole派生。
+BaseRole 基类，定义Role的最基本信息，如GameObject，Transform信息，显示隐藏状态等等。
+派生 对BaseRole进行派生就是具体的游戏对象，如添加了控制器以后就是角色，再添加主动移动的控制器以后就是主角，通过绑定不同的组件实现Role的不同方向功能。
+Role的功能 Role的功能都由挂载的组件实现，常用的组件有
+模型组件 被动移动组件 主动移动组件 显示隐藏组件（多条件） 范围触发组件（当玩家走进时会触发回调） 头顶文本组件 还有各种项目中需要实现的功能 Role的结构 ]]></description>
+</item>
+</channel>
+</rss>
