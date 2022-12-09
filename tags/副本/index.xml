@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>副本 - 标签 - Dand&#39;s Blog</title>
+        <link>https://dandkong.github.io/tags/%E5%89%AF%E6%9C%AC/</link>
+        <description>副本 - 标签 - Dand&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 09 Dec 2022 13:37:15 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/tags/%E5%89%AF%E6%9C%AC/" rel="self" type="application/rss+xml" /><item>
+    <title>副本逻辑框架</title>
+    <link>https://dandkong.github.io/%E5%89%AF%E6%9C%AC%E9%80%BB%E8%BE%91%E6%A1%86%E6%9E%B6/</link>
+    <pubDate>Fri, 09 Dec 2022 13:37:15 &#43;0800</pubDate>
+    <author>Dand</author>
+    <guid>https://dandkong.github.io/%E5%89%AF%E6%9C%AC%E9%80%BB%E8%BE%91%E6%A1%86%E6%9E%B6/</guid>
+    <description><![CDATA[概述 一般副本中都会包括各种各样的行为和判断逻辑，下面举一个简单的副本例子，进入副本后，如果组队人数到达三个，则刷出怪物，播放特效，播放对话，与怪物战斗后，弹出结算UI，再播个动画。 如果由策划出完案子后程序负责直接实现的话，每个副本都是定制化的，写起来非常难受，而且维护极不方便，一旦需求改动就要重新写代码 所以需要设计一套副本系统可以灵活配置副本功能，想法是把副本里的每个行为，判断都作为一个节点，类型行为树的概念，从开始节点一直执行到结束节点，这个副本进程就结束了，进入下个副本进程。 编辑器使用连线的方式操作，每个节点的前后置关系，导出lua配置供程序使用，服务端控制执行流程，客户端只需要执行节点逻辑。 例子 节点可以分为执行节点和判断节点，执行节点执行一个行为，流程推进，判断节点在符合条件的时候，推进流程，否则暂停。 端口定义了每个节点间的关系，也就是图中的连线，控制流程走向，比如刷怪战斗节点，输入端口连接“判断组队人数”，有两个输出端口，分别是胜利和失败，连接对应的节点。 把副本流程解构成一个个节点以后，只需要维护节点的行为和端口逻辑即可，组合由策划完成，只有在添加新节点时程序才需要上场。 编辑器 编辑器可以用网上的开源例子xnode组织节点，也可自己实现。 导出的数据包括了节点的类型，参数，前后置节点等一切代码需要的信息。 副本流程 服务端推送当前节点信息 服务端执行/客户端执行 服务端/客户端完成节点，推进流程 直到到达结束节点 ]]></description>
+</item>
+</channel>
+</rss>

@@ -100,19 +100,24 @@
         alt="/images/avatar.png"
         title="/images/avatar.png" /></a></div><div class="home-subtitle"><div id="id-1" class="typeit"></div></div><div class="links"></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/%E5%89%AF%E6%9C%AC%E9%80%BB%E8%BE%91%E6%A1%86%E6%9E%B6/">副本逻辑框架</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dand</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2022-12-09">2022-12-09</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>游戏框架</a></span></div><div class="content">概述 一般副本中都会包括各种各样的行为和判断逻辑，下面举一个简单的副本例子，进入副本后，如果组队人数到达三个，则刷出怪物，播放特效，播放对话，与怪物战斗后，弹出结算UI，再播个动画。 如果由策划出完案子后程序负责直接实现的话，每个副本都是定制化的，写起来非常难受，而且维护极不方便，一旦需求改动就要重新写代码 所以需要设计一套副本系统可以灵活配置副本功能，想法是把副本里的每个行为，判断都作为一个节点，类型行为树的概念，从开始节点一直执行到结束节点，这个副本进程就结束了，进入下个副本进程。 编辑器使用连线的方式操作，每个节点的前后置关系，导出lua配置供程序使用，服务端控制执行流程，客户端只需要执行节点逻辑。 例子 节点可以分为执行节点和判断节点，执行节点执行一个行为，流程推进，判断节点在符合条件的时候，推进流程，否则暂停。 端口定义了每个节点间的关系，也就是图中的连线，控制流程走向，比如刷怪战斗节点，输入端口连接“判断组队人数”，有两个输出端口，分别是胜利和失败，连接对应的节点。 把副本流程解构成一个个节点以后，只需要维护节点的行为和端口逻辑即可，组合由策划完成，只有在添加新节点时程序才需要上场。 编辑器 编辑器可以用网上的开源例子xnode组织节点，也可自己实现。 导出的数据包括了节点的类型，参数，前后置节点等一切代码需要的信息。 副本流程 服务端推送当前节点信息 服务端执行/客户端执行 服务端/客户端完成节点，推进流程 直到到达结束节点 </div><div class="post-footer">
+        <a href="/%E5%89%AF%E6%9C%AC%E9%80%BB%E8%BE%91%E6%A1%86%E6%9E%B6/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6/">游戏框架</a>,&nbsp;<a href="/tags/%E5%89%AF%E6%9C%AC/">副本</a>,&nbsp;<a href="/tags/%E7%BC%96%E8%BE%91%E5%99%A8/">编辑器</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/%E5%9C%BA%E6%99%AF%E6%95%B0%E6%8D%AE%E6%A1%86%E6%9E%B6/">场景数据框架</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dand</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2022-12-05">2022-12-05</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/unity/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Unity</a></span></div><div class="content">一、概述 一般MMO的游戏由场景和场景中的对象构成，在设计地图时，就会遇到几个问题，怎么有效直观地配置信息，怎么抽象场景对象，对象都有什么功能，有什么功能是共有的。首先需要解决的是抽象出场景和场景对象以为场景对象功能，在此基础上做编辑器，用图形化的界面展示，修改储存数据，供代码使用。
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dand</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2022-12-05">2022-12-05</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>游戏框架</a></span></div><div class="content">一、概述 一般MMO的游戏由场景和场景中的对象构成，在设计地图时，就会遇到几个问题。怎么有效直观地配置信息，对象都有什么功能，有什么功能是共有的。针对上面的问题，首先需要解决的是抽象出场景对象结构，在此基础上做编辑器，用图形化的界面展示，修改储存数据，供代码使用。
 二、场景对象结构 场景本事有数据，如场景资源，组队人数限制等等，这种信息改动不大，也比较直观，一般只要存在excel里面就好，需要的话可以做图形编辑器对excel进行读写和修改。
-场景中的对象可以按需分成几类，常见的有npc，采集物，区域，点等等
-NPC NPC主要承载了显示模型的功能，读取NPC表
-采集物 采集物和NPC差不多，只是对话交互改成了点击采集
+场景中的对象可以按需分成几类，常见的有npc，采集物，区域，点等等。
+NPC NPC主要承载了显示模型的功能，读取NPC表。
+采集物 采集物和NPC差不多，只是对话交互改成了点击采集。
 区域 区域分成了圆形区域和多边形区域，划分区域可以实现进入和离开区域的逻辑，比如划分了游泳区，飞行区等，进入以后主角切换运动状态。
 点 点的功能比较广泛，主要用于定位，也可以添加触发组件以后实现圆形区域的功能。
 组件 组件是对象上的属性和功能，公用的组件有缩放，大小，显示隐藏条件等，特殊的组件有巡逻，交互按钮等，按需添加，从而赋予对象特性。
 三、场景编辑器 理清了场景对象的结构以后，就可以做编辑器把数据组织起来了，场景编辑器的实现细节不多说，尽量用起来符合直观操作即可，功能如下。
-增删改场景信息 直观展示场景中的对象（位置、模型、范围等） 增删改场景中的对象 修改对象的组件属性 导出程序可用数据 四、数据载体 数据可以直接导出lua，也可以导出成json，xml等，只要方便维护，程序方便调用即可。 目前使用的是先储存到excel，再从excel导出到lua中，供程序调用。 使用excel作为中间载体的原因可能是比较直观，但感觉使用json或者序列化的方法也是可行的。 </div><div class="post-footer">
+增删改场景信息 直观展示场景中的对象（位置、模型、范围等） 增删改场景中的对象 修改对象的组件属性 导出程序可用数据 四、数据载体 数据可以直接导出lua，也可以导出成json，xml等，只要方便维护，程序方便调用即可。 目前使用的是先储存到excel，再从excel导出到lua中，供程序调用。 使用excel作为中间载体的原因可能是比较直观，但感觉使用json或者Unity序列化的方法也是可行的。 </div><div class="post-footer">
         <a href="/%E5%9C%BA%E6%99%AF%E6%95%B0%E6%8D%AE%E6%A1%86%E6%9E%B6/">阅读全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E5%9C%BA%E6%99%AF/">场景</a>,&nbsp;<a href="/tags/%E7%BC%96%E8%BE%91%E5%99%A8/">编辑器</a></div></div>
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6/">游戏框架</a>,&nbsp;<a href="/tags/%E5%9C%BA%E6%99%AF/">场景</a>,&nbsp;<a href="/tags/%E7%BC%96%E8%BE%91%E5%99%A8/">编辑器</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E6%A1%86%E6%9E%B6/">游戏对象框架</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dand</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2022-11-27">2022-11-27</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>游戏框架</a></span></div><div class="content">概述 游戏对象管理一般是通过总分结构，管理器为RoleMgr，对象为Role，Role的功能由各种功能组件实现，从而实现继承和解耦。
@@ -178,17 +183,6 @@ UGUI的拓展性在于可以轻松地对编辑器进行拓展，也可以加上�
 优雅的使用外部代码 我们的一个原则就是要尽可能少去直接和引擎进行交互，而是更多的进行局部缓存，把战场拉回到更加通用的逻辑里面。 1 2 3 4 5 6 7 8 9 10 11 12 13 修改后的代码为： let levelSlider = Core.createBitmapByName(&#34;slider_png&#34;); let nSliderX = 0; if(XXX){ nSliderX += 6; } if(XXX){ nSliderX += 8; } if(XXX){ nSliderX -= 2; } levelSlider.</div><div class="post-footer">
         <a href="/%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E6%80%9D%E6%83%B3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">阅读全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/unity/">Unity</a>,&nbsp;<a href="/tags/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6/">游戏框架</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/%E6%8D%8F%E4%BD%93%E5%9E%8B%E6%96%B9%E6%A1%88/">捏体型方案</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dand</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2022-11-12">2022-11-12</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/unity/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Unity</a></span></div><div class="content">总览 捏脸主要是通过复制一份骨骼（称为编辑骨骼）的Transform值，带动蒙皮来实现体型的变化，主要技术点在实现方式，编辑器开发，骨骼数据的组织方式，数据的存取。
-主要的类和方法 CommonCustomizeDNA 自定义部位可以改变的值，包括Transform的各个分量，共9个，加一个整体缩放
-1 2 3 4 5 6 public XXX { scaleX, rotaionX ... } CommonCustomizeDNAConfig 自定义部位可以改变的值范围，包括Transform的各个分量，共9个，加一个整体缩放
-1 2 3 4 5 6 public XXX { scaleXmin, scaleYmin, ... } BodyCustomizeDNA 预定义的可调节部分，可能作用于单根骨骼，也可以一个参数作用于多个骨骼，也可以改变整体缩放（单独处理）
-还包括了自定义的DNA属性
-1 2 3 4 5 6 7 8 9 //在z轴方向缩放，改骨骼scale值 [LabelOverride(&#34;胸腔前后&#34;,&#34;上身&#34;)] [Range(160,60)] public upperBodyFB; //偏移 [LabelOverride(&#34;胸部左右&#34;,&#34;上身&#34;)] [Range(160,60)] public bustOffsetLR； BodyCustomizableSlot 数据类，可编辑的最小单位，主要存数据，包括操作的细项属性，原骨骼，编辑的骨骼
-BodyCustomizableController 定义每个槽位的信息，包括了名字，操作的骨骼名字，编辑模式（改变自身，改变自身和子对象，改变自身以及非BIP骨骼） 初始化做了 根据固定槽位列表，找到对应的bone 整合固定的槽位列表和自定义的槽位列表 根据上面的数据，按模式生成编辑骨骼，生成一份一模一样的骨骼（Transform信息也一致），放到原骨骼下面，如果编辑模式为修改自己以及子对象，则把原骨骼的子对象都放到编辑骨骼下面。生成一份新的骨骼放在原骨骼的子节点，编辑骨骼可以受到动画和自定义值的双重影响，其子节点能受到自定义值得影响。 把编辑骨骼替换原有骨骼整合到蒙皮中，mesh.bones，使其能够影响蒙皮 ApplyDna方法，主要把配置的值（BodyCustomizeDNA）赋值到可编辑骨骼中 根据BodyCustomizeDNA值对BodyCustomizableSlot的编辑骨骼进行三维度缩放（放大缩小效果） BodyCustomizeDNA的配置值直接对特定BodyCustomizableSlot的编辑骨骼进行旋转处理（偏移效果） 处理自定义槽位的编辑骨骼旋转缩放位置，以及镜像编辑骨骼的旋转缩放位置 LateUpdate中处理某些父子骨骼的位置关系（脖子和头），子骨骼跟着父编辑骨骼走，主要针对BIP骨骼会被anim控制，也希望能受到父编辑骨骼的影响。 体型变化实现原理 分三种操作类型</div><div class="post-footer">
-        <a href="/%E6%8D%8F%E4%BD%93%E5%9E%8B%E6%96%B9%E6%A1%88/">阅读全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/unity/">Unity</a>,&nbsp;<a href="/tags/%E6%A8%A1%E5%9E%8B/">模型</a></div></div>
 </article><ul class="pagination"><li class="page-item active">
                     <span class="page-link">
                         <a href="/">1</a>

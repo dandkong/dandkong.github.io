@@ -100,6 +100,17 @@
         alt="/images/avatar.png"
         title="/images/avatar.png" /></a></div><div class="home-subtitle"><div id="id-1" class="typeit"></div></div><div class="links"></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/%E6%8D%8F%E4%BD%93%E5%9E%8B%E6%96%B9%E6%A1%88/">捏体型方案</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dand</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2022-11-12">2022-11-12</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/unity/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Unity</a></span></div><div class="content">总览 捏脸主要是通过复制一份骨骼（称为编辑骨骼）的Transform值，带动蒙皮来实现体型的变化，主要技术点在实现方式，编辑器开发，骨骼数据的组织方式，数据的存取。
+主要的类和方法 CommonCustomizeDNA 自定义部位可以改变的值，包括Transform的各个分量，共9个，加一个整体缩放
+1 2 3 4 5 6 public XXX { scaleX, rotaionX ... } CommonCustomizeDNAConfig 自定义部位可以改变的值范围，包括Transform的各个分量，共9个，加一个整体缩放
+1 2 3 4 5 6 public XXX { scaleXmin, scaleYmin, ... } BodyCustomizeDNA 预定义的可调节部分，可能作用于单根骨骼，也可以一个参数作用于多个骨骼，也可以改变整体缩放（单独处理）
+还包括了自定义的DNA属性
+1 2 3 4 5 6 7 8 9 //在z轴方向缩放，改骨骼scale值 [LabelOverride(&#34;胸腔前后&#34;,&#34;上身&#34;)] [Range(160,60)] public upperBodyFB; //偏移 [LabelOverride(&#34;胸部左右&#34;,&#34;上身&#34;)] [Range(160,60)] public bustOffsetLR； BodyCustomizableSlot 数据类，可编辑的最小单位，主要存数据，包括操作的细项属性，原骨骼，编辑的骨骼
+BodyCustomizableController 定义每个槽位的信息，包括了名字，操作的骨骼名字，编辑模式（改变自身，改变自身和子对象，改变自身以及非BIP骨骼） 初始化做了 根据固定槽位列表，找到对应的bone 整合固定的槽位列表和自定义的槽位列表 根据上面的数据，按模式生成编辑骨骼，生成一份一模一样的骨骼（Transform信息也一致），放到原骨骼下面，如果编辑模式为修改自己以及子对象，则把原骨骼的子对象都放到编辑骨骼下面。生成一份新的骨骼放在原骨骼的子节点，编辑骨骼可以受到动画和自定义值的双重影响，其子节点能受到自定义值得影响。 把编辑骨骼替换原有骨骼整合到蒙皮中，mesh.bones，使其能够影响蒙皮 ApplyDna方法，主要把配置的值（BodyCustomizeDNA）赋值到可编辑骨骼中 根据BodyCustomizeDNA值对BodyCustomizableSlot的编辑骨骼进行三维度缩放（放大缩小效果） BodyCustomizeDNA的配置值直接对特定BodyCustomizableSlot的编辑骨骼进行旋转处理（偏移效果） 处理自定义槽位的编辑骨骼旋转缩放位置，以及镜像编辑骨骼的旋转缩放位置 LateUpdate中处理某些父子骨骼的位置关系（脖子和头），子骨骼跟着父编辑骨骼走，主要针对BIP骨骼会被anim控制，也希望能受到父编辑骨骼的影响。 体型变化实现原理 分三种操作类型</div><div class="post-footer">
+        <a href="/%E6%8D%8F%E4%BD%93%E5%9E%8B%E6%96%B9%E6%A1%88/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/unity/">Unity</a>,&nbsp;<a href="/tags/%E6%A8%A1%E5%9E%8B/">模型</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/instantoc/">InstantOC + LOD</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dand</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2022-11-12">2022-11-12</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/unity/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Unity</a></span></div><div class="content">原理 剔除遮挡+Lod，可以组合使用 相机每帧主动发射射线击中物体，击中后显示，并且重置周期 物体在周期后，主动向相机发射射线，判断是否需要隐藏 相机后的物体。减少DC（CPU压力），减少GPU剔除消耗；被遮挡的物体减少GPU渲染 IOCCam 每帧根据算法生成的随机点，向视锥体内发射若干条射线，击中以后，显示
 并根据距离通过LODGroup切换高低模
