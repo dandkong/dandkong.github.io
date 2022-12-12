@@ -87,7 +87,7 @@ Vector3 GetTargetPos(Vector3 pos)
 
 <br>
 
-## 二、自动寻路
+## 三、自动寻路
 
 - 自动寻路主要是计算出起始点到目标点的一连串的中间点，每次走一小段直线，从而完成寻路的过程，逻辑比较简单，
 - 如果使用Unity自带的Nav Mesh Agent 可以使用参考[https://bbs.huaweicloud.com/blogs/303788](https://bbs.huaweicloud.com/blogs/303788)。
