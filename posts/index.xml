@@ -4,12 +4,12 @@
         <link>https://dandkong.github.io/posts/</link>
         <description>所有文章 | Dand&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 07 Jun 2023 21:01:30 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>UI自动生成Lua代码</title>
-    <link>https://dandkong.github.io/ui%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90lua%E4%BB%A3%E7%A0%81/</link>
+    <title>根据Prefab自动生成Lua代码</title>
+    <link>https://dandkong.github.io/%E6%A0%B9%E6%8D%AEprefab%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90lua%E4%BB%A3%E7%A0%81/</link>
     <pubDate>Wed, 07 Jun 2023 21:01:30 &#43;0800</pubDate>
     <author>Dand</author>
-    <guid>https://dandkong.github.io/ui%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90lua%E4%BB%A3%E7%A0%81/</guid>
-    <description><![CDATA[]]></description>
+    <guid>https://dandkong.github.io/%E6%A0%B9%E6%8D%AEprefab%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90lua%E4%BB%A3%E7%A0%81/</guid>
+    <description><![CDATA[根据Prefab自动生成Lua代码，添加按钮回调，添加组件引用，添加自定义代码。]]></description>
 </item>
 <item>
     <title>游戏输入模块</title>

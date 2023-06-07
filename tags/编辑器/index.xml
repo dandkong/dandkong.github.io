@@ -3,7 +3,15 @@
         <title>编辑器 - 标签 - Dand&#39;s Blog</title>
         <link>https://dandkong.github.io/tags/%E7%BC%96%E8%BE%91%E5%99%A8/</link>
         <description>编辑器 - 标签 - Dand&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 09 Dec 2022 13:37:15 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/tags/%E7%BC%96%E8%BE%91%E5%99%A8/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 07 Jun 2023 21:01:30 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/tags/%E7%BC%96%E8%BE%91%E5%99%A8/" rel="self" type="application/rss+xml" /><item>
+    <title>根据Prefab自动生成Lua代码</title>
+    <link>https://dandkong.github.io/%E6%A0%B9%E6%8D%AEprefab%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90lua%E4%BB%A3%E7%A0%81/</link>
+    <pubDate>Wed, 07 Jun 2023 21:01:30 &#43;0800</pubDate>
+    <author>Dand</author>
+    <guid>https://dandkong.github.io/%E6%A0%B9%E6%8D%AEprefab%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90lua%E4%BB%A3%E7%A0%81/</guid>
+    <description><![CDATA[根据Prefab自动生成Lua代码，添加按钮回调，添加组件引用，添加自定义代码。]]></description>
+</item>
+<item>
     <title>副本逻辑框架</title>
     <link>https://dandkong.github.io/%E5%89%AF%E6%9C%AC%E9%80%BB%E8%BE%91%E6%A1%86%E6%9E%B6/</link>
     <pubDate>Fri, 09 Dec 2022 13:37:15 &#43;0800</pubDate>
