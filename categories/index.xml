@@ -1,29 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Categories on Dand&#39;s Blog</title>
-    <link>https://dandkong.github.io/categories/</link>
-    <description>Recent content in Categories on Dand&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Sat, 12 Nov 2022 20:58:13 +0800</lastBuildDate><atom:link href="https://dandkong.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Unity</title>
-      <link>https://dandkong.github.io/categories/unity/</link>
-      <pubDate>Sat, 12 Nov 2022 20:58:13 +0800</pubDate>
-      
-      <guid>https://dandkong.github.io/categories/unity/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>学习笔记</title>
-      <link>https://dandkong.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Sat, 12 Nov 2022 20:58:13 +0800</pubDate>
-      
-      <guid>https://dandkong.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
-      <description></description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Categories - 分类 - Dand&#39;s Blog</title>
+        <link>https://dandkong.github.io/categories/</link>
+        <description>Categories - 分类 - Dand&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 13 Dec 2022 21:10:37 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>Unity</title>
+    <link>https://dandkong.github.io/categories/unity/</link>
+    <pubDate>Tue, 13 Dec 2022 21:10:37 &#43;0800</pubDate>
+    <author>Dand</author>
+    <guid>https://dandkong.github.io/categories/unity/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>游戏框架</title>
+    <link>https://dandkong.github.io/categories/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6/</link>
+    <pubDate>Fri, 09 Dec 2022 13:37:15 &#43;0800</pubDate>
+    <author>Dand</author>
+    <guid>https://dandkong.github.io/categories/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>学习笔记</title>
+    <link>https://dandkong.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+    <pubDate>Sat, 12 Nov 2022 20:58:13 &#43;0800</pubDate>
+    <author>Dand</author>
+    <guid>https://dandkong.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
 </rss>
