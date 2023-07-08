@@ -99,6 +99,17 @@
         alt="/images/avatar.png"
         title="/images/avatar.png" /></a></div><div class="home-subtitle"><div id="id-1" class="typeit"></div></div><div class="links"></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E6%A1%86%E6%9E%B6/">游戏对象框架</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dand</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2022-11-27">2022-11-27</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>游戏框架</a></span></div><div class="content">概述 游戏对象管理一般是通过总分结构，管理器为RoleMgr，对象为Role，Role的功能由各种功能组件实现，从而实现继承和解耦。
+RoleMgr 管理类管理游戏中所有的Role，负责Role的创建、查找、销毁，一般配合UID生成器，给每一个Role分配一个唯一ID作为唯一的标识。
+Role Role是游戏中的对象，可以是角色，特效，建筑等等游戏中的一切实体，由BaseRole派生。
+BaseRole 基类，定义Role的最基本信息，如GameObject，Transform信息，显示隐藏状态等等。
+派生 对BaseRole进行派生就是具体的游戏对象，如添加了控制器以后就是角色，再添加主动移动的控制器以后就是主角，通过绑定不同的组件实现Role的不同方向功能。
+Role的功能 Role的功能都由挂载的组件实现，常用的组件有
+模型组件 被动移动组件 主动移动组件 显示隐藏组件（多条件） 范围触发组件（当玩家走进时会触发回调） 头顶文本组件 还有各种项目中需要实现的功能 Role的结构 </div><div class="post-footer">
+        <a href="/%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E6%A1%86%E6%9E%B6/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6/">游戏框架</a>,&nbsp;<a href="/tags/%E8%A7%92%E8%89%B2/">角色</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/ugui%E5%AF%B9%E6%AF%94fgui/">UGUI对比FGUI</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dand</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2022-11-18">2022-11-18</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/unity/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Unity</a></span></div><div class="content">前言 UI是游戏中很重要的一部分，工作大多是繁复的，所以有一套功能强大，操作简单直观的UI解决方案是非常有必要的。
 上半年一直在用FGUI，和之前用的UGUI相比下来，各有优缺点，对比分析记录一下。
