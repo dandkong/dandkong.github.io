@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/dandkong.github.io\/lua%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93\/"
-        },"image": ["https:\/\/dandkong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Lua","wordcount":  231 ,
+        },"image": ["https:\/\/dandkong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Lua","wordcount":  268 ,
         "url": "https:\/\/dandkong.github.io\/lua%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93\/","datePublished": "2023-04-11T21:40:59+08:00","dateModified": "2023-07-11T21:40:59+08:00","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/dandkong.github.io\/images\/avatar.png"},"author": {
@@ -103,7 +103,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Lua知识点总结</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dand</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>编程语言</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-04-11">2023-04-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 231 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-04-11">2023-04-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 268 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -115,7 +115,19 @@
     <li><a href="#1-元表和元方法">1. 元表和元方法</a></li>
     <li><a href="#2-lua面向对象实现">2. lua面向对象实现</a></li>
     <li><a href="#3-table实现原理">3. Table实现原理</a></li>
-    <li><a href="#4-游戏常用方案">4. 游戏常用方案</a></li>
+    <li><a href="#4-游戏常用方案">4. 游戏常用方案</a>
+      <ul>
+        <li><a href="#lua调用c">Lua调用C#</a></li>
+        <li><a href="#参考">参考</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-luagc">5. LuaGC</a>
+      <ul>
+        <li><a href="#原理">原理</a></li>
+        <li><a href="#参考-1">参考</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-参考">6. 参考</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="1-元表和元方法">1. 元表和元方法</h2>
@@ -266,7 +278,31 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="3-table实现原理">3. Table实现原理</h2>
-<h2 id="4-游戏常用方案">4. 游戏常用方案</h2></div><div class="post-footer" id="post-footer">
+<ul>
+<li>数组和哈希的混合结构</li>
+</ul>
+<h2 id="4-游戏常用方案">4. 游戏常用方案</h2>
+<p>XLua ， ToLua ， ULua都只是提供了 C# 与 Lua 的互相调用机制，差别基本就是少量的语法差别。座位C#和lua的中间层，把C#生成Wrap代码，经过xlua调用Lua代码。</p>
+<h3 id="lua调用c">Lua调用C#</h3>
+<ul>
+<li>Lua-C dll- C# Wrap-C#</li>
+<li>通过ObjectTranslator获取C#中的实例</li>
+<li>Wrap方式：非反射机制，需要为源文件生成相应的wrap文件，当启动Lua虚拟机时，Wrap文件将会被自动注册到Lua虚拟机中，之后，Lua文件将能够识别和调用C#源文件</li>
+<li>总结：Lua调用Wrap文件， Wrap文件调用C#源文件</li>
+</ul>
+<h3 id="参考">参考</h3>
+<p><a href="https://zhuanlan.zhihu.com/p/109198841" target="_blank" rel="noopener noreffer ">【ToLua】C#和Lua的交互细节</a></p>
+<p><a href="https://www.cnblogs.com/msxh/p/9813147.html" target="_blank" rel="noopener noreffer ">【Unity游戏开发】tolua之wrap文件的原理与使用 - 马三小伙儿 - 博客园</a></p>
+<h2 id="5-luagc">5. LuaGC</h2>
+<h3 id="原理">原理</h3>
+<ul>
+<li>标记，清楚</li>
+<li>三色标记</li>
+</ul>
+<h3 id="参考-1">参考</h3>
+<p><a href="https://www.zhihu.com/tardis/zm/art/133939450?source_id=1003" target="_blank" rel="noopener noreffer ">Lua GC机制分析与理解-上</a></p>
+<h2 id="6-参考">6. 参考</h2>
+<p><a href="https://www.drflower.top/posts/43f53d35/" target="_blank" rel="noopener noreffer ">Lua知识点整理</a></p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

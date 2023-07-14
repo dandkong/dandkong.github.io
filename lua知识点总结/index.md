@@ -89,5 +89,39 @@ end
 
 ## 3. Table实现原理
 
+- 数组和哈希的混合结构
+
 ## 4. 游戏常用方案
+
+XLua ， ToLua ， ULua都只是提供了 C# 与 Lua 的互相调用机制，差别基本就是少量的语法差别。座位C#和lua的中间层，把C#生成Wrap代码，经过xlua调用Lua代码。
+
+### Lua调用C#
+
+- Lua-C dll- C# Wrap-C#
+- 通过ObjectTranslator获取C#中的实例
+- Wrap方式：非反射机制，需要为源文件生成相应的wrap文件，当启动Lua虚拟机时，Wrap文件将会被自动注册到Lua虚拟机中，之后，Lua文件将能够识别和调用C#源文件
+- 总结：Lua调用Wrap文件， Wrap文件调用C#源文件
+
+### 参考
+
+[【ToLua】C#和Lua的交互细节](https://zhuanlan.zhihu.com/p/109198841)
+
+[【Unity游戏开发】tolua之wrap文件的原理与使用 - 马三小伙儿 - 博客园](https://www.cnblogs.com/msxh/p/9813147.html)
+
+
+
+## 5. LuaGC
+
+### 原理
+
+- 标记，清楚
+- 三色标记
+
+### 参考
+
+[Lua GC机制分析与理解-上](https://www.zhihu.com/tardis/zm/art/133939450?source_id=1003)
+
+## 6. 参考
+
+[Lua知识点整理](https://www.drflower.top/posts/43f53d35/)
 
