@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>C&#43;&#43;&#34; - 标签 - Dand&#39;s Blog</title>
+        <title>C&#43;&#43; - 标签 - Dand&#39;s Blog</title>
         <link>https://dandkong.github.io/tags/c&#43;&#43;/</link>
-        <description>C&#43;&#43;&#34; - 标签 - Dand&#39;s Blog</description>
+        <description>C&#43;&#43; - 标签 - Dand&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 02 Apr 2023 23:41:05 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/tags/c&#43;&#43;/" rel="self" type="application/rss+xml" /><item>
     <title>STL总结</title>
     <link>https://dandkong.github.io/stl%E6%80%BB%E7%BB%93/</link>
