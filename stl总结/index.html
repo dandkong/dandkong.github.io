@@ -115,20 +115,20 @@
     <li><a href="#分类">分类</a>
       <ul>
         <li><a href="#vector动态数组">Vector动态数组</a></li>
-        <li><a href="#list"><strong>list</strong></a></li>
-        <li><a href="#stack栈"><strong>stack栈</strong></a></li>
-        <li><a href="#queue队列"><strong>queue队列</strong></a></li>
-        <li><a href="#deque双端队列"><strong>deque双端队列</strong></a></li>
-        <li><a href="#priority_queue优先队列"><strong>priority_queue优先队列</strong></a></li>
-        <li><a href="#set和multiset集合"><strong>set和multiset集合</strong></a></li>
-        <li><a href="#map和multimap"><strong>map和multimap</strong></a></li>
-        <li><a href="#hash_set和hash_multiset"><strong>hash_set和hash_multiset</strong></a></li>
-        <li><a href="#hashmapunordered_map和hash_multimap"><strong>hashmap/unordered_map和hash_multimap</strong></a></li>
+        <li><a href="#list">list</a></li>
+        <li><a href="#stack栈">stack栈</a></li>
+        <li><a href="#queue队列">queue队列</a></li>
+        <li><a href="#deque双端队列">deque双端队列</a></li>
+        <li><a href="#priority_queue优先队列">priority_queue优先队列</a></li>
+        <li><a href="#set和multiset集合">set和multiset集合</a></li>
+        <li><a href="#map和multimap">map和multimap</a></li>
+        <li><a href="#hash_set和hash_multiset">hash_set和hash_multiset</a></li>
+        <li><a href="#hashmapunordered_map和hash_multimap">hashmap/unordered_map和hash_multimap</a></li>
       </ul>
     </li>
     <li><a href="#注意">注意</a>
       <ul>
-        <li><a href="#什么时候需要用hash_map什么时候需要用map"><strong>什么时候需要用hash_map，什么时候需要用map?</strong></a></li>
+        <li><a href="#什么时候需要用hash_map什么时候需要用map">什么时候需要用hash_map，什么时候需要用map?</a></li>
       </ul>
     </li>
     <li><a href="#参考">参考</a></li>
@@ -136,9 +136,9 @@
 </nav></div>
             </div><div class="content" id="content"><h2 id="分类">分类</h2>
 <h3 id="vector动态数组">Vector动态数组</h3>
-<p>**原理：**连续的内存，start,end,max，max代表容量，end代表当前最大</p>
-<p>**扩容流程：**申请空间，复制，清理</p>
-<p><strong>访问方式</strong></p>
+<p>原理：连续的内存，start,end,max，max代表容量，end代表当前最大</p>
+<p>扩容流程：申请空间，复制，清理</p>
+<p>访问方式</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -167,32 +167,32 @@
 </span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s2">&#34; &#34;</span><span class="p">;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="list"><strong>list</strong></h3>
-<p>**概述：**较快增删查</p>
-<p>**原理：**双向链表</p>
-<h3 id="stack栈"><strong>stack栈</strong></h3>
-<p>**概述：**先进后出</p>
-<p>**原理：**底层一般用list或deque实现，封闭头部即可，不用vector的原因应该是容量大小有限制，扩容耗时</p>
-<h3 id="queue队列"><strong>queue队列</strong></h3>
-<p>**概述：**先进先出</p>
-<p>**原理：**底层一般用list或deque实现，封闭头部即可，不用vector的原因应该是容量大小有限制，扩容耗时</p>
-<h3 id="deque双端队列"><strong>deque双端队列</strong></h3>
-<p>**概述：**首位都能操作</p>
-<p>**原理：**deque 容器的分段存储结构，提高了在序列两端添加或删除元素的效率，但也使该容器迭代器的底层实现变得更复杂。</p>
-<h3 id="priority_queue优先队列"><strong>priority_queue优先队列</strong></h3>
-<p>**概述：**优先队列是在正常队列的基础上加了优先级，保证每次的队首元素都是优先级最大的。</p>
-<p>**原理：**priority_queue的底层数据结构一般为vector为底层容器，堆heap为处理规则来管理底层容器</p>
-<h3 id="set和multiset集合"><strong>set和multiset集合</strong></h3>
-<p>**概述：**set和multiset会根据特定的排序准则，自动将元素进行排序。不同的是后者允许元素重复而前者不允许</p>
-<p>**原理：**底层红黑树，平衡二叉树可以保证在最坏情况下仍然具有较高的搜索效率，时间复杂度为O(logn)。</p>
-<h3 id="map和multimap"><strong>map和multimap</strong></h3>
-<p>**原理：**底层红黑树</p>
-<h3 id="hash_set和hash_multiset"><strong>hash_set和hash_multiset</strong></h3>
-<p>**原理：**哈希</p>
-<h3 id="hashmapunordered_map和hash_multimap"><strong>hashmap/unordered_map和hash_multimap</strong></h3>
-<p>**原理：**哈希</p>
+</div><h3 id="list">list</h3>
+<p>概述：较快增删查</p>
+<p>原理：双向链表</p>
+<h3 id="stack栈">stack栈</h3>
+<p>概述：先进后出</p>
+<p>原理：底层一般用list或deque实现，封闭头部即可，不用vector的原因应该是容量大小有限制，扩容耗时</p>
+<h3 id="queue队列">queue队列</h3>
+<p>概述：先进先出</p>
+<p>原理：底层一般用list或deque实现，封闭头部即可，不用vector的原因应该是容量大小有限制，扩容耗时</p>
+<h3 id="deque双端队列">deque双端队列</h3>
+<p>概述：首位都能操作</p>
+<p>原理：deque 容器的分段存储结构，提高了在序列两端添加或删除元素的效率，但也使该容器迭代器的底层实现变得更复杂。</p>
+<h3 id="priority_queue优先队列">priority_queue优先队列</h3>
+<p>概述：优先队列是在正常队列的基础上加了优先级，保证每次的队首元素都是优先级最大的。</p>
+<p>原理：priority_queue的底层数据结构一般为vector为底层容器，堆heap为处理规则来管理底层容器</p>
+<h3 id="set和multiset集合">set和multiset集合</h3>
+<p>概述：set和multiset会根据特定的排序准则，自动将元素进行排序。不同的是后者允许元素重复而前者不允许</p>
+<p>原理：底层红黑树，平衡二叉树可以保证在最坏情况下仍然具有较高的搜索效率，时间复杂度为O(logn)。</p>
+<h3 id="map和multimap">map和multimap</h3>
+<p>原理：底层红黑树</p>
+<h3 id="hash_set和hash_multiset">hash_set和hash_multiset</h3>
+<p>原理：哈希</p>
+<h3 id="hashmapunordered_map和hash_multimap">hashmap/unordered_map和hash_multimap</h3>
+<p>原理：哈希</p>
 <h2 id="注意">注意</h2>
-<h3 id="什么时候需要用hash_map什么时候需要用map"><strong>什么时候需要用hash_map，什么时候需要用map?</strong></h3>
+<h3 id="什么时候需要用hash_map什么时候需要用map">什么时候需要用hash_map，什么时候需要用map?</h3>
 <ul>
 <li>总体来说，hash_map 查找速度会比map快，而且查找速度基本和数据量大小无关，属于常数级别;而map的查找速度是log(n)级别。并不一定常数就比log(n) 小，hash还有hash函数的耗时，明白了吧，如果你考虑效率，特别是在元素达到一定数量级时，考虑考虑hash_map。但若你对内存使用特别严格，希望程序尽可能少消耗内存，那么一定要小心，hash_map可能会让你陷入尴尬，特别是当你的hash_map对象特别多时，你就更无法控制了，而且hash_map的构造速度较慢。</li>
 <li>现在知道如何选择了吗？权衡三个因素: 查找速度, 数据量, 内存使用。</li>
