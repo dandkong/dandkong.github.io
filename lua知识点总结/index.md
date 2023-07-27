@@ -3,6 +3,8 @@
 
 <!--more-->
 
+# Lua知识点总结
+
 ## 1. 元表和元方法
 
 **__index元方法**
@@ -110,18 +112,95 @@ XLua ， ToLua ， ULua都只是提供了 C# 与 Lua 的互相调用机制，差
 
 
 
-## 5. LuaGC
+## **5. LuaGC**
 
-### 原理
+### **原理**
 
-- 标记，清楚
+- 标记，清除
 - 三色标记
 
-### 参考
+### **参考**
 
 [Lua GC机制分析与理解-上](https://www.zhihu.com/tardis/zm/art/133939450?source_id=1003)
 
-## 6. 参考
+## 6.弱表
+
+### 概括
+
+• weak表中的引用是弱引用(weakreference)，弱引用不会导致对象的引用计数变化。换言之，如果一个对象只有弱引用指向它，那么gc会自动回收该对象的内存。
+
+### 示例
+
+强表
+
+```lua
+strongTable = {}
+strongTable[1] = function() print("i am the first element") end
+strongTable[2] = function() print("i am the second element") end
+strongTable[3] = {10, 20, 30}
+ 
+print(table.getn(strongTable))  -- 3
+collectgarbage()                        
+print(table.getn(strongTable))  -- 3
+```
+
+v模式
+
+```lua
+weakTable = {}
+weakTable[1] = function() print("i am the first element") end
+weakTable[2] = function() print("i am the second element") end
+weakTable[3] = {10, 20, 30}
+ 
+setmetatable(weakTable, {__mode = "v"}) -- 设置为弱表
+ 
+print(table.getn(weakTable))      -->3
+ 
+ele = weakTable[1]                -- 给第一个元素增加一个引用
+collectgarbage()
+print(table.getn(weakTable))      -->1，第一个函数引用为1，不能gc
+ 
+ele = nil                         -- 释放引用
+collectgarbage()
+print(table.getn(weakTable))      -->0，没有其他引用了，全部gc
+```
+
+k模式
+
+```lua
+t = {};    
+-- 给t设置一个元表，增加__mode元方法，赋值为“k”
+setmetatable(t, {__mode = "k"});
+    
+-- 使用一个table作为t的key值
+key1 = {name = "key1"};
+t[key1] = 1;
+key1 = nil;
+    
+-- 又使用一个table作为t的key值
+key2 = {name = "key2"};
+t[key2] = 1;
+key2 = nil;
+    
+-- 强制进行一次垃圾收集
+collectgarbage();
+    
+for key, value in pairs(t) do
+    print(key.name .. ":" .. value);
+end
+--输出 为空
+```
+
+### 应用
+
+- 弱引用：当一个对象只被弱表引用时，如果该对象没有被其他对象引用，那么它会被垃圾回收。
+- 缓存：当一个对象不被引用UI，可以从弱表被删除。
+
+### 参考
+
+[[Lua\]弱表Weak table_ouyangshima的博客-CSDN博客](https://blog.csdn.net/shimazhuge/article/details/40310233?utm_source=pocket_saves)
+
+## **7. 参考**
 
 [Lua知识点整理](https://www.drflower.top/posts/43f53d35/)
 
