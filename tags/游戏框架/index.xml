@@ -9,7 +9,9 @@
     <pubDate>Tue, 13 Dec 2022 21:10:37 &#43;0800</pubDate>
     <author>Dand</author>
     <guid>https://dandkong.github.io/%E6%B8%B8%E6%88%8F%E8%BE%93%E5%85%A5%E6%A8%A1%E5%9D%97/</guid>
-    <description><![CDATA[输入模块是游戏中的基础系统，需要封装中间层适配PC平台与移动平台，并提供常用接口。]]></description>
+    <description><![CDATA[概述 输入模块是游戏中的基础功能，主要有以下功能
+为多平台提供统一接口支持，如移动设备和PC 触发开始按下，按下，抬起事件 区分点击UI和点击场景中的物体，执行不一样的逻辑 支持多点触控 多平台 PC上鼠标操作：Input.GetMouseButton(index) 移动设备：Input.GetTouch(index) 判断点击在UI上 主要用到EventSystem中的RaycastAll接口，参考https://blog.csdn.net/u013012420/article/details/106999229
+1 public void RaycastAll(EventSystems.PointerEventData eventData, List&lt;RaycastResult&gt; raycastResults); 点击流程 ]]></description>
 </item>
 <item>
     <title>副本逻辑框架</title>

@@ -7,13 +7,12 @@
         <title>捏体型方案 - Dand&#39;s Blog</title><meta name="Description" content="捏脸主要是通过复制一份骨骼（称为编辑骨骼）的Transform值，带动蒙皮来实现体型的变化，主要技术点在实现方式，编辑器开发，骨骼数据的组织方式，数据的存取。"><meta property="og:title" content="捏体型方案" />
 <meta property="og:description" content="捏脸主要是通过复制一份骨骼（称为编辑骨骼）的Transform值，带动蒙皮来实现体型的变化，主要技术点在实现方式，编辑器开发，骨骼数据的组织方式，数据的存取。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://dandkong.github.io/%E6%8D%8F%E4%BD%93%E5%9E%8B%E6%96%B9%E6%A1%88/" /><meta property="og:image" content="https://dandkong.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://dandkong.github.io/%E6%8D%8F%E4%BD%93%E5%9E%8B%E6%96%B9%E6%A1%88/" /><meta property="og:image" content="https://dandkong.github.io/logo.png" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-11-12T00:45:33+08:00" />
 <meta property="article:modified_time" content="2022-11-12T00:45:33+08:00" /><meta property="og:site_name" content="Dand&#39;s Blog" />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://dandkong.github.io/logo.png"/>
 
-<meta name="twitter:title" content="捏体型方案"/>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://dandkong.github.io/logo.png" /><meta name="twitter:title" content="捏体型方案"/>
 <meta name="twitter:description" content="捏脸主要是通过复制一份骨骼（称为编辑骨骼）的Transform值，带动蒙皮来实现体型的变化，主要技术点在实现方式，编辑器开发，骨骼数据的组织方式，数据的存取。"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -150,7 +149,7 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">public</span> <span class="n">XXX</span>
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">XXX</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="n">scaleX</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">	<span class="n">rotaionX</span>
@@ -170,7 +169,7 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">public</span> <span class="n">XXX</span>
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">XXX</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="n">scaleXmin</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">	<span class="n">scaleYmin</span><span class="p">,</span>
@@ -197,12 +196,12 @@
 <pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">//在z轴方向缩放，改骨骼scale值</span>
 </span></span><span class="line"><span class="cl"><span class="na">[LabelOverride(&#34;胸腔前后&#34;,&#34;上身&#34;)]</span>
 </span></span><span class="line"><span class="cl"><span class="na">[Range(160,60)]</span>
-</span></span><span class="line"><span class="cl"><span class="k">public</span> <span class="n">upperBodyFB</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">upperBodyFB</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">//偏移</span>
 </span></span><span class="line"><span class="cl"><span class="na">[LabelOverride(&#34;胸部左右&#34;,&#34;上身&#34;)]</span>
 </span></span><span class="line"><span class="cl"><span class="na">[Range(160,60)]</span>
-</span></span><span class="line"><span class="cl"><span class="k">public</span> <span class="n">bustOffsetLR</span><span class="err">；</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">bustOffsetLR</span><span class="err">；</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="bodycustomizableslot">BodyCustomizableSlot</h3>
@@ -308,7 +307,7 @@
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.113.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.123.8">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Dand</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

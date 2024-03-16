@@ -9,7 +9,22 @@
     <pubDate>Sun, 02 Apr 2023 23:41:05 &#43;0800</pubDate>
     <author>Dand</author>
     <guid>https://dandkong.github.io/stl%E6%80%BB%E7%BB%93/</guid>
-    <description><![CDATA[STL种类以及其底层实现]]></description>
+    <description><![CDATA[分类 Vector动态数组 原理：连续的内存，start,end,max，max代表容量，end代表当前最大
+扩容流程：申请空间，复制，清理
+访问方式
+1 2 3 4 5 6 7 8 9 10 11 //方式一：单个访问，假设num数组中已经有了5个元素 cout &lt;&lt; num[4] &lt;&lt; &#34;\\n&#34;; //输出第五个数据 //一二维可变数组和普通数组的访问方法一样 //方式二:遍历 for(int i = 0; i &lt; num.size(); i++) cout &lt;&lt; num[i] &lt;&lt; &#34; &#34;;//下标范围在[0,num.size()),前开后闭 //方式三：智能指针 for(auto i : num) cout &lt;&lt; i &lt;&lt; &#34; &#34;; list 概述：较快增删查
+原理：双向链表
+stack栈 概述：先进后出
+原理：底层一般用list或deque实现，封闭头部即可，不用vector的原因应该是容量大小有限制，扩容耗时
+queue队列 概述：先进先出
+原理：底层一般用list或deque实现，封闭头部即可，不用vector的原因应该是容量大小有限制，扩容耗时
+deque双端队列 概述：首位都能操作
+原理：deque 容器的分段存储结构，提高了在序列两端添加或删除元素的效率，但也使该容器迭代器的底层实现变得更复杂。
+priority_queue优先队列 概述：优先队列是在正常队列的基础上加了优先级，保证每次的队首元素都是优先级最大的。
+原理：priority_queue的底层数据结构一般为vector为底层容器，堆heap为处理规则来管理底层容器
+set和multiset集合 概述：set和multiset会根据特定的排序准则，自动将元素进行排序。不同的是后者允许元素重复而前者不允许
+原理：底层红黑树，平衡二叉树可以保证在最坏情况下仍然具有较高的搜索效率，时间复杂度为O(logn)。
+map和multimap 原理：底层红黑树]]></description>
 </item>
 </channel>
 </rss>

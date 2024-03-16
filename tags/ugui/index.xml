@@ -9,7 +9,10 @@
     <pubDate>Sat, 16 Mar 2024 20:14:29 &#43;0800</pubDate>
     <author>Dand</author>
     <guid>https://dandkong.github.io/%E5%88%A9%E7%94%A8actionmanger%E6%8B%93%E5%B1%95psd2gui/</guid>
-    <description><![CDATA[]]></description>
+    <description><![CDATA[前言 游戏的UI制作一直是程序员的考验，如果是程序员来拼UI的话，会遇到和美术效果不一样，如果是美术拼的话，又需要成本，美术一般对Unity不是很熟悉。之前也用过FGUI，但是bug不少，实际上用起来还是UGUI更为顺手。最后项目试用了PSD2GUI这个思路，把美术出的PSD直接转换成UGUI。理想的情况下是不用美术培训太多就能输出界面，所以没有做过多的组件支持，只是导出一些最基础的元素，比如图片和文字，程序在这基础上再进行加工，但也能省去大部分的重复工作了，而且不容易出错。如果流程更加成熟，可以培训美术理解更多prefab相关知识，可以支持导出一些列表，复选框之类的元素，但这要考虑成本。
+代码基本来自https://github.com/zs9024/quick_psd2ugui/tree/master，基本没有用他的命名方式，只用了基本的图片和文字导出，支持了位置，大小，文本，文本颜色，透明度等基础信息。在实际实用中美术会标注一些不常规的情况，比如描边，渐变，图片的叠色，旋转，这些信息其实在PSD都有的，但是在API中并不能获取到，最后才参考【CEP教程-8】Action Manager从好奇到劝退 - 中篇，直接读取了图层效果里的描边和图片叠色，因为是直接读取的，所以美术并没有学习成本，渐变的参数过于复杂，有点难支持，旋转的信息暂时没找到简单方法获取，但也省下了一点成本。
+代码 主要就是利用ActionManger获取更多的PSD图层信息，PS在操作时会把数据都存到一个的结构中，只要能拿到这个结构，就能查到其中记录的数据，之后通过debug查看变量，或者通过示例代码照猫画虎即可。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 /** * 这里就是拓展内容 function exportLabel(obj,validFileName){ var desc = getLayerInfoByID(obj.]]></description>
 </item>
 <item>
     <title>根据Prefab自动生成Lua代码</title>
@@ -17,7 +20,15 @@
     <pubDate>Wed, 07 Jun 2023 21:01:30 &#43;0800</pubDate>
     <author>Dand</author>
     <guid>https://dandkong.github.io/%E6%A0%B9%E6%8D%AEprefab%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90lua%E4%BB%A3%E7%A0%81/</guid>
-    <description><![CDATA[根据Prefab自动生成Lua代码，添加按钮回调，添加组件引用，添加自定义代码。]]></description>
+    <description><![CDATA[1 前言 最近回到了新项目，发现UI框架还是旧的那一套，每个UI控件，比如Text、Button等，都要手动打代码Find一遍，每次开发都会做很多无用功，所以打算优化一下效率。
+设想是做一套工具，可以自动把UI代码生成出来。需求如下
+把UI层和逻辑层的代码分开，第一次导出时才导出逻辑层，后续只导出覆盖UI层。 能对自动Button，Toggle等组件加上回调，由逻辑层复写 能控制是否导出子节点 能对BaseView和UIComponent分开导出 变量命名检测，重名自动改名 不影响旧代码 自动添加UIComponent的引用 思路
+增加一个C#配置类（UIExportConfig），挂载在prefab上，表示需要导出成哪种代码类型（视图/组件）。 配置每种控件需要怎么导出，是否需要校验名字（因为有些不需要获取，比如界面中的固定图片和文本是不需要导出的）。 递归导出带UIExportConfig的GameObject。 2 UI结构 UI里面主要有两个概念，视图和组件，都由一个基类派生而来，在游戏中体现为一个单独的prefab。
+2.1 组件 组件UI逻辑的最小单位，比如背包中的背包页和仓库页就是两个组件，背包页和仓库页中的道具格子也是一个组件。
+2.2 视图 视图也是组件，表现为游戏中的一个独立界面，比如一个背包界面，一个玩法界面，由自身以及嵌套的组件实现其不同功能，实现解耦和复用的目的。
+3 实现 一个组件，对应一个prefab，会导出一个以“UI”为后缀的UI类，如下：
+1 2 3 4 5 6 7 8 ---BagViewUI.lua --基础节点 self.txtTitle = self:FindCom(&#34;Text&#34;,&#34;textTitle&#34;) self.img1 = self:FindCom(&#34;Image&#34;,&#34;textTitle/img1&#34;) --背包页子组件 self.bagCom = BagCom.New(self:Find(&#34;BagCom&#34;) --仓库页子组件 self.storgeCom = StorgeCom.New(self:Find(&#34;StorgeCom&#34;) UI类会被逻辑类引用，如下：
+1 2 3 4 5 ---BagView.lua self.ui = BagViewUI.New(self.gameObject) self.ui.txtTitle.text = &#34;背包&#34; self.bagCom:SetData(背包数据); self.storgeCom :SetData(仓库数据); 3.1 导出图片，按钮，文本等组件 脚本通过深度遍历的方式遍历prefab的每个节点，对于合适的节点，生成一句查找代码，类似：]]></description>
 </item>
 <item>
     <title>UGUI对比FGUI</title>

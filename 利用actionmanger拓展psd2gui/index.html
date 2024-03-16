@@ -5,16 +5,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>利用ActionManger拓展psd2gui - Dand&#39;s Blog</title><meta name="Description" content="Dand&#39;s Blog"><meta property="og:title" content="利用ActionManger拓展psd2gui" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="前言 游戏的UI制作一直是程序员的考验，如果是程序员来拼UI的话，会遇到和美术效果不一样，如果是美术拼的话，又需要成本，美术一般对Unity不是很熟悉。之前也用过FGUI，但是bug不少，实际上用起来还是UGUI更为顺手。最后项目试用了PSD2GUI这个思路，把美术出的PSD直接转换成UGUI。理想的情况下是不用美术培训太多就能输出界面，所以没有做过多的组件支持，只是导出一些最基础的元素，比如图片和文字，程序在这基础上再进行加工，但也能省去大部分的重复工作了，而且不容易出错。如果流程更加成熟，可以培训美术理解更多prefab相关知识，可以支持导出一些列表，复选框之类的元素，但这要考虑成本。
+代码基本来自https://github.com/zs9024/quick_psd2ugui/tree/master，基本没有用他的命名方式，只用了基本的图片和文字导出，支持了位置，大小，文本，文本颜色，透明度等基础信息。在实际实用中美术会标注一些不常规的情况，比如描边，渐变，图片的叠色，旋转，这些信息其实在PSD都有的，但是在API中并不能获取到，最后才参考【CEP教程-8】Action Manager从好奇到劝退 - 中篇，直接读取了图层效果里的描边和图片叠色，因为是直接读取的，所以美术并没有学习成本，渐变的参数过于复杂，有点难支持，旋转的信息暂时没找到简单方法获取，但也省下了一点成本。
+代码 主要就是利用ActionManger获取更多的PSD图层信息，PS在操作时会把数据都存到一个的结构中，只要能拿到这个结构，就能查到其中记录的数据，之后通过debug查看变量，或者通过示例代码照猫画虎即可。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 /** * 这里就是拓展内容 function exportLabel(obj,validFileName){ var desc = getLayerInfoByID(obj." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://dandkong.github.io/%E5%88%A9%E7%94%A8actionmanger%E6%8B%93%E5%B1%95psd2gui/" /><meta property="og:image" content="https://dandkong.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://dandkong.github.io/%E5%88%A9%E7%94%A8actionmanger%E6%8B%93%E5%B1%95psd2gui/" /><meta property="og:image" content="https://dandkong.github.io/logo.png" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-03-16T20:14:29+08:00" />
 <meta property="article:modified_time" content="2024-03-16T20:14:29+08:00" /><meta property="og:site_name" content="Dand&#39;s Blog" />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://dandkong.github.io/logo.png"/>
 
-<meta name="twitter:title" content="利用ActionManger拓展psd2gui"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://dandkong.github.io/logo.png" /><meta name="twitter:title" content="利用ActionManger拓展psd2gui"/>
+<meta name="twitter:description" content="前言 游戏的UI制作一直是程序员的考验，如果是程序员来拼UI的话，会遇到和美术效果不一样，如果是美术拼的话，又需要成本，美术一般对Unity不是很熟悉。之前也用过FGUI，但是bug不少，实际上用起来还是UGUI更为顺手。最后项目试用了PSD2GUI这个思路，把美术出的PSD直接转换成UGUI。理想的情况下是不用美术培训太多就能输出界面，所以没有做过多的组件支持，只是导出一些最基础的元素，比如图片和文字，程序在这基础上再进行加工，但也能省去大部分的重复工作了，而且不容易出错。如果流程更加成熟，可以培训美术理解更多prefab相关知识，可以支持导出一些列表，复选框之类的元素，但这要考虑成本。
+代码基本来自https://github.com/zs9024/quick_psd2ugui/tree/master，基本没有用他的命名方式，只用了基本的图片和文字导出，支持了位置，大小，文本，文本颜色，透明度等基础信息。在实际实用中美术会标注一些不常规的情况，比如描边，渐变，图片的叠色，旋转，这些信息其实在PSD都有的，但是在API中并不能获取到，最后才参考【CEP教程-8】Action Manager从好奇到劝退 - 中篇，直接读取了图层效果里的描边和图片叠色，因为是直接读取的，所以美术并没有学习成本，渐变的参数过于复杂，有点难支持，旋转的信息暂时没找到简单方法获取，但也省下了一点成本。
+代码 主要就是利用ActionManger获取更多的PSD图层信息，PS在操作时会把数据都存到一个的结构中，只要能拿到这个结构，就能查到其中记录的数据，之后通过debug查看变量，或者通过示例代码照猫画虎即可。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 /** * 这里就是拓展内容 function exportLabel(obj,validFileName){ var desc = getLayerInfoByID(obj."/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -224,103 +229,103 @@
 </span><span class="lnt">97
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/**
-</span></span><span class="line"><span class="cl"> * 这里就是拓展内容
-</span></span><span class="line"><span class="cl"> function exportLabel(obj,validFileName){
-</span></span><span class="line"><span class="cl"> 	var desc = getLayerInfoByID(obj.id)
-</span></span><span class="line"><span class="cl"> 	var json = ADToJSON(desc)
-</span></span><span class="line"><span class="cl"> 	//这里就可以取到描边信息类似json.FrameX.solidFill.color，具体debug可以看到
-</span></span><span class="line"><span class="cl"> }
-</span></span><span class="line"><span class="cl"> */
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">/**</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="err">这里就是拓展内容</span>
+</span></span><span class="line"><span class="cl"> <span class="n">function</span> <span class="n">exportLabel</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span><span class="n">validFileName</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl"> 	<span class="k">var</span> <span class="n">desc</span> <span class="o">=</span> <span class="n">getLayerInfoByID</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> 	<span class="k">var</span> <span class="n">json</span> <span class="o">=</span> <span class="n">ADToJSON</span><span class="p">(</span><span class="n">desc</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> 	<span class="o">//</span><span class="err">这里就可以取到描边信息类似</span><span class="n">json</span><span class="o">.</span><span class="n">FrameX</span><span class="o">.</span><span class="n">solidFill</span><span class="o">.</span><span class="n">color</span><span class="err">，具体</span><span class="n">debug可以看到</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*/</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">/**
-</span></span><span class="line"><span class="cl"> * 这个函数接受一个AD的对象，返回这个对象所有属性值的JSON结构
-</span></span><span class="line"><span class="cl"> * @param desc [ActionDescriptor]
-</span></span><span class="line"><span class="cl"> * @constructor
-</span></span><span class="line"><span class="cl"> * @return JSON
-</span></span><span class="line"><span class="cl"> */
-</span></span><span class="line"><span class="cl">function ADToJson(desc) {
-</span></span><span class="line"><span class="cl">    var json = {};
-</span></span><span class="line"><span class="cl">    for (var i=0; i&lt;desc.count; i++) {
-</span></span><span class="line"><span class="cl">        var typeID = desc.getKey(i);
-</span></span><span class="line"><span class="cl">        var stringID = typeIDToStringID(typeID);
-</span></span><span class="line"><span class="cl">        var typeString = (desc.getType(typeID)).toString();
-</span></span><span class="line"><span class="cl">        switch(typeString) {
-</span></span><span class="line"><span class="cl">            case &#34;DescValueType.BOOLEANTYPE&#34;: 
-</span></span><span class="line"><span class="cl">                json[stringID] = desc.getBoolean(typeID);
-</span></span><span class="line"><span class="cl">            break;
-</span></span><span class="line"><span class="cl">            case &#34;DescValueType.DOUBLETYPE&#34;: 
-</span></span><span class="line"><span class="cl">                json[stringID] = desc.getDouble(typeID);
-</span></span><span class="line"><span class="cl">            break;
-</span></span><span class="line"><span class="cl">            case &#34;DescValueType.INTEGERTYPE&#34;: 
-</span></span><span class="line"><span class="cl">                json[stringID] = desc.getInteger(typeID);
-</span></span><span class="line"><span class="cl">            break;
-</span></span><span class="line"><span class="cl">            case &#34;DescValueType.STRINGTYPE&#34;: 
-</span></span><span class="line"><span class="cl">                json[stringID] = desc.getString(typeID);
-</span></span><span class="line"><span class="cl">            break;
-</span></span><span class="line"><span class="cl">            case &#39;DescValueType.OBJECTTYPE&#39;:
-</span></span><span class="line"><span class="cl">                var objectValue = desc.getObjectValue(typeID);
-</span></span><span class="line"><span class="cl">                json[stringID] = ADToJson(objectValue);
-</span></span><span class="line"><span class="cl">		    break;
-</span></span><span class="line"><span class="cl">            case &#39;DescValueType.CLASSTYPE&#39;:
-</span></span><span class="line"><span class="cl">            case &#39;DescValueType.LISTTYPE&#39;:
-</span></span><span class="line"><span class="cl">            case &#39;DescValueType.REFERENCETYPE&#39;:
-</span></span><span class="line"><span class="cl">                // 剩下这些留给你去补充完成，这里还有UNITDOULETYPE之类的，像描边的size就是这类型
-</span></span><span class="line"><span class="cl">		    break;
-</span></span><span class="line"><span class="cl">            default: alert(typeString); break;
-</span></span><span class="line"><span class="cl">        }
-</span></span><span class="line"><span class="cl">    }
-</span></span><span class="line"><span class="cl">    return json;
-</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl"><span class="o">/**</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="err">这个函数接受一个</span><span class="n">AD的对象</span><span class="err">，返回这个对象所有属性值的</span><span class="n">JSON结构</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="err">@</span><span class="n">param</span> <span class="n">desc</span> <span class="p">[</span><span class="n">ActionDescriptor</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="err">@</span><span class="n">constructor</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="err">@</span><span class="k">return</span> <span class="n">JSON</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl"><span class="n">function</span> <span class="n">ADToJson</span><span class="p">(</span><span class="n">desc</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">json</span> <span class="o">=</span> <span class="p">{};</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="k">var</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">desc</span><span class="o">.</span><span class="n">count</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">var</span> <span class="n">typeID</span> <span class="o">=</span> <span class="n">desc</span><span class="o">.</span><span class="n">getKey</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">var</span> <span class="n">stringID</span> <span class="o">=</span> <span class="n">typeIDToStringID</span><span class="p">(</span><span class="n">typeID</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">var</span> <span class="n">typeString</span> <span class="o">=</span> <span class="p">(</span><span class="n">desc</span><span class="o">.</span><span class="n">getType</span><span class="p">(</span><span class="n">typeID</span><span class="p">))</span><span class="o">.</span><span class="n">toString</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">switch</span><span class="p">(</span><span class="n">typeString</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">case</span> <span class="s2">&#34;DescValueType.BOOLEANTYPE&#34;</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl">                <span class="n">json</span><span class="p">[</span><span class="n">stringID</span><span class="p">]</span> <span class="o">=</span> <span class="n">desc</span><span class="o">.</span><span class="n">getBoolean</span><span class="p">(</span><span class="n">typeID</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">case</span> <span class="s2">&#34;DescValueType.DOUBLETYPE&#34;</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl">                <span class="n">json</span><span class="p">[</span><span class="n">stringID</span><span class="p">]</span> <span class="o">=</span> <span class="n">desc</span><span class="o">.</span><span class="n">getDouble</span><span class="p">(</span><span class="n">typeID</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">case</span> <span class="s2">&#34;DescValueType.INTEGERTYPE&#34;</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl">                <span class="n">json</span><span class="p">[</span><span class="n">stringID</span><span class="p">]</span> <span class="o">=</span> <span class="n">desc</span><span class="o">.</span><span class="n">getInteger</span><span class="p">(</span><span class="n">typeID</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">case</span> <span class="s2">&#34;DescValueType.STRINGTYPE&#34;</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl">                <span class="n">json</span><span class="p">[</span><span class="n">stringID</span><span class="p">]</span> <span class="o">=</span> <span class="n">desc</span><span class="o">.</span><span class="n">getString</span><span class="p">(</span><span class="n">typeID</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">case</span> <span class="s1">&#39;DescValueType.OBJECTTYPE&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">var</span> <span class="n">objectValue</span> <span class="o">=</span> <span class="n">desc</span><span class="o">.</span><span class="n">getObjectValue</span><span class="p">(</span><span class="n">typeID</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">json</span><span class="p">[</span><span class="n">stringID</span><span class="p">]</span> <span class="o">=</span> <span class="n">ADToJson</span><span class="p">(</span><span class="n">objectValue</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		    <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">case</span> <span class="s1">&#39;DescValueType.CLASSTYPE&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">case</span> <span class="s1">&#39;DescValueType.LISTTYPE&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">case</span> <span class="s1">&#39;DescValueType.REFERENCETYPE&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="o">//</span> <span class="err">剩下这些留给你去补充完成，这里还有</span><span class="n">UNITDOULETYPE之类的</span><span class="err">，像描边的</span><span class="n">size就是这类型</span>
+</span></span><span class="line"><span class="cl">		    <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">default</span><span class="p">:</span> <span class="n">alert</span><span class="p">(</span><span class="n">typeString</span><span class="p">);</span> <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">json</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">/**
-</span></span><span class="line"><span class="cl"> * 根据图层ID来获取图层信息
-</span></span><span class="line"><span class="cl"> * @param layerID
-</span></span><span class="line"><span class="cl"> * @return {*}
-</span></span><span class="line"><span class="cl"> */
-</span></span><span class="line"><span class="cl">function getLayerInfoByID(layerID) {
-</span></span><span class="line"><span class="cl">    var ref1 = new ActionReference();
-</span></span><span class="line"><span class="cl">        ref1.putIdentifier(stringIDToTypeID( &#34;Lyr &#34;, layerID));
-</span></span><span class="line"><span class="cl">    var layerDescriptor = executeActionGet(ref1);
-</span></span><span class="line"><span class="cl">    var json = ADToJson(layerDescriptor);   
-</span></span><span class="line"><span class="cl">    return json;
-</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl"><span class="o">/**</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="err">根据图层</span><span class="n">ID来获取图层信息</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="err">@</span><span class="n">param</span> <span class="n">layerID</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="err">@</span><span class="k">return</span> <span class="p">{</span><span class="o">*</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl"><span class="n">function</span> <span class="n">getLayerInfoByID</span><span class="p">(</span><span class="n">layerID</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">ref1</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ActionReference</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ref1</span><span class="o">.</span><span class="n">putIdentifier</span><span class="p">(</span><span class="n">stringIDToTypeID</span><span class="p">(</span> <span class="s2">&#34;Lyr &#34;</span><span class="p">,</span> <span class="n">layerID</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">layerDescriptor</span> <span class="o">=</span> <span class="n">executeActionGet</span><span class="p">(</span><span class="n">ref1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">json</span> <span class="o">=</span> <span class="n">ADToJson</span><span class="p">(</span><span class="n">layerDescriptor</span><span class="p">);</span>   
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">json</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">/**
-</span></span><span class="line"><span class="cl"> * 根据图层的顺序，来获取图层信息
-</span></span><span class="line"><span class="cl"> * @param index
-</span></span><span class="line"><span class="cl"> * @return {*}
-</span></span><span class="line"><span class="cl"> */
-</span></span><span class="line"><span class="cl">function getLayerInfoByIndex(index) {
-</span></span><span class="line"><span class="cl">    var ref1 = new ActionReference();
-</span></span><span class="line"><span class="cl">        ref1.putIndex( stringIDToTypeID( &#34;itemIndex&#34; ), index); 
-</span></span><span class="line"><span class="cl">    var layerDescriptor = executeActionGet(ref1);
-</span></span><span class="line"><span class="cl">    var json = ADToJson(layerDescriptor);
-</span></span><span class="line"><span class="cl">    return json;   
-</span></span><span class="line"><span class="cl">}
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">/**
-</span></span><span class="line"><span class="cl"> * 根据图层的名称，来获取图层信息
-</span></span><span class="line"><span class="cl"> * @param index
-</span></span><span class="line"><span class="cl"> * @return {*}
-</span></span><span class="line"><span class="cl"> */
-</span></span><span class="line"><span class="cl">function getLayerInfoByName(name) {
-</span></span><span class="line"><span class="cl">    var ref1 = new ActionReference();
-</span></span><span class="line"><span class="cl">    ref1.putName( stringIDToTypeID( &#34;layer&#34; ), name );
-</span></span><span class="line"><span class="cl">    var layerDescriptor = executeActionGet(ref1);
-</span></span><span class="line"><span class="cl">    var json = ADToJson(layerDescriptor);
-</span></span><span class="line"><span class="cl">    return json
-</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl"><span class="o">/**</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="err">根据图层的顺序，来获取图层信息</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="err">@</span><span class="n">param</span> <span class="n">index</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="err">@</span><span class="k">return</span> <span class="p">{</span><span class="o">*</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl"><span class="n">function</span> <span class="n">getLayerInfoByIndex</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">ref1</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ActionReference</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ref1</span><span class="o">.</span><span class="n">putIndex</span><span class="p">(</span> <span class="n">stringIDToTypeID</span><span class="p">(</span> <span class="s2">&#34;itemIndex&#34;</span> <span class="p">),</span> <span class="n">index</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">layerDescriptor</span> <span class="o">=</span> <span class="n">executeActionGet</span><span class="p">(</span><span class="n">ref1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">json</span> <span class="o">=</span> <span class="n">ADToJson</span><span class="p">(</span><span class="n">layerDescriptor</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">json</span><span class="p">;</span>   
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">function getCurrentDocumentInfo() {
-</span></span><span class="line"><span class="cl">    var ref1 = new ActionReference();
-</span></span><span class="line"><span class="cl">    ref1.putEnumerated(charIDToTypeID(&#39;Dcmn&#39;), charIDToTypeID(&#39;Ordn&#39;), charIDToTypeID(&#39;Trgt&#39;));
-</span></span><span class="line"><span class="cl">    var docDescriptor = executeActionGet(ref1);
-</span></span><span class="line"><span class="cl">    var json = ADToJson(docDescriptor);
-</span></span><span class="line"><span class="cl">    return json
-</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl"><span class="o">/**</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="err">根据图层的名称，来获取图层信息</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="err">@</span><span class="n">param</span> <span class="n">index</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="err">@</span><span class="k">return</span> <span class="p">{</span><span class="o">*</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl"><span class="n">function</span> <span class="n">getLayerInfoByName</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">ref1</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ActionReference</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ref1</span><span class="o">.</span><span class="n">putName</span><span class="p">(</span> <span class="n">stringIDToTypeID</span><span class="p">(</span> <span class="s2">&#34;layer&#34;</span> <span class="p">),</span> <span class="n">name</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">layerDescriptor</span> <span class="o">=</span> <span class="n">executeActionGet</span><span class="p">(</span><span class="n">ref1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">json</span> <span class="o">=</span> <span class="n">ADToJson</span><span class="p">(</span><span class="n">layerDescriptor</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">json</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">function</span> <span class="n">getCurrentDocumentInfo</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">ref1</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ActionReference</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ref1</span><span class="o">.</span><span class="n">putEnumerated</span><span class="p">(</span><span class="n">charIDToTypeID</span><span class="p">(</span><span class="s1">&#39;Dcmn&#39;</span><span class="p">),</span> <span class="n">charIDToTypeID</span><span class="p">(</span><span class="s1">&#39;Ordn&#39;</span><span class="p">),</span> <span class="n">charIDToTypeID</span><span class="p">(</span><span class="s1">&#39;Trgt&#39;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">docDescriptor</span> <span class="o">=</span> <span class="n">executeActionGet</span><span class="p">(</span><span class="n">ref1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">json</span> <span class="o">=</span> <span class="n">ADToJson</span><span class="p">(</span><span class="n">docDescriptor</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">json</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="总结">总结</h2>
@@ -359,7 +364,7 @@
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.113.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.123.8">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Dand</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
