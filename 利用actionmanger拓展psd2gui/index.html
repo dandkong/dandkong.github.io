@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>利用ActionManger拓展psd2gui - Dand&#39;s Blog</title><meta name="Description" content="Dand&#39;s Blog"><meta property="og:title" content="利用ActionManger拓展psd2gui" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dandkong.github.io/%E5%88%A9%E7%94%A8actionmanger%E6%8B%93%E5%B1%95psd2gui/" /><meta property="og:image" content="https://dandkong.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-03-16T20:14:29+08:00" />
+<meta property="article:modified_time" content="2024-03-16T20:14:29+08:00" /><meta property="og:site_name" content="Dand&#39;s Blog" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://dandkong.github.io/logo.png"/>
+
+<meta name="twitter:title" content="利用ActionManger拓展psd2gui"/>
+<meta name="twitter:description" content=""/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://dandkong.github.io/%E5%88%A9%E7%94%A8actionmanger%E6%8B%93%E5%B1%95psd2gui/" /><link rel="prev" href="https://dandkong.github.io/unity%E5%BC%80%E5%8F%91%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%80%BB%E7%BB%93/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "利用ActionManger拓展psd2gui",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/dandkong.github.io\/%E5%88%A9%E7%94%A8actionmanger%E6%8B%93%E5%B1%95psd2gui\/"
+        },"image": ["https:\/\/dandkong.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Unity, 编辑器, UI, UGUI","wordcount":  358 ,
+        "url": "https:\/\/dandkong.github.io\/%E5%88%A9%E7%94%A8actionmanger%E6%8B%93%E5%B1%95psd2gui\/","datePublished": "2024-03-16T20:14:29+08:00","dateModified": "2024-03-16T20:14:29+08:00","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/dandkong.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "Dand"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Dand&#39;s Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>Dand</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="https://github.com/dandkong" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Dand&#39;s Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>Dand</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="https://github.com/dandkong" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">利用ActionManger拓展psd2gui</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dand</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/unity/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Unity</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-16">2024-03-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 358 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#代码">代码</a></li>
+    <li><a href="#总结">总结</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="前言">前言</h2>
+<p>游戏的UI制作一直是程序员的考验，如果是程序员来拼UI的话，会遇到和美术效果不一样，如果是美术拼的话，又需要成本，美术一般对Unity不是很熟悉。之前也用过FGUI，但是bug不少，实际上用起来还是UGUI更为顺手。最后项目试用了PSD2GUI这个思路，把美术出的PSD直接转换成UGUI。理想的情况下是不用美术培训太多就能输出界面，所以没有做过多的组件支持，只是导出一些最基础的元素，比如图片和文字，程序在这基础上再进行加工，但也能省去大部分的重复工作了，而且不容易出错。如果流程更加成熟，可以培训美术理解更多prefab相关知识，可以支持导出一些列表，复选框之类的元素，但这要考虑成本。</p>
+<p>代码基本来自https://github.com/zs9024/quick_psd2ugui/tree/master，基本没有用他的命名方式，只用了基本的图片和文字导出，支持了位置，大小，文本，文本颜色，透明度等基础信息。在实际实用中美术会标注一些不常规的情况，比如描边，渐变，图片的叠色，旋转，这些信息其实在PSD都有的，但是在API中并不能获取到，最后才参考<a href="https://blog.cutterman.cn/2021/12/19/action-manager-part2/" target="_blank" rel="noopener noreffer ">【CEP教程-8】Action Manager从好奇到劝退 - 中篇</a>，直接读取了图层效果里的描边和图片叠色，因为是直接读取的，所以美术并没有学习成本，渐变的参数过于复杂，有点难支持，旋转的信息暂时没找到简单方法获取，但也省下了一点成本。</p>
+<h2 id="代码">代码</h2>
+<p>主要就是利用ActionManger获取更多的PSD图层信息，PS在操作时会把数据都存到一个的结构中，只要能拿到这个结构，就能查到其中记录的数据，之后通过debug查看变量，或者通过示例代码照猫画虎即可。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span><span class="lnt">90
+</span><span class="lnt">91
+</span><span class="lnt">92
+</span><span class="lnt">93
+</span><span class="lnt">94
+</span><span class="lnt">95
+</span><span class="lnt">96
+</span><span class="lnt">97
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/**
+</span></span><span class="line"><span class="cl"> * 这里就是拓展内容
+</span></span><span class="line"><span class="cl"> function exportLabel(obj,validFileName){
+</span></span><span class="line"><span class="cl"> 	var desc = getLayerInfoByID(obj.id)
+</span></span><span class="line"><span class="cl"> 	var json = ADToJSON(desc)
+</span></span><span class="line"><span class="cl"> 	//这里就可以取到描边信息类似json.FrameX.solidFill.color，具体debug可以看到
+</span></span><span class="line"><span class="cl"> }
+</span></span><span class="line"><span class="cl"> */
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">/**
+</span></span><span class="line"><span class="cl"> * 这个函数接受一个AD的对象，返回这个对象所有属性值的JSON结构
+</span></span><span class="line"><span class="cl"> * @param desc [ActionDescriptor]
+</span></span><span class="line"><span class="cl"> * @constructor
+</span></span><span class="line"><span class="cl"> * @return JSON
+</span></span><span class="line"><span class="cl"> */
+</span></span><span class="line"><span class="cl">function ADToJson(desc) {
+</span></span><span class="line"><span class="cl">    var json = {};
+</span></span><span class="line"><span class="cl">    for (var i=0; i&lt;desc.count; i++) {
+</span></span><span class="line"><span class="cl">        var typeID = desc.getKey(i);
+</span></span><span class="line"><span class="cl">        var stringID = typeIDToStringID(typeID);
+</span></span><span class="line"><span class="cl">        var typeString = (desc.getType(typeID)).toString();
+</span></span><span class="line"><span class="cl">        switch(typeString) {
+</span></span><span class="line"><span class="cl">            case &#34;DescValueType.BOOLEANTYPE&#34;: 
+</span></span><span class="line"><span class="cl">                json[stringID] = desc.getBoolean(typeID);
+</span></span><span class="line"><span class="cl">            break;
+</span></span><span class="line"><span class="cl">            case &#34;DescValueType.DOUBLETYPE&#34;: 
+</span></span><span class="line"><span class="cl">                json[stringID] = desc.getDouble(typeID);
+</span></span><span class="line"><span class="cl">            break;
+</span></span><span class="line"><span class="cl">            case &#34;DescValueType.INTEGERTYPE&#34;: 
+</span></span><span class="line"><span class="cl">                json[stringID] = desc.getInteger(typeID);
+</span></span><span class="line"><span class="cl">            break;
+</span></span><span class="line"><span class="cl">            case &#34;DescValueType.STRINGTYPE&#34;: 
+</span></span><span class="line"><span class="cl">                json[stringID] = desc.getString(typeID);
+</span></span><span class="line"><span class="cl">            break;
+</span></span><span class="line"><span class="cl">            case &#39;DescValueType.OBJECTTYPE&#39;:
+</span></span><span class="line"><span class="cl">                var objectValue = desc.getObjectValue(typeID);
+</span></span><span class="line"><span class="cl">                json[stringID] = ADToJson(objectValue);
+</span></span><span class="line"><span class="cl">		    break;
+</span></span><span class="line"><span class="cl">            case &#39;DescValueType.CLASSTYPE&#39;:
+</span></span><span class="line"><span class="cl">            case &#39;DescValueType.LISTTYPE&#39;:
+</span></span><span class="line"><span class="cl">            case &#39;DescValueType.REFERENCETYPE&#39;:
+</span></span><span class="line"><span class="cl">                // 剩下这些留给你去补充完成，这里还有UNITDOULETYPE之类的，像描边的size就是这类型
+</span></span><span class="line"><span class="cl">		    break;
+</span></span><span class="line"><span class="cl">            default: alert(typeString); break;
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    return json;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">/**
+</span></span><span class="line"><span class="cl"> * 根据图层ID来获取图层信息
+</span></span><span class="line"><span class="cl"> * @param layerID
+</span></span><span class="line"><span class="cl"> * @return {*}
+</span></span><span class="line"><span class="cl"> */
+</span></span><span class="line"><span class="cl">function getLayerInfoByID(layerID) {
+</span></span><span class="line"><span class="cl">    var ref1 = new ActionReference();
+</span></span><span class="line"><span class="cl">        ref1.putIdentifier(stringIDToTypeID( &#34;Lyr &#34;, layerID));
+</span></span><span class="line"><span class="cl">    var layerDescriptor = executeActionGet(ref1);
+</span></span><span class="line"><span class="cl">    var json = ADToJson(layerDescriptor);   
+</span></span><span class="line"><span class="cl">    return json;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">/**
+</span></span><span class="line"><span class="cl"> * 根据图层的顺序，来获取图层信息
+</span></span><span class="line"><span class="cl"> * @param index
+</span></span><span class="line"><span class="cl"> * @return {*}
+</span></span><span class="line"><span class="cl"> */
+</span></span><span class="line"><span class="cl">function getLayerInfoByIndex(index) {
+</span></span><span class="line"><span class="cl">    var ref1 = new ActionReference();
+</span></span><span class="line"><span class="cl">        ref1.putIndex( stringIDToTypeID( &#34;itemIndex&#34; ), index); 
+</span></span><span class="line"><span class="cl">    var layerDescriptor = executeActionGet(ref1);
+</span></span><span class="line"><span class="cl">    var json = ADToJson(layerDescriptor);
+</span></span><span class="line"><span class="cl">    return json;   
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">/**
+</span></span><span class="line"><span class="cl"> * 根据图层的名称，来获取图层信息
+</span></span><span class="line"><span class="cl"> * @param index
+</span></span><span class="line"><span class="cl"> * @return {*}
+</span></span><span class="line"><span class="cl"> */
+</span></span><span class="line"><span class="cl">function getLayerInfoByName(name) {
+</span></span><span class="line"><span class="cl">    var ref1 = new ActionReference();
+</span></span><span class="line"><span class="cl">    ref1.putName( stringIDToTypeID( &#34;layer&#34; ), name );
+</span></span><span class="line"><span class="cl">    var layerDescriptor = executeActionGet(ref1);
+</span></span><span class="line"><span class="cl">    var json = ADToJson(layerDescriptor);
+</span></span><span class="line"><span class="cl">    return json
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">function getCurrentDocumentInfo() {
+</span></span><span class="line"><span class="cl">    var ref1 = new ActionReference();
+</span></span><span class="line"><span class="cl">    ref1.putEnumerated(charIDToTypeID(&#39;Dcmn&#39;), charIDToTypeID(&#39;Ordn&#39;), charIDToTypeID(&#39;Trgt&#39;));
+</span></span><span class="line"><span class="cl">    var docDescriptor = executeActionGet(ref1);
+</span></span><span class="line"><span class="cl">    var json = ADToJson(docDescriptor);
+</span></span><span class="line"><span class="cl">    return json
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="总结">总结</h2>
+<ul>
+<li>代码基本就是那样了，难点在于怎么知道json中的变量是对应自己想要的值，可以自己修改值，看看变化，或者通过参考<a href="https://blog.cutterman.cn/2021/12/12/action-manager-part1/" target="_blank" rel="noopener noreffer ">【CEP教程-8】Action Manager从好奇到劝退 - 上篇</a>，装个插件，每一部的ps操作都会生成log，可以更快找到所需变量。</li>
+<li>jsx可以用vscode进行开发，配合插件ExtendScript可以输出日志和断点</li>
+</ul>
+<h2 id="参考">参考</h2>
+<p><a href="https://blog.cutterman.cn/2021/12/12/action-manager-part1/" target="_blank" rel="noopener noreffer ">【CEP教程-8】Action Manager从好奇到劝退 - 上篇</a></p>
+<p><a href="https://blog.cutterman.cn/2021/12/19/action-manager-part2/" target="_blank" rel="noopener noreffer ">【CEP教程-8】Action Manager从好奇到劝退 - 中篇</a></p>
+<p><a href="https://blog.cutterman.cn/2022/01/01/action-manager-part3/" target="_blank" rel="noopener noreffer ">【CEP教程-9】Action Manager从好奇到劝退 - 下篇</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/559290141" target="_blank" rel="noopener noreffer ">Photoshop插件开发教程 - （4）开发工具选择和调试</a></p></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-03-16</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/%E5%88%A9%E7%94%A8actionmanger%E6%8B%93%E5%B1%95psd2gui/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/unity/">Unity</a>,&nbsp;<a href="/tags/%E7%BC%96%E8%BE%91%E5%99%A8/">编辑器</a>,&nbsp;<a href="/tags/ui/">UI</a>,&nbsp;<a href="/tags/ugui/">UGUI</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/unity%E5%BC%80%E5%8F%91%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%80%BB%E7%BB%93/" class="prev" rel="prev" title="Unity开发性能优化总结"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Unity开发性能优化总结</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.113.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Dand</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
