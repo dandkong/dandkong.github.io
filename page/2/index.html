@@ -97,7 +97,27 @@
         data-sizes="auto"
         alt="/images/avatar.png"
         title="/images/avatar.png" /></a></div><div class="home-subtitle"><div id="id-1" class="typeit"></div></div><div class="links"></div></div>
-<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/stl%E6%80%BB%E7%BB%93/">STL总结</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dand</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2023-04-02">2023-04-02</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>编程语言</a></span></div><div class="content">分类 Vector动态数组 原理：连续的内存，start,end,max，max代表容量，end代表当前最大
+扩容流程：申请空间，复制，清理
+访问方式
+1 2 3 4 5 6 7 8 9 10 11 //方式一：单个访问，假设num数组中已经有了5个元素 cout &lt;&lt; num[4] &lt;&lt; &#34;\\n&#34;; //输出第五个数据 //一二维可变数组和普通数组的访问方法一样 //方式二:遍历 for(int i = 0; i &lt; num.size(); i++) cout &lt;&lt; num[i] &lt;&lt; &#34; &#34;;//下标范围在[0,num.size()),前开后闭 //方式三：智能指针 for(auto i : num) cout &lt;&lt; i &lt;&lt; &#34; &#34;; list 概述：较快增删查
+原理：双向链表
+stack栈 概述：先进后出
+原理：底层一般用list或deque实现，封闭头部即可，不用vector的原因应该是容量大小有限制，扩容耗时
+queue队列 概述：先进先出
+原理：底层一般用list或deque实现，封闭头部即可，不用vector的原因应该是容量大小有限制，扩容耗时
+deque双端队列 概述：首位都能操作
+原理：deque 容器的分段存储结构，提高了在序列两端添加或删除元素的效率，但也使该容器迭代器的底层实现变得更复杂。
+priority_queue优先队列 概述：优先队列是在正常队列的基础上加了优先级，保证每次的队首元素都是优先级最大的。
+原理：priority_queue的底层数据结构一般为vector为底层容器，堆heap为处理规则来管理底层容器
+set和multiset集合 概述：set和multiset会根据特定的排序准则，自动将元素进行排序。不同的是后者允许元素重复而前者不允许
+原理：底层红黑树，平衡二叉树可以保证在最坏情况下仍然具有较高的搜索效率，时间复杂度为O(logn)。
+map和multimap 原理：底层红黑树</div><div class="post-footer">
+        <a href="/stl%E6%80%BB%E7%BB%93/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a>,&nbsp;<a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>,&nbsp;<a href="/tags/stl/">STL</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/%E6%B8%B8%E6%88%8F%E8%BE%93%E5%85%A5%E6%A8%A1%E5%9D%97/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -160,38 +180,6 @@ Role的功能 Role的功能都由挂载的组件实现，常用的组件有
 模型组件 被动移动组件 主动移动组件 显示隐藏组件（多条件） 范围触发组件（当玩家走进时会触发回调） 头顶文本组件 还有各种项目中需要实现的功能 Role的结构 </div><div class="post-footer">
         <a href="/%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E6%A1%86%E6%9E%B6/">阅读全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6/">游戏框架</a>,&nbsp;<a href="/tags/%E8%A7%92%E8%89%B2/">角色</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/ugui%E5%AF%B9%E6%AF%94fgui/">UGUI对比FGUI</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dand</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2022-11-18">2022-11-18</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/unity/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Unity</a></span></div><div class="content">前言 UI是游戏中很重要的一部分，工作大多是繁复的，所以有一套功能强大，操作简单直观的UI解决方案是非常有必要的。
-上半年一直在用FGUI，和之前用的UGUI相比下来，各有优缺点，对比分析记录一下。
-一、介绍 UGUI UGUI是Unity原生提供的UI方案，提供了基本的UI组件，如图片，文本，按钮，复选框，进度条等等，正是因为UGUI是面向普遍开发，所以没有封装很多高级的组件，比如虚拟列表。
-FGUI FairyGUI（下来简称FGUI）号称易上手，直观，零代码，有一个独立的编辑器，封装了很多高级的UI组件，用起来不需要自己造轮子。
-二、编辑器使用体验 UGUI 优点：稳定。
-缺点：因为集成在Unity中，资源管理不太方便，需要项目定好规范，编写工具提交效率。
-FGUI 优点：有单独的编辑器，所有资源统一管理，美术策划也能很快上手使用。
-缺点：不稳定，经常会莫名卡住，导出的时候经常报错。
-三、基础组件 基础组件上面因为FGUI实现很多的高级功能，所以使用起来体验要么一样，要么好点。
-文本 FGUI文本支持ubb语法，富文本支持图文混排，超链接等等，自动大小的文本。
-列表 FGUI实现了虚拟列表，树列表。
-字体 字体上FGUI提供了工具制作美术字，只要把资源拖进去专用的编辑器就能很快做出一个美术字体。
-动效系统 两者都有动效系统，UGUI上叫Animation，功能上差不多，都很强大。
-四、对齐系统 对齐系统这一块，FGUI是很大的亮点。
-UGUI UGUI的锚点系统以中心点为基准，对父节点对齐，提供了上下左右，拉伸对齐方式。
-**优点：**简单直观UI默认的中心点在中心，符合人的正常思维。
-缺点：不够灵活；同级UI之前的关联对齐要依赖其他布局组件；缺乏针对同级元素的对齐工具，不过可以自己拓展实现，可以参考我的另一篇文章。
-FGUI 优点：FGUI的对齐系统叫做关联系统，第一个优点是不局限与与父节点对齐，可以对任意两个元素进行对齐。第二个优点是在拓展了对齐的维度，可以以上下左右边缘为基准，可以以上下左右为基准拉伸，复杂一点，但是学会以后可以很方便实现一些效果，比如一张图片随着文字的变长而往右移动。
-缺点：垂直布局和水平布局功能太单一；锚点在左上角各种反人类。
-五、FGUI特色功能 资源引用查找工具 可以轻易找到组件（图片）和其他组件的引用关系。
-支持多国语言 原生支持多国语言，可以导出xml维护即可。
-控制器系统 控制器系统一般用于控制显示一些UI元素的状态，可以配合动效和Tab使用，UGUI一般要通过代码控制或者自己实现一个类似的系统。
-多平台 FGUI可以一套UI，应用到不同的游戏引擎去，比如Unity和Unreal，对于后期可能更换引擎的项目，节省掉很多成本。
-插入3D物体 支持在UI层中插入任何3D物体，例如模型、粒子、骨骼动画等，UGUI中要通过修改特效和UI的渲染顺序实现，比较麻烦。
-六、拓展性 两者都有拓展性，FGUI的拓展性在于代码是开源的，可以在底层定制适合项目的功能，但是编辑器是不开源的，所以编辑器里面的东西改不了，虽然编辑器提供了脚本拓展支持，但能实现的东西不多。
-UGUI的拓展性在于可以轻松地对编辑器进行拓展，也可以加上各种效果，一般也不会动到底层的如网格重构和渲染的代码，真想修改的话可能要和Unity进行合作然后项目搞一个魔改版的Unity。
-七、总结 总的来说两种UI解决方案都可以商用，不会有特别大的问题。
-要是策划美术拼UI的话，可以选择FGUI，相反要是程序负责的话，两者都可以，但个人感觉Unity上的操作更加熟悉一点，程序员也可以在平时的UI流程中，吸收一些FGUI的思想，做些工具提高UI的开发效率。</div><div class="post-footer">
-        <a href="/ugui%E5%AF%B9%E6%AF%94fgui/">阅读全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/unity/">Unity</a>,&nbsp;<a href="/tags/ui/">UI</a>,&nbsp;<a href="/tags/ugui/">UGUI</a>,&nbsp;<a href="/tags/fgui/">FGUI</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>

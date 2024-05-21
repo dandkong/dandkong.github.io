@@ -3,7 +3,42 @@
         <title>所有文章 - Dand&#39;s Blog</title>
         <link>https://dandkong.github.io/posts/</link>
         <description>所有文章 | Dand&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 16 Mar 2024 20:14:29 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 21 May 2024 19:54:20 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>YooAsset学习笔记1：接入流程</title>
+    <link>https://dandkong.github.io/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01%E6%8E%A5%E5%85%A5%E6%B5%81%E7%A8%8B/</link>
+    <pubDate>Tue, 21 May 2024 19:54:20 &#43;0800</pubDate>
+    <author>Dand</author>
+    <guid>https://dandkong.github.io/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01%E6%8E%A5%E5%85%A5%E6%B5%81%E7%A8%8B/</guid>
+    <description><![CDATA[前言 YooAsset是一套Unity的资源管理方案，类似Unity提供的Addressable资源系统配置好了资源规则，后面只需要用一个“寻址路径”就能透明加载资源，无需关注位于什么bundle包，以及bunlde的依赖关系，也无需关注资源包是位于本地或者远端CDN。
+接入流程 安装YooAsset 参照官网教程即可，这里使用package进行安装。
+资源配置 资源配置是YooAsset系统的亮点所在，这里用一个简单的登录界面作为例子配置一下。
+首先看看文件目录，这里需要加载LoginView，LoginView里用到了test图片，test图片又被收集在图集login中。
+资源配置有几个重要的概念，分别是AddressRule，CollecterType，PackRule，FilterRule
+AddressRule 可寻址规则，这是加载资源时需要传入的字符串，通过这个地址找到资源所在的包，这里使用默认完整路径加载。
+CollecterType MainAssetCollector 收集参与打包的主资源对象，并写入到资源清单的资源列表里（可以通过代码加载）。 StaticAssetCollector 收集参与打包的主资源对象，但不写入到资源清单的资源列表里（无法通过代码加载）。 DependAssetCollector 收集参与打包的依赖资源对象，但不写入到资源清单的资源列表里（无法通过代码加载）（当依赖资源没有被任何主资源引用的时候，则会在打包的时候自动剔除）。
+首先看UIPrefabs，需要直接用代码加载的，设置为MainAssetCollector
+再看图集Atlas，login中的所有精灵图片都被收集在图集文件中，但是不需要单独被代码加载，设置为StaticAssetCollector。
+PackRule PackSeparately 以文件路径作为资源包名，每个资源文件单独打包。 PackDirectory 以文件所在的文件夹路径作为资源包名，该文件夹下所有文件打进一个资源包。PackTopDirectory 以收集器下顶级文件夹为资源包名，该文件夹下所有文件打进一个资源包。PackCollector 以收集器路径作为资源包名，收集的所有文件打进一个资源包。 PackGroup 以分组名称作为资源包名，收集的所有文件打进一个资源包。PackRawFile 目录下的资源文件会被处理为原生资源包。
+首先看UIPrefabs，prefab的上层文件夹就是一个模块，所以希望同一个模块的prefab都打到一个资源包中，使用
+PackTopDirectory。
+FilterRule CollectAll 收集目录下的所有资源文件 CollectScene 只收集目录下的场景文件 CollectPrefab 只收集目录下的预制体文件 CollectSprite 只收集目录下的精灵类型的文件
+UIPrefabs设置为CollectPrefab
+资源构建 资源构建，分别有版本号，构建模式（强制打包，增量打包&hellip;），加密类型，压缩类型，Bundle包的命名风格，以及内建资源选项。
+点击打包后，会生成几种关键的文件
+bundle后缀的就是资源文件，这里包含了指定打包的prefab文件，和一个依赖引用的图片bundle。
+PackageManifest开头的是资源清单文件，只是格式不同，这里打开json后缀的查看一下。
+可以看到记录了一些打包的信息。
+第一部分是打包的基本信息。
+第二部分是资源列表，加载的时候就是从资源列表去找到对应的Bundle，因为只有Prefab设置为MainAssetCollector，所以资源列表只有下面的LoginView.prefab。
+可以看到这个资源处于Bundle0中，也就是下面的assets_content_ui_prefabs_login.bundle，又依赖了share_assets_content_ui_images_login.bundle即图片文件。
+初始化和加载 编辑器模拟模式
+单机运行模式
+联机运行模式
+WebGL运行模式
+这里使用单机运行模式，如果使用联机运行模式需要CDN和指定更多的初始化参数，具体参考官方教程。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 void Start() { // 初始化资源系统 YooAssets.]]></description>
+</item>
+<item>
     <title>利用ActionManger拓展psd2gui</title>
     <link>https://dandkong.github.io/%E5%88%A9%E7%94%A8actionmanger%E6%8B%93%E5%B1%95psd2gui/</link>
     <pubDate>Sat, 16 Mar 2024 20:14:29 &#43;0800</pubDate>
@@ -111,23 +146,6 @@ Height角色的高度，通常和现实中的人物一样设置为2米左右。 
     <author>Dand</author>
     <guid>https://dandkong.github.io/%E5%89%AF%E6%9C%AC%E9%80%BB%E8%BE%91%E6%A1%86%E6%9E%B6/</guid>
     <description><![CDATA[概述 一般副本中都会包括各种各样的行为和判断逻辑，下面举一个简单的副本例子，进入副本后，如果组队人数到达三个，则刷出怪物，播放特效，播放对话，与怪物战斗后，弹出结算UI，再播个动画。 如果由策划出完案子后程序负责直接实现的话，每个副本都是定制化的，写起来非常难受，而且维护极不方便，一旦需求改动就要重新写代码 所以需要设计一套副本系统可以灵活配置副本功能，想法是把副本里的每个行为，判断都作为一个节点，类型行为树的概念，从开始节点一直执行到结束节点，这个副本进程就结束了，进入下个副本进程。 编辑器使用连线的方式操作，每个节点的前后置关系，导出lua配置供程序使用，服务端控制执行流程，客户端只需要执行节点逻辑。 例子 节点可以分为执行节点和判断节点，执行节点执行一个行为，流程推进，判断节点在符合条件的时候，推进流程，否则暂停。 端口定义了每个节点间的关系，也就是图中的连线，控制流程走向，比如刷怪战斗节点，输入端口连接“判断组队人数”，有两个输出端口，分别是胜利和失败，连接对应的节点。 把副本流程解构成一个个节点以后，只需要维护节点的行为和端口逻辑即可，组合由策划完成，只有在添加新节点时程序才需要上场。 编辑器 编辑器可以用网上的开源例子xnode组织节点，也可自己实现。 导出的数据包括了节点的类型，参数，前后置节点等一切代码需要的信息。 副本流程 服务端推送当前节点信息 服务端执行/客户端执行 服务端/客户端完成节点，推进流程 直到到达结束节点 ]]></description>
-</item>
-<item>
-    <title>场景数据框架</title>
-    <link>https://dandkong.github.io/%E5%9C%BA%E6%99%AF%E6%95%B0%E6%8D%AE%E6%A1%86%E6%9E%B6/</link>
-    <pubDate>Mon, 05 Dec 2022 21:31:39 &#43;0800</pubDate>
-    <author>Dand</author>
-    <guid>https://dandkong.github.io/%E5%9C%BA%E6%99%AF%E6%95%B0%E6%8D%AE%E6%A1%86%E6%9E%B6/</guid>
-    <description><![CDATA[一、概述 一般MMO的游戏由场景和场景中的对象构成，在设计地图时，就会遇到几个问题。怎么有效直观地配置信息，对象都有什么功能，有什么功能是共有的。针对上面的问题，首先需要解决的是抽象出场景对象结构，在此基础上做编辑器，用图形化的界面展示，修改储存数据，供代码使用。
-二、场景对象结构 场景本事有数据，如场景资源，组队人数限制等等，这种信息改动不大，也比较直观，一般只要存在excel里面就好，需要的话可以做图形编辑器对excel进行读写和修改。
-场景中的对象可以按需分成几类，常见的有npc，采集物，区域，点等等。
-NPC NPC主要承载了显示模型的功能，读取NPC表。
-采集物 采集物和NPC差不多，只是对话交互改成了点击采集。
-区域 区域分成了圆形区域和多边形区域，划分区域可以实现进入和离开区域的逻辑，比如划分了游泳区，飞行区等，进入以后主角切换运动状态。
-点 点的功能比较广泛，主要用于定位，也可以添加触发组件以后实现圆形区域的功能。
-组件 组件是对象上的属性和功能，公用的组件有缩放，大小，显示隐藏条件等，特殊的组件有巡逻，交互按钮等，按需添加，从而赋予对象特性。
-三、场景编辑器 理清了场景对象的结构以后，就可以做编辑器把数据组织起来了，场景编辑器的实现细节不多说，尽量用起来符合直观操作即可，功能如下。
-增删改场景信息 直观展示场景中的对象（位置、模型、范围等） 增删改场景中的对象 修改对象的组件属性 导出程序可用数据 四、数据载体 数据可以直接导出lua，也可以导出成json，xml等，只要方便维护，程序方便调用即可。 目前使用的是先储存到excel，再从excel导出到lua中，供程序调用。 使用excel作为中间载体的原因可能是比较直观，但感觉使用json或者Unity序列化的方法也是可行的。 ]]></description>
 </item>
 </channel>
 </rss>
