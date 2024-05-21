@@ -165,9 +165,11 @@ WebGL运行模式
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#安装yooasset">安装YooAsset</a></li>
-    <li><a href="#资源配置">资源配置</a>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#接入流程">接入流程</a>
       <ul>
+        <li><a href="#安装yooasset">安装YooAsset</a></li>
+        <li><a href="#资源配置">资源配置</a></li>
         <li><a href="#addressrule">AddressRule</a></li>
         <li><a href="#collectertype">CollecterType</a></li>
         <li><a href="#packrule">PackRule</a></li>
@@ -176,14 +178,16 @@ WebGL运行模式
     </li>
     <li><a href="#资源构建">资源构建</a></li>
     <li><a href="#初始化和加载">初始化和加载</a></li>
+    <li><a href="#总结">总结</a></li>
+    <li><a href="#参考">参考</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="前言">前言</h1>
+            </div><div class="content" id="content"><h2 id="前言">前言</h2>
 <p>YooAsset是一套Unity的资源管理方案，类似Unity提供的Addressable资源系统配置好了资源规则，后面只需要用一个“寻址路径”就能透明加载资源，无需关注位于什么bundle包，以及bunlde的依赖关系，也无需关注资源包是位于本地或者远端CDN。</p>
-<h1 id="接入流程">接入流程</h1>
-<h2 id="安装yooasset">安装YooAsset</h2>
+<h2 id="接入流程">接入流程</h2>
+<h3 id="安装yooasset">安装YooAsset</h3>
 <p>参照官网教程即可，这里使用package进行安装。</p>
-<h2 id="资源配置">资源配置</h2>
+<h3 id="资源配置">资源配置</h3>
 <p>资源配置是YooAsset系统的亮点所在，这里用一个简单的登录界面作为例子配置一下。</p>
 <p>首先看看文件目录，这里需要加载LoginView，LoginView里用到了test图片，test图片又被收集在图集login中。</p>
 <p><img
@@ -325,11 +329,11 @@ CollectSprite 只收集目录下的精灵类型的文件</p>
         data-sizes="auto"
         alt="https://raw.githubusercontent.com/dandkong/picgo/main/img/202405162258623.png"
         title="https://raw.githubusercontent.com/dandkong/picgo/main/img/202405162258623.png" /></p>
-<h1 id="总结">总结</h1>
+<h2 id="总结">总结</h2>
 <p>可以看到YooAsset提供了一个开箱即用的Unity资源管理框架，只需要少量的配置的和代码就能接入，后续的开发基本不用再维护了，只需调用接口加载即可。</p>
 <p>这是YooAsset框架的第一篇文章，后面的文章会剖析其源码，也是对自己学习的一个记录。</p>
 <p>待续。。。</p>
-<h1 id="参考">参考</h1>
+<h2 id="参考">参考</h2>
 <p><a href="https://www.yooasset.com/docs/Introduce" target="_blank" rel="noopener noreffer ">Introduce | YooAsset</a></p>
 <p><a href="https://www.cnblogs.com/msxh/p/14194756.html" target="_blank" rel="noopener noreffer ">【Unity游戏开发】SpriteAtlas与AssetBundle最佳食用方案 - 马三小伙儿 - 博客园</a></p></div><div class="post-footer" id="post-footer">
     <div class="post-info">

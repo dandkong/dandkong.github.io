@@ -3,17 +3,17 @@
 
 <!--more-->
 
-# 前言
+## 前言
 
 YooAsset是一套Unity的资源管理方案，类似Unity提供的Addressable资源系统配置好了资源规则，后面只需要用一个“寻址路径”就能透明加载资源，无需关注位于什么bundle包，以及bunlde的依赖关系，也无需关注资源包是位于本地或者远端CDN。
 
-# 接入流程
+## 接入流程
 
-## 安装YooAsset
+### 安装YooAsset
 
 参照官网教程即可，这里使用package进行安装。
 
-## 资源配置
+### 资源配置
 
 资源配置是YooAsset系统的亮点所在，这里用一个简单的登录界面作为例子配置一下。
 
@@ -122,7 +122,8 @@ private IEnumerator InitializeYooAsset()
 
 ![https://raw.githubusercontent.com/dandkong/picgo/main/img/202405162258623.png](https://raw.githubusercontent.com/dandkong/picgo/main/img/202405162258623.png)
 
-# 总结
+
+## 总结
 
 可以看到YooAsset提供了一个开箱即用的Unity资源管理框架，只需要少量的配置的和代码就能接入，后续的开发基本不用再维护了，只需调用接口加载即可。
 
@@ -130,7 +131,7 @@ private IEnumerator InitializeYooAsset()
 
 待续。。。
 
-# 参考
+## 参考
 
 [Introduce | YooAsset](https://www.yooasset.com/docs/Introduce)
 
