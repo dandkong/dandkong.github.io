@@ -3,7 +3,27 @@
         <title>UI - 标签 - Dand&#39;s Blog</title>
         <link>https://dandkong.github.io/tags/ui/</link>
         <description>UI - 标签 - Dand&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 16 Mar 2024 20:14:29 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/tags/ui/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 06 Jun 2024 22:45:30 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/tags/ui/" rel="self" type="application/rss+xml" /><item>
+    <title>UI特效插件-UIParticle</title>
+    <link>https://dandkong.github.io/ui%E7%89%B9%E6%95%88%E6%8F%92%E4%BB%B6-uiparticle/</link>
+    <pubDate>Thu, 06 Jun 2024 22:45:30 &#43;0800</pubDate>
+    <author>Dand</author>
+    <guid>https://dandkong.github.io/ui%E7%89%B9%E6%95%88%E6%8F%92%E4%BB%B6-uiparticle/</guid>
+    <description><![CDATA[前言 在UI上显示特效是一直是一个比较棘手的问题，一开始的方案是调整UI特效的渲染顺序，设置其sortingLayer和sortingOrder+offset，在每个单独的UI以后渲染。
+这种方法能满足大部分的需求，但也有缺点。
+如果需要在特效上再盖一层UI的话，由于特效并不属于Canvas的一部分，所以修改Hierarchy并不能改变其渲染顺序，特效会在渲染完Canvas的UI元素以后再进行渲染，所以需要把这个UI的层级通过添加Canvas继续往上抬。
+再者无法被RectMask2D和Mask裁剪，除非改造Shader，并手动传入裁剪区域。
+最好的方法就是让特效像UI一样，直接按Hierarchy 顺序渲染，并支持遮罩，就是这文章的主角UIParticle。
+原理 This package utilizes the new APIsMeshBake/MashTrailBake(introduced with Unity 2018.2) to render particles through CanvasRenderer.
+You can render, mask, and sort your ParticleSystems for UI without the necessity of an additional Camera, RenderTexture, or Canvas.
+这是项目首页的原理，具体就是通过一个API让例子特效通过CanvasRender进行渲染，这样就和普通的UI没什么不同了。
+使用 按官方的教程，直接引入包，添加组件到特效上，直接拖到UI中即可。
+改造已有shader以支持遮罩 项目推荐我们使用UIShader，如UIDefault或者UIAdditive。
+Mask通过模板测试实现遮罩，RectMask2D通过传入裁剪区域实现。
+所以自定义的Shader只需要参考上面的UIShader使其拥有遮罩特效即可，注意RenderQueue设置为Transparent，下面贴一下关键Shader代码。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 Shader &#34;Your/Custom/Shader&#34; { Properties { // .]]></description>
+</item>
+<item>
     <title>利用ActionManger拓展psd2gui</title>
     <link>https://dandkong.github.io/%E5%88%A9%E7%94%A8actionmanger%E6%8B%93%E5%B1%95psd2gui/</link>
     <pubDate>Sat, 16 Mar 2024 20:14:29 &#43;0800</pubDate>
