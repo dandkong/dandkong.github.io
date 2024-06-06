@@ -98,6 +98,14 @@
         alt="/images/avatar.png"
         title="/images/avatar.png" /></a></div><div class="home-subtitle"><div id="id-1" class="typeit"></div></div><div class="links"></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/%E7%8A%B6%E6%80%81%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%B8%A7%E5%90%8C%E6%AD%A5/">状态同步与帧同步</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dand</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2023-05-11">2023-05-11</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/unity/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Unity</a></span></div><div class="content">1. 状态同步 服务端接受客户端的操作，计算逻辑，分发到各客户端，游戏世界玩家没有属性变化，基本不会进行同步消息下发。
+优点 服务端可靠 断线重连简单，把当前状态下发 缺点 回放需要单独的服务器，保存所有的状态，按时间发 服务器压力大，计算多 开发复杂 2. 帧同步 服务端只做转发操作，转发各个客户端，大多数帧同步的逻辑是只放在每个客户端的，无论是否有操作，每一帧都会有服务器数据下发。
+优点 回放简单，只要把操作都记录下来就好 开发简单 缺点 不安全，客户端能篡改 断线重连需要把之前所有操作加速一遍 注意随机数每次都一样 3. 状态帧同步 状态帧同步就是状态同步和帧同步的概念相结合。客户端向服务器上传操作，服务器跑逻辑，但是又在按照固定的每一帧下发所有玩家的状态（属性位置等）给每一个客户端实现同步。客户端做预测，服务端做校验，不正确就回滚数据。
+4. 参考 https://zhuanlan.zhihu.com/p/36884005 https://www.cnblogs.com/October2018/p/16120681.html </div><div class="post-footer">
+        <a href="/%E7%8A%B6%E6%80%81%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%B8%A7%E5%90%8C%E6%AD%A5/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/unity/">Unity</a>,&nbsp;<a href="/tags/%E7%BD%91%E7%BB%9C/">网络</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/lua%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/">Lua知识点总结</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dand</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2023-04-11">2023-04-11</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>编程语言</a></span></div><div class="content">Lua知识点总结 1. 元表和元方法 __index元方法
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 &gt; other = { foo = 3 } &gt; t = setmetatable({}, { __index = other }) &gt; t.foo 3 &gt; t.bar nil mytable = setmetatable({key1 = &#34;value1&#34;}, { __index = function(mytable, key) if key == &#34;key2&#34; then return &#34;metatablevalue&#34; else return nil end end }) __nexindex方法
@@ -162,20 +170,6 @@ Height角色的高度，通常和现实中的人物一样设置为2米左右。 
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dand</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2022-12-09">2022-12-09</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>游戏框架</a></span></div><div class="content">概述 一般副本中都会包括各种各样的行为和判断逻辑，下面举一个简单的副本例子，进入副本后，如果组队人数到达三个，则刷出怪物，播放特效，播放对话，与怪物战斗后，弹出结算UI，再播个动画。 如果由策划出完案子后程序负责直接实现的话，每个副本都是定制化的，写起来非常难受，而且维护极不方便，一旦需求改动就要重新写代码 所以需要设计一套副本系统可以灵活配置副本功能，想法是把副本里的每个行为，判断都作为一个节点，类型行为树的概念，从开始节点一直执行到结束节点，这个副本进程就结束了，进入下个副本进程。 编辑器使用连线的方式操作，每个节点的前后置关系，导出lua配置供程序使用，服务端控制执行流程，客户端只需要执行节点逻辑。 例子 节点可以分为执行节点和判断节点，执行节点执行一个行为，流程推进，判断节点在符合条件的时候，推进流程，否则暂停。 端口定义了每个节点间的关系，也就是图中的连线，控制流程走向，比如刷怪战斗节点，输入端口连接“判断组队人数”，有两个输出端口，分别是胜利和失败，连接对应的节点。 把副本流程解构成一个个节点以后，只需要维护节点的行为和端口逻辑即可，组合由策划完成，只有在添加新节点时程序才需要上场。 编辑器 编辑器可以用网上的开源例子xnode组织节点，也可自己实现。 导出的数据包括了节点的类型，参数，前后置节点等一切代码需要的信息。 副本流程 服务端推送当前节点信息 服务端执行/客户端执行 服务端/客户端完成节点，推进流程 直到到达结束节点 </div><div class="post-footer">
         <a href="/%E5%89%AF%E6%9C%AC%E9%80%BB%E8%BE%91%E6%A1%86%E6%9E%B6/">阅读全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6/">游戏框架</a>,&nbsp;<a href="/tags/%E5%89%AF%E6%9C%AC/">副本</a>,&nbsp;<a href="/tags/%E7%BC%96%E8%BE%91%E5%99%A8/">编辑器</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/%E5%9C%BA%E6%99%AF%E6%95%B0%E6%8D%AE%E6%A1%86%E6%9E%B6/">场景数据框架</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dand</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2022-12-05">2022-12-05</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>游戏框架</a></span></div><div class="content">一、概述 一般MMO的游戏由场景和场景中的对象构成，在设计地图时，就会遇到几个问题。怎么有效直观地配置信息，对象都有什么功能，有什么功能是共有的。针对上面的问题，首先需要解决的是抽象出场景对象结构，在此基础上做编辑器，用图形化的界面展示，修改储存数据，供代码使用。
-二、场景对象结构 场景本事有数据，如场景资源，组队人数限制等等，这种信息改动不大，也比较直观，一般只要存在excel里面就好，需要的话可以做图形编辑器对excel进行读写和修改。
-场景中的对象可以按需分成几类，常见的有npc，采集物，区域，点等等。
-NPC NPC主要承载了显示模型的功能，读取NPC表。
-采集物 采集物和NPC差不多，只是对话交互改成了点击采集。
-区域 区域分成了圆形区域和多边形区域，划分区域可以实现进入和离开区域的逻辑，比如划分了游泳区，飞行区等，进入以后主角切换运动状态。
-点 点的功能比较广泛，主要用于定位，也可以添加触发组件以后实现圆形区域的功能。
-组件 组件是对象上的属性和功能，公用的组件有缩放，大小，显示隐藏条件等，特殊的组件有巡逻，交互按钮等，按需添加，从而赋予对象特性。
-三、场景编辑器 理清了场景对象的结构以后，就可以做编辑器把数据组织起来了，场景编辑器的实现细节不多说，尽量用起来符合直观操作即可，功能如下。
-增删改场景信息 直观展示场景中的对象（位置、模型、范围等） 增删改场景中的对象 修改对象的组件属性 导出程序可用数据 四、数据载体 数据可以直接导出lua，也可以导出成json，xml等，只要方便维护，程序方便调用即可。 目前使用的是先储存到excel，再从excel导出到lua中，供程序调用。 使用excel作为中间载体的原因可能是比较直观，但感觉使用json或者Unity序列化的方法也是可行的。 </div><div class="post-footer">
-        <a href="/%E5%9C%BA%E6%99%AF%E6%95%B0%E6%8D%AE%E6%A1%86%E6%9E%B6/">阅读全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6/">游戏框架</a>,&nbsp;<a href="/tags/%E5%9C%BA%E6%99%AF/">场景</a>,&nbsp;<a href="/tags/%E7%BC%96%E8%BE%91%E5%99%A8/">编辑器</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -187,6 +181,10 @@ NPC NPC主要承载了显示模型的功能，读取NPC表。
                 </li><li class="page-item ">
                     <span class="page-link">
                         <a href="/page/3/">3</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/page/4/">4</a>
                     </span>
                 </li></ul></div></div>
             </main><footer class="footer">
