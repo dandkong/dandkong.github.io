@@ -77,7 +77,7 @@ UGUI的锚点系统以中心点为基准，对父节点对齐，提供了上下�
 
 优点：FGUI的对齐系统叫做关联系统，第一个优点是不局限与与父节点对齐，可以对任意两个元素进行对齐。第二个优点是在拓展了对齐的维度，可以以上下左右边缘为基准，可以以上下左右为基准拉伸，复杂一点，但是学会以后可以很方便实现一些效果，比如一张图片随着文字的变长而往右移动。
 
-![](https://raw.githubusercontent.com/dandkong/picgo/main/img/image-20221118214020122.png)
+![](https://raw.githubusercontent.com/dandkong/picgo/main/img/202406142211585.png)
 
 缺点：垂直布局和水平布局功能太单一；锚点在左上角各种反人类。
 

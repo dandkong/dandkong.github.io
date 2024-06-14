@@ -33,7 +33,7 @@ NPC主要承载了显示模型的功能，读取NPC表。
 
 组件是对象上的属性和功能，公用的组件有缩放，大小，显示隐藏条件等，特殊的组件有巡逻，交互按钮等，按需添加，从而赋予对象特性。
 
-![](https://raw.githubusercontent.com/dandkong/picgo/main/img/地图.png)
+![](https://raw.githubusercontent.com/dandkong/picgo/main/img/202406142209820.png)
 
 </br>
 

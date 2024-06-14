@@ -29,7 +29,7 @@
 
 UI里面主要有两个概念，视图和组件，都由一个基类派生而来，在游戏中体现为一个单独的prefab。
 
-![](https://raw.githubusercontent.com/dandkong/picgo/main/img/Untitled.png)
+![](https://raw.githubusercontent.com/dandkong/picgo/main/img/202406142210092.png)
 
 ### 2.1 组件
 
