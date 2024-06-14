@@ -98,6 +98,29 @@
         alt="/images/avatar.png"
         title="/images/avatar.png" /></a></div><div class="home-subtitle"><div id="id-1" class="typeit"></div></div><div class="links"></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02%E8%BF%90%E8%A1%8C%E6%97%B6/">YooAsset学习笔记2：运行时</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dand</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2024-06-14">2024-06-14</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/unity/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Unity</a>&nbsp;<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>学习笔记</a></span></div><div class="content">前言 上一篇文章简述了YooAsset资源管理框架的使用，接下来通过代码分析其内部原理。
+整体框架 YooAsset框架主要分为运行时和编辑器部分，运行时实现了资源包加载，Bunlde加载，缓存，下载，从上到下的结构。编辑器部分实现了资源收集，资源构建。这篇文章主要分析运行时的机制，结构如下。
+加载流程 运行时加载流程主要如下，加载开始以后，每一层的模块基本都是轮询实现。
+简单的例子就是调用加载，从上到下，上层等待下层完成自己的步骤，如果完成，再轮询到下个阶段。
+每一层根据加载模式和资源类型的不同派生到不同的对象负责轮询，下面的示例是远程加载AssetBundle的示意流程。
+根据运行模式初始化包 外部调用加载 调用默认包的加载 Provider轮询，等待Bundle加载完成，再从Bundle中加载具体资源 Loader轮询，等待Bundle加载完成 Downloader轮询，等待下载完成 Requeseter轮询，等待请求完成 资源包（ResourcePackage） 资源包是一个比较上层的概念，在游戏初始化时要初始化包和其加载模式。具体的加载模式可以参照上一篇文章。
+定义加载模式 维护版本 维护资源清单 资源管理器（ResourceManager） 资源管理器负责加载具体的资源，根据不同的加载模式和资源类型分成不同的Provider和Loader，并返回对应的Handle。
+Provider功能：从加载好的Bundle中加载具体的资源
+Loader功能：加载Bundle。
+下载系统（DownloadSystem） 下载系统由上层的Loader持有，加载Bundle时，如果还没下载，调用下载系统进行下载。
+下载器根据不同的加载模式和资源类型区分，分类普通文件和Web文件，区别在于Web文件不进行缓存。
+下载功能由Requester承担，分为普通请求和断点续传。
+缓存系统（CacheSystem） 缓存系统是在加载资源时，下载过就不需要再次下载了，直接在本地沙盒目录中读取。
+缓存系统由下载系统调用，当下载完成以后，保存本地文件，并记录到缓存系统。
+如果已有文件，则进行校验再进行记录。
+另一个调用是在资源包初始化后，把已经下载的文件验证一遍，记录到缓存系统中。
+后记 运行的框架就是如此，虽然功能很多，但结构清晰，使用了分层处理的思想。
+下一篇将介绍编辑器的逻辑，敬请期待。
+参考 https://github.com/tuyoogame/YooAsset</div><div class="post-footer">
+        <a href="/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02%E8%BF%90%E8%A1%8C%E6%97%B6/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/unity/">Unity</a>,&nbsp;<a href="/tags/%E8%B5%84%E6%BA%90/">资源</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/ui%E7%89%B9%E6%95%88%E6%8F%92%E4%BB%B6-uiparticle/">UI特效插件-UIParticle</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dand</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2024-06-06">2024-06-06</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/unity/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Unity</a></span></div><div class="content">前言 在UI上显示特效是一直是一个比较棘手的问题，一开始的方案是调整UI特效的渲染顺序，设置其sortingLayer和sortingOrder+offset，在每个单独的UI以后渲染。
 这种方法能满足大部分的需求，但也有缺点。
@@ -169,19 +192,6 @@ WebGL运行模式
 2. 编程和代码架构 2.1 lua使用的性能注意 交互原理：取值、入栈、c#到lua的类型转换，还有内存分配和GC。 lua与C#交互，做好缓存，减少如gameobject.transform.position.x之类的操作，可以在C#封装成GameObejct.GetPosX() 在lua中引用c#的object，代价昂贵 lua和c#之间传参、返回时，尽可能不要传递Vector3/Quaternion等unity值类型，数组等 参见：Unity+Lua性能优化（Lua和C#交互篇）-腾讯游戏学堂 (tencent.com) lua自身使用，减少全局表的查找，减少全局变量 lua与C#交互原理：wlgys8/UnityLuaInteractDemo: Unity中c#与lua的交互原理和用例 (github.com) 2.2 减少字符串的使用 字符串使用性能较差，主要是在传值或者操作时都会有临时变量的产生，引发GC。 代码中减少字符串的拼接，拆分等操作，在Update中尤其需要注意。 使用hash替代字符串传值，参考Unity组件Animator、Material、Shader实现，对于固定的string，用一个字典存下所有字符串，统一转成hash再调用。 2.3 缓存 GameObjects 和组件 GameObject.Find、GameObject.GetComponent 和 Camera.main都会有较大的性能负担，尽量只在初始化时调用，缓存下来使用。 2.4 对象池 对象池包括类和GameObject，使用对象池可减少了实例化和销毁带来的性能消耗，减少托管内存分配的次数、防止产生垃圾回收。 注意对象池的缓存上限，没有上限的话对内存会有负担。 2.5 使用正确的数据结构 注意list，dict等的使用，查找数据的时候尽量减少遍历，可以使用字典查找，降低复杂度。 2.6 减少每帧的代码量 Update每帧执行，不一定所有的代码调用都需要在里面调用。 对于需要定时执行的逻辑也不一定要每帧执行，如倒计时，可以每秒执行，定期执行。 2.7 其他 减少日志的打印，日志打印同样会有字符串的消耗，封装好的打印方法还会进行本地的写法，无用的日志就不要打印了。 3. UI优化手段 3.1 减少渲染的量级和少内存 避免过重UI，拆分成小UI，动态加载 需要响应Raycast事件时，不要使用空Image，可以自定义组件继承自MaskableGraphic，重写OnPopulateMesh把网格清空，这样可以响应Raycast而又不需要绘制Mesh 3.2 减少OverDraw 减少UI重叠 全屏UI隐藏后面的UI 关掉场景相机的渲染 慎用Mask组件（浅谈Unity uGUI Mask组件实现原理 (rugbbyli.gitlab.io),Unity中的Mask组件增加DrawCall的原因unity mask组件流浪打工人的博客-CSDN博客） 慎用Shadow与Outline组件，顶点过多（慎用Outline ,UGUI Outline实现原理分析__Captain的博客-CSDN博客） 简单的粒子特效 3.3 图集 不同的图集/材质会产生DrawCall，且会引起加载问题 3.4 其他 避免频繁调用SetActive方法，会导致网格重建，会导致内存分配，触发GC，可以设置layer或把渲染移到相机外 3.</div><div class="post-footer">
         <a href="/unity%E5%BC%80%E5%8F%91%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%80%BB%E7%BB%93/">阅读全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/unity/">Unity</a>,&nbsp;<a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/%E6%A0%B9%E6%8D%AEprefab%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90lua%E4%BB%A3%E7%A0%81/">根据Prefab自动生成Lua代码</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Dand</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2023-06-07">2023-06-07</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/unity/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Unity</a></span></div><div class="content">1 前言 最近回到了新项目，发现UI框架还是旧的那一套，每个UI控件，比如Text、Button等，都要手动打代码Find一遍，每次开发都会做很多无用功，所以打算优化一下效率。
-设想是做一套工具，可以自动把UI代码生成出来。需求如下
-把UI层和逻辑层的代码分开，第一次导出时才导出逻辑层，后续只导出覆盖UI层。 能对自动Button，Toggle等组件加上回调，由逻辑层复写 能控制是否导出子节点 能对BaseView和UIComponent分开导出 变量命名检测，重名自动改名 不影响旧代码 自动添加UIComponent的引用 思路
-增加一个C#配置类（UIExportConfig），挂载在prefab上，表示需要导出成哪种代码类型（视图/组件）。 配置每种控件需要怎么导出，是否需要校验名字（因为有些不需要获取，比如界面中的固定图片和文本是不需要导出的）。 递归导出带UIExportConfig的GameObject。 2 UI结构 UI里面主要有两个概念，视图和组件，都由一个基类派生而来，在游戏中体现为一个单独的prefab。
-2.1 组件 组件UI逻辑的最小单位，比如背包中的背包页和仓库页就是两个组件，背包页和仓库页中的道具格子也是一个组件。
-2.2 视图 视图也是组件，表现为游戏中的一个独立界面，比如一个背包界面，一个玩法界面，由自身以及嵌套的组件实现其不同功能，实现解耦和复用的目的。
-3 实现 一个组件，对应一个prefab，会导出一个以“UI”为后缀的UI类，如下：
-1 2 3 4 5 6 7 8 ---BagViewUI.lua --基础节点 self.txtTitle = self:FindCom(&#34;Text&#34;,&#34;textTitle&#34;) self.img1 = self:FindCom(&#34;Image&#34;,&#34;textTitle/img1&#34;) --背包页子组件 self.bagCom = BagCom.New(self:Find(&#34;BagCom&#34;) --仓库页子组件 self.storgeCom = StorgeCom.New(self:Find(&#34;StorgeCom&#34;) UI类会被逻辑类引用，如下：
-1 2 3 4 5 ---BagView.lua self.ui = BagViewUI.New(self.gameObject) self.ui.txtTitle.text = &#34;背包&#34; self.bagCom:SetData(背包数据); self.storgeCom :SetData(仓库数据); 3.1 导出图片，按钮，文本等组件 脚本通过深度遍历的方式遍历prefab的每个节点，对于合适的节点，生成一句查找代码，类似：</div><div class="post-footer">
-        <a href="/%E6%A0%B9%E6%8D%AEprefab%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90lua%E4%BB%A3%E7%A0%81/">阅读全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/unity/">Unity</a>,&nbsp;<a href="/tags/%E7%BC%96%E8%BE%91%E5%99%A8/">编辑器</a>,&nbsp;<a href="/tags/ui/">UI</a>,&nbsp;<a href="/tags/ugui/">UGUI</a></div></div>
 </article><ul class="pagination"><li class="page-item active">
                     <span class="page-link">
                         <a href="/">1</a>
