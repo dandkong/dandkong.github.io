@@ -3,7 +3,22 @@
         <title>学习笔记 - 分类 - Dand&#39;s Blog</title>
         <link>https://dandkong.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
         <description>学习笔记 - 分类 - Dand&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 14 Jun 2024 22:02:52 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 29 Jun 2024 22:02:52 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="self" type="application/rss+xml" /><item>
+    <title>YooAsset学习笔记3：运行时</title>
+    <link>https://dandkong.github.io/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03%E7%BC%96%E8%BE%91%E5%99%A8/</link>
+    <pubDate>Sat, 29 Jun 2024 22:02:52 &#43;0800</pubDate>
+    <author>Dand</author>
+    <guid>https://dandkong.github.io/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03%E7%BC%96%E8%BE%91%E5%99%A8/</guid>
+    <description><![CDATA[前言 上一篇文章简述了YooAsset资源管理框架运行时的框架的使用，接下来通过代码分析其内部原理。
+概览 YooAsset框架的编辑器部分包含了四个部分。
+收集：通过过滤规则，资源包名，定位地址，划分打包资源。 构建：根据收集到的资源，同时收集其依赖资源，打包成Bundle包。 Reporter：打包后的资源报告。 Debugger：运行时的资源加载情况。 收集 收集器主要通过过滤规则，资源包名，定位地址来划分资源，具体的用法在使用文档有详细介绍，本系列的第一篇也有介绍。
+构建 资源构建也是和运行时的设计相似，按步骤构建，流程如下图所示。
+构建管线分为内置管线，可编程管线，原生管线，内置管线和可编程管线的构建步骤基本一致，调用的API有不同。原生管线就是直接复制文件，不构建Bundle。
+总结 编辑器的框架就是如此，先收集再按步骤构建，再配套Reporter和Debugger进行排查分析。
+本系列教程到此结束，感谢阅读。
+参考 https://github.com/tuyoogame/YooAsset]]></description>
+</item>
+<item>
     <title>YooAsset学习笔记2：运行时</title>
     <link>https://dandkong.github.io/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02%E8%BF%90%E8%A1%8C%E6%97%B6/</link>
     <pubDate>Fri, 14 Jun 2024 22:02:52 &#43;0800</pubDate>
