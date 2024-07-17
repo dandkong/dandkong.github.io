@@ -3,7 +3,34 @@
         <title>编程语言 - 分类 - Dand&#39;s Blog</title>
         <link>https://dandkong.github.io/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/</link>
         <description>编程语言 - 分类 - Dand&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 11 Apr 2023 21:40:59 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 17 Jul 2024 22:07:01 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" rel="self" type="application/rss+xml" /><item>
+    <title>PuerTS学习路线</title>
+    <link>https://dandkong.github.io/puerts%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</link>
+    <pubDate>Wed, 17 Jul 2024 22:07:01 &#43;0800</pubDate>
+    <author>Dand</author>
+    <guid>https://dandkong.github.io/puerts%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</guid>
+    <description><![CDATA[前言 最近看到腾讯又出了个游戏脚本的热更方案，相对lua有以下的优势。
+JavaScript生态有众多的库和工具链，结合专业商业引擎的渲染能力，快速打造游戏
+相比游戏领域常用的lua脚本，TypeScript的静态类型检查有助于编写更健壮，可维护性更好的程序
+安装 安装PuerTS | PUER Typescript
+安装包到Unity，在合适的地方接入JSEnv
+自定义加载器 PuerTS自带一个加载器，通过Resource加载JS代码，但是实际开发的时候推荐的是TypeScript，需要转译到JS再执行。
+编辑器中推荐使用TS-Loader，编辑器中直接使用TS进行开发，没有其他需要关注的地方。
+提供一个PuerTS的Loader，使你在Editor下，可以直接读取TS。
+无需研究tsconfig、无需研究ESM、CommonJS，无需自行编译ts，无需理会和调试相关的debugpath/sourceMap/控制台跳转。
+https://github.com/zombieyang/puerts-ts-loader
+编辑器中直接使用TS开发，在发布时还需要编译成JS，参考ts-loader中的TSReleaser-Resources.cs函数，在发布资源前编译成JS。
+编译好的JS要支持热更，所以使用默认的加载器，自己定义一个加载器，传入的参数是JS的路径，返回的是JS的代码内容，结合项目的资源加载返回即可，我的Demo使用了YooAssets框架。
+调试 用类似NodeJs的方式调试即可。
+VSCode Debug 指引 | PUER Typescript
+TS学习 TS拥有静态类型检测，能编写更具有健壮性的代码，也有更多现有的资源。
+深入理解 TypeScript | 深入理解 TypeScript
+Handbook - The TypeScript Handbook
+TypeScript 入门教程
+ES6 入门教程
+前言 | TypeScript手册]]></description>
+</item>
+<item>
     <title>Lua知识点总结</title>
     <link>https://dandkong.github.io/lua%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/</link>
     <pubDate>Tue, 11 Apr 2023 21:40:59 &#43;0800</pubDate>

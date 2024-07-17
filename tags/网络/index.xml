@@ -3,7 +3,19 @@
         <title>网络 - 标签 - Dand&#39;s Blog</title>
         <link>https://dandkong.github.io/tags/%E7%BD%91%E7%BB%9C/</link>
         <description>网络 - 标签 - Dand&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 11 May 2023 21:35:54 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/tags/%E7%BD%91%E7%BB%9C/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 17 Jul 2024 22:05:10 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/tags/%E7%BD%91%E7%BB%9C/" rel="self" type="application/rss+xml" /><item>
+    <title>Unity使用Socket</title>
+    <link>https://dandkong.github.io/unity%E4%BD%BF%E7%94%A8socket/</link>
+    <pubDate>Wed, 17 Jul 2024 22:05:10 &#43;0800</pubDate>
+    <author>Dand</author>
+    <guid>https://dandkong.github.io/unity%E4%BD%BF%E7%94%A8socket/</guid>
+    <description><![CDATA[前言 之前开发一直都在关注客户端的逻辑，没有涉及到网络相关的知识，这几天参考网上的资料学习了一下做个简易的网络聊天室，记录一下。
+简单的网络通信于 Unity 客户端借助 Socket 与服务端达成连接，并依据事先约定的协议（诸如 json、protobuf 等）展开通信。
+客户端 客户端的主要功能：连接，发送数据，接收数据。
+这里参考开源的简易网络框架，可以自定义其包体，编码器和解码器。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 using System.]]></description>
+</item>
+<item>
     <title>状态同步与帧同步</title>
     <link>https://dandkong.github.io/%E7%8A%B6%E6%80%81%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%B8%A7%E5%90%8C%E6%AD%A5/</link>
     <pubDate>Thu, 11 May 2023 21:35:54 &#43;0800</pubDate>

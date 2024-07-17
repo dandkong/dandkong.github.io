@@ -134,3 +134,5 @@ function getCurrentDocumentInfo() {
 
 [Photoshop插件开发教程 - （4）开发工具选择和调试](https://zhuanlan.zhihu.com/p/559290141)
 
+[脚本解析photoshop文本属性_javascript怎么获取ps属性-CSDN博客](https://blog.csdn.net/cai612781/article/details/78072531)https://zhuanlan.zhihu.com/p/559290141)
+

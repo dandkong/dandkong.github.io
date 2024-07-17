@@ -3,7 +3,19 @@
         <title>Unity - 标签 - Dand&#39;s Blog</title>
         <link>https://dandkong.github.io/tags/unity/</link>
         <description>Unity - 标签 - Dand&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 29 Jun 2024 22:02:52 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/tags/unity/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 17 Jul 2024 22:05:10 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/tags/unity/" rel="self" type="application/rss+xml" /><item>
+    <title>Unity使用Socket</title>
+    <link>https://dandkong.github.io/unity%E4%BD%BF%E7%94%A8socket/</link>
+    <pubDate>Wed, 17 Jul 2024 22:05:10 &#43;0800</pubDate>
+    <author>Dand</author>
+    <guid>https://dandkong.github.io/unity%E4%BD%BF%E7%94%A8socket/</guid>
+    <description><![CDATA[前言 之前开发一直都在关注客户端的逻辑，没有涉及到网络相关的知识，这几天参考网上的资料学习了一下做个简易的网络聊天室，记录一下。
+简单的网络通信于 Unity 客户端借助 Socket 与服务端达成连接，并依据事先约定的协议（诸如 json、protobuf 等）展开通信。
+客户端 客户端的主要功能：连接，发送数据，接收数据。
+这里参考开源的简易网络框架，可以自定义其包体，编码器和解码器。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 using System.]]></description>
+</item>
+<item>
     <title>YooAsset学习笔记3：编辑器</title>
     <link>https://dandkong.github.io/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03%E7%BC%96%E8%BE%91%E5%99%A8/</link>
     <pubDate>Sat, 29 Jun 2024 22:02:52 &#43;0800</pubDate>
@@ -157,16 +169,6 @@ WebGL运行模式
 优点 服务端可靠 断线重连简单，把当前状态下发 缺点 回放需要单独的服务器，保存所有的状态，按时间发 服务器压力大，计算多 开发复杂 2. 帧同步 服务端只做转发操作，转发各个客户端，大多数帧同步的逻辑是只放在每个客户端的，无论是否有操作，每一帧都会有服务器数据下发。
 优点 回放简单，只要把操作都记录下来就好 开发简单 缺点 不安全，客户端能篡改 断线重连需要把之前所有操作加速一遍 注意随机数每次都一样 3. 状态帧同步 状态帧同步就是状态同步和帧同步的概念相结合。客户端向服务器上传操作，服务器跑逻辑，但是又在按照固定的每一帧下发所有玩家的状态（属性位置等）给每一个客户端实现同步。客户端做预测，服务端做校验，不正确就回滚数据。
 4. 参考 https://zhuanlan.zhihu.com/p/36884005 https://www.cnblogs.com/October2018/p/16120681.html ]]></description>
-</item>
-<item>
-    <title>游戏输入模块</title>
-    <link>https://dandkong.github.io/%E6%B8%B8%E6%88%8F%E8%BE%93%E5%85%A5%E6%A8%A1%E5%9D%97/</link>
-    <pubDate>Tue, 13 Dec 2022 21:10:37 &#43;0800</pubDate>
-    <author>Dand</author>
-    <guid>https://dandkong.github.io/%E6%B8%B8%E6%88%8F%E8%BE%93%E5%85%A5%E6%A8%A1%E5%9D%97/</guid>
-    <description><![CDATA[概述 输入模块是游戏中的基础功能，主要有以下功能
-为多平台提供统一接口支持，如移动设备和PC 触发开始按下，按下，抬起事件 区分点击UI和点击场景中的物体，执行不一样的逻辑 支持多点触控 多平台 PC上鼠标操作：Input.GetMouseButton(index) 移动设备：Input.GetTouch(index) 判断点击在UI上 主要用到EventSystem中的RaycastAll接口，参考https://blog.csdn.net/u013012420/article/details/106999229
-1 public void RaycastAll(EventSystems.PointerEventData eventData, List&lt;RaycastResult&gt; raycastResults); 点击流程 ]]></description>
 </item>
 </channel>
 </rss>
