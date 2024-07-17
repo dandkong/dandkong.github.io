@@ -98,7 +98,7 @@ void SendLoginMessage()
 }
 ```
 
-## Buff格式
+## Buffer格式
 
 ```jsx
 // 写入包头
