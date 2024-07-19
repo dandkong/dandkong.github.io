@@ -1,21 +1,24 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>模型 - 标签 - Dand&#39;s Blog</title>
-        <link>https://dandkong.github.io/tags/%E6%A8%A1%E5%9E%8B/</link>
-        <description>模型 - 标签 - Dand&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 12 Nov 2022 00:45:33 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/tags/%E6%A8%A1%E5%9E%8B/" rel="self" type="application/rss+xml" /><item>
-    <title>捏体型方案</title>
-    <link>https://dandkong.github.io/%E6%8D%8F%E4%BD%93%E5%9E%8B%E6%96%B9%E6%A1%88/</link>
-    <pubDate>Sat, 12 Nov 2022 00:45:33 &#43;0800</pubDate>
-    <author>Dand</author>
-    <guid>https://dandkong.github.io/%E6%8D%8F%E4%BD%93%E5%9E%8B%E6%96%B9%E6%A1%88/</guid>
-    <description><![CDATA[总览 捏脸主要是通过复制一份骨骼（称为编辑骨骼）的Transform值，带动蒙皮来实现体型的变化，主要技术点在实现方式，编辑器开发，骨骼数据的组织方式，数据的存取。
-主要的类和方法 CommonCustomizeDNA 自定义部位可以改变的值，包括Transform的各个分量，共9个，加一个整体缩放
-1 2 3 4 5 6 public XXX { scaleX, rotaionX ... } CommonCustomizeDNAConfig 自定义部位可以改变的值范围，包括Transform的各个分量，共9个，加一个整体缩放
-1 2 3 4 5 6 public XXX { scaleXmin, scaleYmin, ... } BodyCustomizeDNA 预定义的可调节部分，可能作用于单根骨骼，也可以一个参数作用于多个骨骼，也可以改变整体缩放（单独处理）
-还包括了自定义的DNA属性
-1 2 3 4 5 6 7 8 9 //在z轴方向缩放，改骨骼scale值 [LabelOverride(&#34;胸腔前后&#34;,&#34;上身&#34;)] [Range(160,60)] public upperBodyFB; //偏移 [LabelOverride(&#34;胸部左右&#34;,&#34;上身&#34;)] [Range(160,60)] public bustOffsetLR； BodyCustomizableSlot 数据类，可编辑的最小单位，主要存数据，包括操作的细项属性，原骨骼，编辑的骨骼
-BodyCustomizableController 定义每个槽位的信息，包括了名字，操作的骨骼名字，编辑模式（改变自身，改变自身和子对象，改变自身以及非BIP骨骼） 初始化做了 根据固定槽位列表，找到对应的bone 整合固定的槽位列表和自定义的槽位列表 根据上面的数据，按模式生成编辑骨骼，生成一份一模一样的骨骼（Transform信息也一致），放到原骨骼下面，如果编辑模式为修改自己以及子对象，则把原骨骼的子对象都放到编辑骨骼下面。生成一份新的骨骼放在原骨骼的子节点，编辑骨骼可以受到动画和自定义值的双重影响，其子节点能受到自定义值得影响。 把编辑骨骼替换原有骨骼整合到蒙皮中，mesh.bones，使其能够影响蒙皮 ApplyDna方法，主要把配置的值（BodyCustomizeDNA）赋值到可编辑骨骼中 根据BodyCustomizeDNA值对BodyCustomizableSlot的编辑骨骼进行三维度缩放（放大缩小效果） BodyCustomizeDNA的配置值直接对特定BodyCustomizableSlot的编辑骨骼进行旋转处理（偏移效果） 处理自定义槽位的编辑骨骼旋转缩放位置，以及镜像编辑骨骼的旋转缩放位置 LateUpdate中处理某些父子骨骼的位置关系（脖子和头），子骨骼跟着父编辑骨骼走，主要针对BIP骨骼会被anim控制，也希望能受到父编辑骨骼的影响。 体型变化实现原理 分三种操作类型]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>模型 on Dand</title>
+    <link>https://dandkong.github.io/tags/%E6%A8%A1%E5%9E%8B/</link>
+    <description>Recent content in 模型 on Dand</description>
+    <image>
+      <title>Dand</title>
+      <url>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.123.8</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 12 Nov 2022 00:45:33 +0800</lastBuildDate>
+    <atom:link href="https://dandkong.github.io/tags/%E6%A8%A1%E5%9E%8B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>捏体型方案</title>
+      <link>https://dandkong.github.io/posts/%E6%8D%8F%E4%BD%93%E5%9E%8B%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Sat, 12 Nov 2022 00:45:33 +0800</pubDate>
+      <guid>https://dandkong.github.io/posts/%E6%8D%8F%E4%BD%93%E5%9E%8B%E6%96%B9%E6%A1%88/</guid>
+      <description>捏脸主要是通过复制一份骨骼（称为编辑骨骼）的Transform值，带动蒙皮来实现体型的变化，主要技术点在实现方式，编辑器开发，骨骼数据的组织方式，数据的存取。</description>
+    </item>
+  </channel>
 </rss>

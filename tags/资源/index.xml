@@ -1,30 +1,38 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>资源 - 标签 - Dand&#39;s Blog</title>
-        <link>https://dandkong.github.io/tags/%E8%B5%84%E6%BA%90/</link>
-        <description>资源 - 标签 - Dand&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 29 Jun 2024 22:02:52 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/tags/%E8%B5%84%E6%BA%90/" rel="self" type="application/rss+xml" /><item>
-    <title>YooAsset学习笔记3：编辑器</title>
-    <link>https://dandkong.github.io/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03%E7%BC%96%E8%BE%91%E5%99%A8/</link>
-    <pubDate>Sat, 29 Jun 2024 22:02:52 &#43;0800</pubDate>
-    <author>Dand</author>
-    <guid>https://dandkong.github.io/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03%E7%BC%96%E8%BE%91%E5%99%A8/</guid>
-    <description><![CDATA[前言 上一篇文章简述了YooAsset资源管理框架运行时的框架的使用，接下来通过代码分析其内部原理。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>资源 on Dand</title>
+    <link>https://dandkong.github.io/tags/%E8%B5%84%E6%BA%90/</link>
+    <description>Recent content in 资源 on Dand</description>
+    <image>
+      <title>Dand</title>
+      <url>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.123.8</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 29 Jun 2024 22:02:52 +0800</lastBuildDate>
+    <atom:link href="https://dandkong.github.io/tags/%E8%B5%84%E6%BA%90/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>YooAsset学习笔记3：编辑器</title>
+      <link>https://dandkong.github.io/posts/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03%E7%BC%96%E8%BE%91%E5%99%A8/</link>
+      <pubDate>Sat, 29 Jun 2024 22:02:52 +0800</pubDate>
+      <guid>https://dandkong.github.io/posts/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03%E7%BC%96%E8%BE%91%E5%99%A8/</guid>
+      <description>前言 上一篇文章简述了YooAsset资源管理框架运行时的框架的使用，接下来通过代码分析其内部原理。
 概览 YooAsset框架的编辑器部分包含了四个部分。
 收集：通过过滤规则，资源包名，定位地址，划分打包资源。 构建：根据收集到的资源，同时收集其依赖资源，打包成Bundle包。 Reporter：打包后的资源报告。 Debugger：运行时的资源加载情况。 收集 收集器主要通过过滤规则，资源包名，定位地址来划分资源，具体的用法在使用文档有详细介绍，本系列的第一篇也有介绍。
 构建 资源构建也是和运行时的设计相似，按步骤构建，流程如下图所示。
 构建管线分为内置管线，可编程管线，原生管线，内置管线和可编程管线的构建步骤基本一致，调用的API有不同。原生管线就是直接复制文件，不构建Bundle。
 总结 编辑器的框架就是如此，先收集再按步骤构建，再配套Reporter和Debugger进行排查分析。
 本系列教程到此结束，感谢阅读。
-参考 https://github.com/tuyoogame/YooAsset]]></description>
-</item>
-<item>
-    <title>YooAsset学习笔记2：运行时</title>
-    <link>https://dandkong.github.io/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02%E8%BF%90%E8%A1%8C%E6%97%B6/</link>
-    <pubDate>Fri, 14 Jun 2024 22:02:52 &#43;0800</pubDate>
-    <author>Dand</author>
-    <guid>https://dandkong.github.io/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02%E8%BF%90%E8%A1%8C%E6%97%B6/</guid>
-    <description><![CDATA[前言 上一篇文章简述了YooAsset资源管理框架的使用，接下来通过代码分析其内部原理。
+参考 https://github.com/tuyoogame/YooAsset</description>
+    </item>
+    <item>
+      <title>YooAsset学习笔记2：运行时</title>
+      <link>https://dandkong.github.io/posts/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02%E8%BF%90%E8%A1%8C%E6%97%B6/</link>
+      <pubDate>Fri, 14 Jun 2024 22:02:52 +0800</pubDate>
+      <guid>https://dandkong.github.io/posts/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02%E8%BF%90%E8%A1%8C%E6%97%B6/</guid>
+      <description>前言 上一篇文章简述了YooAsset资源管理框架的使用，接下来通过代码分析其内部原理。
 整体框架 YooAsset框架主要分为运行时和编辑器部分，运行时实现了资源包加载，Bunlde加载，缓存，下载，从上到下的结构。编辑器部分实现了资源收集，资源构建。这篇文章主要分析运行时的机制，结构如下。
 加载流程 运行时加载流程主要如下，加载开始以后，每一层的模块基本都是轮询实现。
 简单的例子就是调用加载，从上到下，上层等待下层完成自己的步骤，如果完成，再轮询到下个阶段。
@@ -42,15 +50,14 @@ Loader功能：加载Bundle。
 另一个调用是在资源包初始化后，把已经下载的文件验证一遍，记录到缓存系统中。
 后记 运行的框架就是如此，虽然功能很多，但结构清晰，使用了分层处理的思想。
 下一篇将介绍编辑器的逻辑，敬请期待。
-参考 https://github.com/tuyoogame/YooAsset]]></description>
-</item>
-<item>
-    <title>YooAsset学习笔记1：接入流程</title>
-    <link>https://dandkong.github.io/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01%E6%8E%A5%E5%85%A5%E6%B5%81%E7%A8%8B/</link>
-    <pubDate>Tue, 21 May 2024 19:54:20 &#43;0800</pubDate>
-    <author>Dand</author>
-    <guid>https://dandkong.github.io/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01%E6%8E%A5%E5%85%A5%E6%B5%81%E7%A8%8B/</guid>
-    <description><![CDATA[前言 YooAsset是一套Unity的资源管理方案，类似Unity提供的Addressable资源系统配置好了资源规则，后面只需要用一个“寻址路径”就能透明加载资源，无需关注位于什么bundle包，以及bunlde的依赖关系，也无需关注资源包是位于本地或者远端CDN。
+参考 https://github.com/tuyoogame/YooAsset</description>
+    </item>
+    <item>
+      <title>YooAsset学习笔记1：接入流程</title>
+      <link>https://dandkong.github.io/posts/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01%E6%8E%A5%E5%85%A5%E6%B5%81%E7%A8%8B/</link>
+      <pubDate>Tue, 21 May 2024 19:54:20 +0800</pubDate>
+      <guid>https://dandkong.github.io/posts/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01%E6%8E%A5%E5%85%A5%E6%B5%81%E7%A8%8B/</guid>
+      <description>前言 YooAsset是一套Unity的资源管理方案，类似Unity提供的Addressable资源系统配置好了资源规则，后面只需要用一个“寻址路径”就能透明加载资源，无需关注位于什么bundle包，以及bunlde的依赖关系，也无需关注资源包是位于本地或者远端CDN。
 接入流程 安装YooAsset 参照官网教程即可，这里使用package进行安装。
 资源配置 资源配置是YooAsset系统的亮点所在，这里用一个简单的登录界面作为例子配置一下。
 首先看看文件目录，这里需要加载LoginView，LoginView里用到了test图片，test图片又被收集在图集login中。
@@ -64,7 +71,7 @@ PackRule PackSeparately 以文件路径作为资源包名，每个资源文件�
 PackTopDirectory。
 FilterRule CollectAll 收集目录下的所有资源文件 CollectScene 只收集目录下的场景文件 CollectPrefab 只收集目录下的预制体文件 CollectSprite 只收集目录下的精灵类型的文件
 UIPrefabs设置为CollectPrefab
-资源构建 资源构建，分别有版本号，构建模式（强制打包，增量打包&hellip;），加密类型，压缩类型，Bundle包的命名风格，以及内建资源选项。
+资源构建 资源构建，分别有版本号，构建模式（强制打包，增量打包&amp;hellip;），加密类型，压缩类型，Bundle包的命名风格，以及内建资源选项。
 点击打包后，会生成几种关键的文件
 bundle后缀的就是资源文件，这里包含了指定打包的prefab文件，和一个依赖引用的图片bundle。
 PackageManifest开头的是资源清单文件，只是格式不同，这里打开json后缀的查看一下。
@@ -77,7 +84,7 @@ PackageManifest开头的是资源清单文件，只是格式不同，这里打�
 联机运行模式
 WebGL运行模式
 这里使用单机运行模式，如果使用联机运行模式需要CDN和指定更多的初始化参数，具体参考官方教程。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 void Start() { // 初始化资源系统 YooAssets.]]></description>
-</item>
-</channel>
+void Start() { // 初始化资源系统 YooAssets.Initialize(); StartCoroutine(InitializeYooAsset()); } private IEnumerator InitializeYooAsset() { // 创建默认的资源包 var package = YooAssets.</description>
+    </item>
+  </channel>
 </rss>

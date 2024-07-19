@@ -1,15 +1,24 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>FGUI - 标签 - Dand&#39;s Blog</title>
-        <link>https://dandkong.github.io/tags/fgui/</link>
-        <description>FGUI - 标签 - Dand&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 18 Nov 2022 21:02:40 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/tags/fgui/" rel="self" type="application/rss+xml" /><item>
-    <title>UGUI对比FGUI</title>
-    <link>https://dandkong.github.io/ugui%E5%AF%B9%E6%AF%94fgui/</link>
-    <pubDate>Fri, 18 Nov 2022 21:02:40 &#43;0800</pubDate>
-    <author>Dand</author>
-    <guid>https://dandkong.github.io/ugui%E5%AF%B9%E6%AF%94fgui/</guid>
-    <description><![CDATA[前言 UI是游戏中很重要的一部分，工作大多是繁复的，所以有一套功能强大，操作简单直观的UI解决方案是非常有必要的。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>FGUI on Dand</title>
+    <link>https://dandkong.github.io/tags/fgui/</link>
+    <description>Recent content in FGUI on Dand</description>
+    <image>
+      <title>Dand</title>
+      <url>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.123.8</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 18 Nov 2022 21:02:40 +0800</lastBuildDate>
+    <atom:link href="https://dandkong.github.io/tags/fgui/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UGUI对比FGUI</title>
+      <link>https://dandkong.github.io/posts/ugui%E5%AF%B9%E6%AF%94fgui/</link>
+      <pubDate>Fri, 18 Nov 2022 21:02:40 +0800</pubDate>
+      <guid>https://dandkong.github.io/posts/ugui%E5%AF%B9%E6%AF%94fgui/</guid>
+      <description>前言 UI是游戏中很重要的一部分，工作大多是繁复的，所以有一套功能强大，操作简单直观的UI解决方案是非常有必要的。
 上半年一直在用FGUI，和之前用的UGUI相比下来，各有优缺点，对比分析记录一下。
 一、介绍 UGUI UGUI是Unity原生提供的UI方案，提供了基本的UI组件，如图片，文本，按钮，复选框，进度条等等，正是因为UGUI是面向普遍开发，所以没有封装很多高级的组件，比如虚拟列表。
 FGUI FairyGUI（下来简称FGUI）号称易上手，直观，零代码，有一个独立的编辑器，封装了很多高级的UI组件，用起来不需要自己造轮子。
@@ -36,7 +45,7 @@ FGUI 优点：FGUI的对齐系统叫做关联系统，第一个优点是不局�
 六、拓展性 两者都有拓展性，FGUI的拓展性在于代码是开源的，可以在底层定制适合项目的功能，但是编辑器是不开源的，所以编辑器里面的东西改不了，虽然编辑器提供了脚本拓展支持，但能实现的东西不多。
 UGUI的拓展性在于可以轻松地对编辑器进行拓展，也可以加上各种效果，一般也不会动到底层的如网格重构和渲染的代码，真想修改的话可能要和Unity进行合作然后项目搞一个魔改版的Unity。
 七、总结 总的来说两种UI解决方案都可以商用，不会有特别大的问题。
-要是策划美术拼UI的话，可以选择FGUI，相反要是程序负责的话，两者都可以，但个人感觉Unity上的操作更加熟悉一点，程序员也可以在平时的UI流程中，吸收一些FGUI的思想，做些工具提高UI的开发效率。]]></description>
-</item>
-</channel>
+要是策划美术拼UI的话，可以选择FGUI，相反要是程序负责的话，两者都可以，但个人感觉Unity上的操作更加熟悉一点，程序员也可以在平时的UI流程中，吸收一些FGUI的思想，做些工具提高UI的开发效率。</description>
+    </item>
+  </channel>
 </rss>

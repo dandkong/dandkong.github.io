@@ -1,87 +1,171 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>Tags - 标签 - Dand&#39;s Blog</title>
-        <link>https://dandkong.github.io/tags/</link>
-        <description>Tags - 标签 - Dand&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 17 Jul 2024 22:07:01 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/tags/" rel="self" type="application/rss+xml" /><item>
-    <title>游戏框架</title>
-    <link>https://dandkong.github.io/tags/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6/</link>
-    <pubDate>Wed, 17 Jul 2024 22:07:01 &#43;0800</pubDate>
-    <author>Dand</author>
-    <guid>https://dandkong.github.io/tags/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>语言</title>
-    <link>https://dandkong.github.io/tags/%E8%AF%AD%E8%A8%80/</link>
-    <pubDate>Wed, 17 Jul 2024 22:07:01 &#43;0800</pubDate>
-    <author>Dand</author>
-    <guid>https://dandkong.github.io/tags/%E8%AF%AD%E8%A8%80/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Unity</title>
-    <link>https://dandkong.github.io/tags/unity/</link>
-    <pubDate>Wed, 17 Jul 2024 22:05:10 &#43;0800</pubDate>
-    <author>Dand</author>
-    <guid>https://dandkong.github.io/tags/unity/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>网络</title>
-    <link>https://dandkong.github.io/tags/%E7%BD%91%E7%BB%9C/</link>
-    <pubDate>Wed, 17 Jul 2024 22:05:10 &#43;0800</pubDate>
-    <author>Dand</author>
-    <guid>https://dandkong.github.io/tags/%E7%BD%91%E7%BB%9C/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>资源</title>
-    <link>https://dandkong.github.io/tags/%E8%B5%84%E6%BA%90/</link>
-    <pubDate>Sat, 29 Jun 2024 22:02:52 &#43;0800</pubDate>
-    <author>Dand</author>
-    <guid>https://dandkong.github.io/tags/%E8%B5%84%E6%BA%90/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>UI</title>
-    <link>https://dandkong.github.io/tags/ui/</link>
-    <pubDate>Thu, 06 Jun 2024 22:45:30 &#43;0800</pubDate>
-    <author>Dand</author>
-    <guid>https://dandkong.github.io/tags/ui/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>特效</title>
-    <link>https://dandkong.github.io/tags/%E7%89%B9%E6%95%88/</link>
-    <pubDate>Thu, 06 Jun 2024 22:45:30 &#43;0800</pubDate>
-    <author>Dand</author>
-    <guid>https://dandkong.github.io/tags/%E7%89%B9%E6%95%88/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>UGUI</title>
-    <link>https://dandkong.github.io/tags/ugui/</link>
-    <pubDate>Sat, 16 Mar 2024 20:14:29 &#43;0800</pubDate>
-    <author>Dand</author>
-    <guid>https://dandkong.github.io/tags/ugui/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>编辑器</title>
-    <link>https://dandkong.github.io/tags/%E7%BC%96%E8%BE%91%E5%99%A8/</link>
-    <pubDate>Sat, 16 Mar 2024 20:14:29 &#43;0800</pubDate>
-    <author>Dand</author>
-    <guid>https://dandkong.github.io/tags/%E7%BC%96%E8%BE%91%E5%99%A8/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>性能优化</title>
-    <link>https://dandkong.github.io/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</link>
-    <pubDate>Sat, 08 Jul 2023 11:24:17 &#43;0800</pubDate>
-    <author>Dand</author>
-    <guid>https://dandkong.github.io/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</guid>
-    <description><![CDATA[]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on Dand</title>
+    <link>https://dandkong.github.io/tags/</link>
+    <description>Recent content in Tags on Dand</description>
+    <image>
+      <title>Dand</title>
+      <url>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.123.8</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 17 Jul 2024 22:07:01 +0800</lastBuildDate>
+    <atom:link href="https://dandkong.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>游戏框架</title>
+      <link>https://dandkong.github.io/tags/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://dandkong.github.io/tags/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>语言</title>
+      <link>https://dandkong.github.io/tags/%E8%AF%AD%E8%A8%80/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://dandkong.github.io/tags/%E8%AF%AD%E8%A8%80/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Unity</title>
+      <link>https://dandkong.github.io/tags/unity/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://dandkong.github.io/tags/unity/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>网络</title>
+      <link>https://dandkong.github.io/tags/%E7%BD%91%E7%BB%9C/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://dandkong.github.io/tags/%E7%BD%91%E7%BB%9C/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>资源</title>
+      <link>https://dandkong.github.io/tags/%E8%B5%84%E6%BA%90/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://dandkong.github.io/tags/%E8%B5%84%E6%BA%90/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>UI</title>
+      <link>https://dandkong.github.io/tags/ui/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://dandkong.github.io/tags/ui/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>特效</title>
+      <link>https://dandkong.github.io/tags/%E7%89%B9%E6%95%88/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://dandkong.github.io/tags/%E7%89%B9%E6%95%88/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>UGUI</title>
+      <link>https://dandkong.github.io/tags/ugui/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://dandkong.github.io/tags/ugui/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>编辑器</title>
+      <link>https://dandkong.github.io/tags/%E7%BC%96%E8%BE%91%E5%99%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://dandkong.github.io/tags/%E7%BC%96%E8%BE%91%E5%99%A8/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>性能优化</title>
+      <link>https://dandkong.github.io/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://dandkong.github.io/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lua</title>
+      <link>https://dandkong.github.io/tags/lua/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://dandkong.github.io/tags/lua/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>https://dandkong.github.io/tags/c&#43;&#43;/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://dandkong.github.io/tags/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>STL</title>
+      <link>https://dandkong.github.io/tags/stl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://dandkong.github.io/tags/stl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>编程语言</title>
+      <link>https://dandkong.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://dandkong.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>寻路</title>
+      <link>https://dandkong.github.io/tags/%E5%AF%BB%E8%B7%AF/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://dandkong.github.io/tags/%E5%AF%BB%E8%B7%AF/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>副本</title>
+      <link>https://dandkong.github.io/tags/%E5%89%AF%E6%9C%AC/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://dandkong.github.io/tags/%E5%89%AF%E6%9C%AC/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>场景</title>
+      <link>https://dandkong.github.io/tags/%E5%9C%BA%E6%99%AF/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://dandkong.github.io/tags/%E5%9C%BA%E6%99%AF/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>角色</title>
+      <link>https://dandkong.github.io/tags/%E8%A7%92%E8%89%B2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://dandkong.github.io/tags/%E8%A7%92%E8%89%B2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>FGUI</title>
+      <link>https://dandkong.github.io/tags/fgui/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://dandkong.github.io/tags/fgui/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>模型</title>
+      <link>https://dandkong.github.io/tags/%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://dandkong.github.io/tags/%E6%A8%A1%E5%9E%8B/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>LOD</title>
+      <link>https://dandkong.github.io/tags/lod/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://dandkong.github.io/tags/lod/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>剔除遮挡</title>
+      <link>https://dandkong.github.io/tags/%E5%89%94%E9%99%A4%E9%81%AE%E6%8C%A1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://dandkong.github.io/tags/%E5%89%94%E9%99%A4%E9%81%AE%E6%8C%A1/</guid>
+      <description></description>
+    </item>
+  </channel>
 </rss>

@@ -1,25 +1,24 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>LOD - 标签 - Dand&#39;s Blog</title>
-        <link>https://dandkong.github.io/tags/lod/</link>
-        <description>LOD - 标签 - Dand&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 12 Nov 2022 00:16:35 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/tags/lod/" rel="self" type="application/rss+xml" /><item>
-    <title>InstantOC &#43; LOD</title>
-    <link>https://dandkong.github.io/instantoc/</link>
-    <pubDate>Sat, 12 Nov 2022 00:16:35 &#43;0800</pubDate>
-    <author>Dand</author>
-    <guid>https://dandkong.github.io/instantoc/</guid>
-    <description><![CDATA[原理 剔除遮挡+Lod，可以组合使用 相机每帧主动发射射线击中物体，击中后显示，并且重置周期 物体在周期后，主动向相机发射射线，判断是否需要隐藏 相机后的物体。减少DC（CPU压力），减少GPU剔除消耗；被遮挡的物体减少GPU渲染 IOCCam 每帧根据算法生成的随机点，向视锥体内发射若干条射线，击中以后，显示
-并根据距离通过LODGroup切换高低模
-参数：每帧发射的射线
-不足：射线过多
-改进：减少射线，延长周期（物体不主动发起射线）
-IOClod 初始化，根据相机距离和包围盒，初始化一个合适的Lod
-剔除方法：Render enable设置为false或者修改阴影投射（一定距离内保持阴影，防止穿帮）
-原版方案：周期从击中点向相机发射射线，被其他阻挡，则剔除
-不足：随机的击中点，可能在侧面，或者后面，会自己把自己剔除掉
-改进：击中点取2s中最近的击中点，作为击中点
-LOD 运行时根据机型信息，设置IOClod的lod距离 cullDis，过远的直接隐藏，方法和上面一致 减少GPU需要处理的顶点数 使用 生成场景时给需要剔除的组件添加IOClod组件 指标 点面数 峰值点面数 优点 剔除不需要渲染的物体 根据距离切换LOD模型，甚至剔除 参考 IOC介绍]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>LOD on Dand</title>
+    <link>https://dandkong.github.io/tags/lod/</link>
+    <description>Recent content in LOD on Dand</description>
+    <image>
+      <title>Dand</title>
+      <url>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.123.8</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 13 Nov 2022 00:16:35 +0800</lastBuildDate>
+    <atom:link href="https://dandkong.github.io/tags/lod/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>InstantOC &#43; LOD</title>
+      <link>https://dandkong.github.io/posts/instantoc/</link>
+      <pubDate>Sat, 12 Nov 2022 00:16:35 +0800</pubDate>
+      <guid>https://dandkong.github.io/posts/instantoc/</guid>
+      <description>主要用于剔除遮挡以及LOD</description>
+    </item>
+  </channel>
 </rss>

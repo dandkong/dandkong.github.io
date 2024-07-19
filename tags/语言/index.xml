@@ -1,15 +1,24 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>语言 - 标签 - Dand&#39;s Blog</title>
-        <link>https://dandkong.github.io/tags/%E8%AF%AD%E8%A8%80/</link>
-        <description>语言 - 标签 - Dand&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 17 Jul 2024 22:07:01 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/tags/%E8%AF%AD%E8%A8%80/" rel="self" type="application/rss+xml" /><item>
-    <title>PuerTS学习路线</title>
-    <link>https://dandkong.github.io/puerts%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</link>
-    <pubDate>Wed, 17 Jul 2024 22:07:01 &#43;0800</pubDate>
-    <author>Dand</author>
-    <guid>https://dandkong.github.io/puerts%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</guid>
-    <description><![CDATA[前言 最近看到腾讯又出了个游戏脚本的热更方案，相对lua有以下的优势。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>语言 on Dand</title>
+    <link>https://dandkong.github.io/tags/%E8%AF%AD%E8%A8%80/</link>
+    <description>Recent content in 语言 on Dand</description>
+    <image>
+      <title>Dand</title>
+      <url>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.123.8</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 17 Jul 2024 22:07:01 +0800</lastBuildDate>
+    <atom:link href="https://dandkong.github.io/tags/%E8%AF%AD%E8%A8%80/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PuerTS学习路线</title>
+      <link>https://dandkong.github.io/posts/puerts%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</link>
+      <pubDate>Wed, 17 Jul 2024 22:07:01 +0800</pubDate>
+      <guid>https://dandkong.github.io/posts/puerts%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</guid>
+      <description>前言 最近看到腾讯又出了个游戏脚本的热更方案，相对lua有以下的优势。
 JavaScript生态有众多的库和工具链，结合专业商业引擎的渲染能力，快速打造游戏
 相比游戏领域常用的lua脚本，TypeScript的静态类型检查有助于编写更健壮，可维护性更好的程序
 安装 安装PuerTS | PUER Typescript
@@ -28,7 +37,7 @@ TS学习 TS拥有静态类型检测，能编写更具有健壮性的代码，也
 Handbook - The TypeScript Handbook
 TypeScript 入门教程
 ES6 入门教程
-前言 | TypeScript手册]]></description>
-</item>
-</channel>
+前言 | TypeScript手册</description>
+    </item>
+  </channel>
 </rss>

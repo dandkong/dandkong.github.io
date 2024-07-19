@@ -1,15 +1,24 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>特效 - 标签 - Dand&#39;s Blog</title>
-        <link>https://dandkong.github.io/tags/%E7%89%B9%E6%95%88/</link>
-        <description>特效 - 标签 - Dand&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 06 Jun 2024 22:45:30 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/tags/%E7%89%B9%E6%95%88/" rel="self" type="application/rss+xml" /><item>
-    <title>UI特效插件-UIParticle</title>
-    <link>https://dandkong.github.io/ui%E7%89%B9%E6%95%88%E6%8F%92%E4%BB%B6-uiparticle/</link>
-    <pubDate>Thu, 06 Jun 2024 22:45:30 &#43;0800</pubDate>
-    <author>Dand</author>
-    <guid>https://dandkong.github.io/ui%E7%89%B9%E6%95%88%E6%8F%92%E4%BB%B6-uiparticle/</guid>
-    <description><![CDATA[前言 在UI上显示特效是一直是一个比较棘手的问题，一开始的方案是调整UI特效的渲染顺序，设置其sortingLayer和sortingOrder+offset，在每个单独的UI以后渲染。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>特效 on Dand</title>
+    <link>https://dandkong.github.io/tags/%E7%89%B9%E6%95%88/</link>
+    <description>Recent content in 特效 on Dand</description>
+    <image>
+      <title>Dand</title>
+      <url>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.123.8</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 06 Jun 2024 22:45:30 +0800</lastBuildDate>
+    <atom:link href="https://dandkong.github.io/tags/%E7%89%B9%E6%95%88/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UI特效插件-UIParticle</title>
+      <link>https://dandkong.github.io/posts/ui%E7%89%B9%E6%95%88%E6%8F%92%E4%BB%B6-uiparticle/</link>
+      <pubDate>Thu, 06 Jun 2024 22:45:30 +0800</pubDate>
+      <guid>https://dandkong.github.io/posts/ui%E7%89%B9%E6%95%88%E6%8F%92%E4%BB%B6-uiparticle/</guid>
+      <description>前言 在UI上显示特效是一直是一个比较棘手的问题，一开始的方案是调整UI特效的渲染顺序，设置其sortingLayer和sortingOrder+offset，在每个单独的UI以后渲染。
 这种方法能满足大部分的需求，但也有缺点。
 如果需要在特效上再盖一层UI的话，由于特效并不属于Canvas的一部分，所以修改Hierarchy并不能改变其渲染顺序，特效会在渲染完Canvas的UI元素以后再进行渲染，所以需要把这个UI的层级通过添加Canvas继续往上抬。
 再者无法被RectMask2D和Mask裁剪，除非改造Shader，并手动传入裁剪区域。
@@ -21,7 +30,7 @@ You can render, mask, and sort your ParticleSystems for UI without the necessity
 改造已有shader以支持遮罩 项目推荐我们使用UIShader，如UIDefault或者UIAdditive。
 Mask通过模板测试实现遮罩，RectMask2D通过传入裁剪区域实现。
 所以自定义的Shader只需要参考上面的UIShader使其拥有遮罩特效即可，注意RenderQueue设置为Transparent，下面贴一下关键Shader代码。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 Shader &#34;Your/Custom/Shader&#34; { Properties { // .]]></description>
-</item>
-</channel>
+Shader &amp;#34;Your/Custom/Shader&amp;#34; { Properties { // ... // #### required for Mask #### _StencilComp (&amp;#34;Stencil Comparison&amp;#34;, Float) = 8 _Stencil (&amp;#34;Stencil ID&amp;#34;, Float) = 0 _StencilOp (&amp;#34;Stencil Operation&amp;#34;, Float) = 0 _StencilWriteMask (&amp;#34;Stencil Write Mask&amp;#34;, Float) = 255 _StencilReadMask (&amp;#34;Stencil Read Mask&amp;#34;, Float) = 255 _ColorMask (&amp;#34;Color Mask&amp;#34;, Float) = 15 [Toggle(UNITY_UI_ALPHACLIP)] _UseUIAlphaClip (&amp;#34;Use Alpha Clip&amp;#34;, Float) = 0 } SubShader { Tags { // .</description>
+    </item>
+  </channel>
 </rss>

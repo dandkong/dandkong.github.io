@@ -1,30 +1,35 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>网络 - 标签 - Dand&#39;s Blog</title>
-        <link>https://dandkong.github.io/tags/%E7%BD%91%E7%BB%9C/</link>
-        <description>网络 - 标签 - Dand&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 17 Jul 2024 22:05:10 &#43;0800</lastBuildDate><atom:link href="https://dandkong.github.io/tags/%E7%BD%91%E7%BB%9C/" rel="self" type="application/rss+xml" /><item>
-    <title>Unity使用Socket</title>
-    <link>https://dandkong.github.io/unity%E4%BD%BF%E7%94%A8socket/</link>
-    <pubDate>Wed, 17 Jul 2024 22:05:10 &#43;0800</pubDate>
-    <author>Dand</author>
-    <guid>https://dandkong.github.io/unity%E4%BD%BF%E7%94%A8socket/</guid>
-    <description><![CDATA[前言 之前开发一直都在关注客户端的逻辑，没有涉及到网络相关的知识，这几天参考网上的资料学习了一下做个简易的网络聊天室，记录一下。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>网络 on Dand</title>
+    <link>https://dandkong.github.io/tags/%E7%BD%91%E7%BB%9C/</link>
+    <description>Recent content in 网络 on Dand</description>
+    <image>
+      <title>Dand</title>
+      <url>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.123.8</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 17 Jul 2024 22:05:10 +0800</lastBuildDate>
+    <atom:link href="https://dandkong.github.io/tags/%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Unity使用Socket</title>
+      <link>https://dandkong.github.io/posts/unity%E4%BD%BF%E7%94%A8socket/</link>
+      <pubDate>Wed, 17 Jul 2024 22:05:10 +0800</pubDate>
+      <guid>https://dandkong.github.io/posts/unity%E4%BD%BF%E7%94%A8socket/</guid>
+      <description>前言 之前开发一直都在关注客户端的逻辑，没有涉及到网络相关的知识，这几天参考网上的资料学习了一下做个简易的网络聊天室，记录一下。
 简单的网络通信于 Unity 客户端借助 Socket 与服务端达成连接，并依据事先约定的协议（诸如 json、protobuf 等）展开通信。
 客户端 客户端的主要功能：连接，发送数据，接收数据。
 这里参考开源的简易网络框架，可以自定义其包体，编码器和解码器。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 using System.]]></description>
-</item>
-<item>
-    <title>状态同步与帧同步</title>
-    <link>https://dandkong.github.io/%E7%8A%B6%E6%80%81%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%B8%A7%E5%90%8C%E6%AD%A5/</link>
-    <pubDate>Thu, 11 May 2023 21:35:54 &#43;0800</pubDate>
-    <author>Dand</author>
-    <guid>https://dandkong.github.io/%E7%8A%B6%E6%80%81%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%B8%A7%E5%90%8C%E6%AD%A5/</guid>
-    <description><![CDATA[1. 状态同步 服务端接受客户端的操作，计算逻辑，分发到各客户端，游戏世界玩家没有属性变化，基本不会进行同步消息下发。
-优点 服务端可靠 断线重连简单，把当前状态下发 缺点 回放需要单独的服务器，保存所有的状态，按时间发 服务器压力大，计算多 开发复杂 2. 帧同步 服务端只做转发操作，转发各个客户端，大多数帧同步的逻辑是只放在每个客户端的，无论是否有操作，每一帧都会有服务器数据下发。
-优点 回放简单，只要把操作都记录下来就好 开发简单 缺点 不安全，客户端能篡改 断线重连需要把之前所有操作加速一遍 注意随机数每次都一样 3. 状态帧同步 状态帧同步就是状态同步和帧同步的概念相结合。客户端向服务器上传操作，服务器跑逻辑，但是又在按照固定的每一帧下发所有玩家的状态（属性位置等）给每一个客户端实现同步。客户端做预测，服务端做校验，不正确就回滚数据。
-4. 参考 https://zhuanlan.zhihu.com/p/36884005 https://www.cnblogs.com/October2018/p/16120681.html ]]></description>
-</item>
-</channel>
+using System.Net; using System.Net.Sockets; using System.Text; using UnityEngine; using UniFramework.Network; // 登录请求消息 class LoginRequestMessage { public string Name; public string Password; } // 登录反馈消息 class LoginResponseMessage { public string Result; } // TCP客户端 UniFramework.Network.TcpClient _client = null; // 创建TCP客户端 void CreateClient() { // 初始化网络系统 UniNetwork.Initalize(); // 创建TCP客户端 int packageMaxSize = short.MaxValue; var encoder = new DefaultNetPackageEncoder(); var decoder = new DefaultNetPackageDecoder(); _client = UniNetwork.</description>
+    </item>
+    <item>
+      <title>状态同步与帧同步</title>
+      <link>https://dandkong.github.io/posts/%E7%8A%B6%E6%80%81%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%B8%A7%E5%90%8C%E6%AD%A5/</link>
+      <pubDate>Thu, 11 May 2023 21:35:54 +0800</pubDate>
+      <guid>https://dandkong.github.io/posts/%E7%8A%B6%E6%80%81%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%B8%A7%E5%90%8C%E6%AD%A5/</guid>
+      <description>简要概括帧同步，状态同步和状态帧同步的原理以及优缺点</description>
+    </item>
+  </channel>
 </rss>
