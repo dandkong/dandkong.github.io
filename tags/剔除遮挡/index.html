@@ -9,7 +9,7 @@ IOClod 初始化，根据相机距离和包围盒，初始化一个合适的Lod
 原版方案：周期从击中点向相机发射射线，被其他阻挡，则剔除
 不足：随机的击中点，可能在侧面，或者后面，会自己把自己剔除掉
 改进：击中点取2s中最近的击中点，作为击中点
-LOD 运行时根据机型信息，设置IOClod的lod距离 cullDis，过远的直接隐藏，方法和上面一致 减少GPU需要处理的顶点数 使用 生成场景时给需要剔除的组件添加IOClod组件 指标 点面数 峰值点面数 优点 剔除不需要渲染的物体 根据距离切换LOD模型，甚至剔除 参考 IOC介绍</p></div><footer class=entry-footer><span title='2022-11-12 00:16:35 +0800 CST'>2022年11月12日</span>&nbsp;·&nbsp;Dand</footer><a class=entry-link aria-label="post link to InstantOC + LOD" href=https://dandkong.github.io/posts/instantoc/></a></article></main><footer class=footer><span>&copy; 2024 <a href=https://dandkong.github.io/>Dand</a></span> ·
+LOD 运行时根据机型信息，设置IOClod的lod距离 cullDis，过远的直接隐藏，方法和上面一致 减少GPU需要处理的顶点数 使用 生成场景时给需要剔除的组件添加IOClod组件 指标 点面数 峰值点面数 优点 剔除不需要渲染的物体 根据距离切换LOD模型，甚至剔除 参考 IOC介绍</p></div><footer class=entry-footer><span title='2022-11-12 00:16:35 +0800 CST'>2022-11-12</span>&nbsp;·&nbsp;Dand</footer><a class=entry-link aria-label="post link to InstantOC + LOD" href=https://dandkong.github.io/posts/instantoc/></a></article></main><footer class=footer><span>&copy; 2024 <a href=https://dandkong.github.io/>Dand</a></span> ·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>

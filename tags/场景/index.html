@@ -8,7 +8,7 @@ NPC NPC主要承载了显示模型的功能，读取NPC表。
 点 点的功能比较广泛，主要用于定位，也可以添加触发组件以后实现圆形区域的功能。
 组件 组件是对象上的属性和功能，公用的组件有缩放，大小，显示隐藏条件等，特殊的组件有巡逻，交互按钮等，按需添加，从而赋予对象特性。
 三、场景编辑器 理清了场景对象的结构以后，就可以做编辑器把数据组织起来了，场景编辑器的实现细节不多说，尽量用起来符合直观操作即可，功能如下。
-增删改场景信息 直观展示场景中的对象（位置、模型、范围等） 增删改场景中的对象 修改对象的组件属性 导出程序可用数据 四、数据载体 数据可以直接导出lua，也可以导出成json，xml等，只要方便维护，程序方便调用即可。 目前使用的是先储存到excel，再从excel导出到lua中，供程序调用。 使用excel作为中间载体的原因可能是比较直观，但感觉使用json或者Unity序列化的方法也是可行的。</p></div><footer class=entry-footer><span title='2022-12-05 21:31:39 +0800 CST'>2022年12月5日</span>&nbsp;·&nbsp;Dand</footer><a class=entry-link aria-label="post link to 场景数据框架" href=https://dandkong.github.io/posts/%E5%9C%BA%E6%99%AF%E6%95%B0%E6%8D%AE%E6%A1%86%E6%9E%B6/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>InstantOC + LOD</h2></header><div class=entry-content><p>原理 剔除遮挡+Lod，可以组合使用 相机每帧主动发射射线击中物体，击中后显示，并且重置周期 物体在周期后，主动向相机发射射线，判断是否需要隐藏 相机后的物体。减少DC（CPU压力），减少GPU剔除消耗；被遮挡的物体减少GPU渲染 IOCCam 每帧根据算法生成的随机点，向视锥体内发射若干条射线，击中以后，显示
+增删改场景信息 直观展示场景中的对象（位置、模型、范围等） 增删改场景中的对象 修改对象的组件属性 导出程序可用数据 四、数据载体 数据可以直接导出lua，也可以导出成json，xml等，只要方便维护，程序方便调用即可。 目前使用的是先储存到excel，再从excel导出到lua中，供程序调用。 使用excel作为中间载体的原因可能是比较直观，但感觉使用json或者Unity序列化的方法也是可行的。</p></div><footer class=entry-footer><span title='2022-12-05 21:31:39 +0800 CST'>2022-12-5</span>&nbsp;·&nbsp;Dand</footer><a class=entry-link aria-label="post link to 场景数据框架" href=https://dandkong.github.io/posts/%E5%9C%BA%E6%99%AF%E6%95%B0%E6%8D%AE%E6%A1%86%E6%9E%B6/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>InstantOC + LOD</h2></header><div class=entry-content><p>原理 剔除遮挡+Lod，可以组合使用 相机每帧主动发射射线击中物体，击中后显示，并且重置周期 物体在周期后，主动向相机发射射线，判断是否需要隐藏 相机后的物体。减少DC（CPU压力），减少GPU剔除消耗；被遮挡的物体减少GPU渲染 IOCCam 每帧根据算法生成的随机点，向视锥体内发射若干条射线，击中以后，显示
 并根据距离通过LODGroup切换高低模
 参数：每帧发射的射线
 不足：射线过多
@@ -18,7 +18,7 @@ IOClod 初始化，根据相机距离和包围盒，初始化一个合适的Lod
 原版方案：周期从击中点向相机发射射线，被其他阻挡，则剔除
 不足：随机的击中点，可能在侧面，或者后面，会自己把自己剔除掉
 改进：击中点取2s中最近的击中点，作为击中点
-LOD 运行时根据机型信息，设置IOClod的lod距离 cullDis，过远的直接隐藏，方法和上面一致 减少GPU需要处理的顶点数 使用 生成场景时给需要剔除的组件添加IOClod组件 指标 点面数 峰值点面数 优点 剔除不需要渲染的物体 根据距离切换LOD模型，甚至剔除 参考 IOC介绍</p></div><footer class=entry-footer><span title='2022-11-12 00:16:35 +0800 CST'>2022年11月12日</span>&nbsp;·&nbsp;Dand</footer><a class=entry-link aria-label="post link to InstantOC + LOD" href=https://dandkong.github.io/posts/instantoc/></a></article></main><footer class=footer><span>&copy; 2024 <a href=https://dandkong.github.io/>Dand</a></span> ·
+LOD 运行时根据机型信息，设置IOClod的lod距离 cullDis，过远的直接隐藏，方法和上面一致 减少GPU需要处理的顶点数 使用 生成场景时给需要剔除的组件添加IOClod组件 指标 点面数 峰值点面数 优点 剔除不需要渲染的物体 根据距离切换LOD模型，甚至剔除 参考 IOC介绍</p></div><footer class=entry-footer><span title='2022-11-12 00:16:35 +0800 CST'>2022-11-12</span>&nbsp;·&nbsp;Dand</footer><a class=entry-link aria-label="post link to InstantOC + LOD" href=https://dandkong.github.io/posts/instantoc/></a></article></main><footer class=footer><span>&copy; 2024 <a href=https://dandkong.github.io/>Dand</a></span> ·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>

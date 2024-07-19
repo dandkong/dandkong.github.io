@@ -18,14 +18,14 @@ TS学习 TS拥有静态类型检测，能编写更具有健壮性的代码，也
 Handbook - The TypeScript Handbook
 TypeScript 入门教程
 ES6 入门教程
-前言 | TypeScript手册</p></div><footer class=entry-footer><span title='2024-07-17 22:07:01 +0800 CST'>2024年7月17日</span>&nbsp;·&nbsp;Dand</footer><a class=entry-link aria-label="post link to PuerTS学习路线" href=https://dandkong.github.io/posts/puerts%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>YooAsset学习笔记3：编辑器</h2></header><div class=entry-content><p>前言 上一篇文章简述了YooAsset资源管理框架运行时的框架的使用，接下来通过代码分析其内部原理。
+前言 | TypeScript手册</p></div><footer class=entry-footer><span title='2024-07-17 22:07:01 +0800 CST'>2024-7-17</span>&nbsp;·&nbsp;Dand</footer><a class=entry-link aria-label="post link to PuerTS学习路线" href=https://dandkong.github.io/posts/puerts%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>YooAsset学习笔记3：编辑器</h2></header><div class=entry-content><p>前言 上一篇文章简述了YooAsset资源管理框架运行时的框架的使用，接下来通过代码分析其内部原理。
 概览 YooAsset框架的编辑器部分包含了四个部分。
 收集：通过过滤规则，资源包名，定位地址，划分打包资源。 构建：根据收集到的资源，同时收集其依赖资源，打包成Bundle包。 Reporter：打包后的资源报告。 Debugger：运行时的资源加载情况。 收集 收集器主要通过过滤规则，资源包名，定位地址来划分资源，具体的用法在使用文档有详细介绍，本系列的第一篇也有介绍。
 构建 资源构建也是和运行时的设计相似，按步骤构建，流程如下图所示。
 构建管线分为内置管线，可编程管线，原生管线，内置管线和可编程管线的构建步骤基本一致，调用的API有不同。原生管线就是直接复制文件，不构建Bundle。
 总结 编辑器的框架就是如此，先收集再按步骤构建，再配套Reporter和Debugger进行排查分析。
 本系列教程到此结束，感谢阅读。
-参考 https://github.com/tuyoogame/YooAsset</p></div><footer class=entry-footer><span title='2024-06-29 22:02:52 +0800 CST'>2024年6月29日</span>&nbsp;·&nbsp;Dand</footer><a class=entry-link aria-label="post link to YooAsset学习笔记3：编辑器" href=https://dandkong.github.io/posts/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03%E7%BC%96%E8%BE%91%E5%99%A8/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>YooAsset学习笔记2：运行时</h2></header><div class=entry-content><p>前言 上一篇文章简述了YooAsset资源管理框架的使用，接下来通过代码分析其内部原理。
+参考 https://github.com/tuyoogame/YooAsset</p></div><footer class=entry-footer><span title='2024-06-29 22:02:52 +0800 CST'>2024-6-29</span>&nbsp;·&nbsp;Dand</footer><a class=entry-link aria-label="post link to YooAsset学习笔记3：编辑器" href=https://dandkong.github.io/posts/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03%E7%BC%96%E8%BE%91%E5%99%A8/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>YooAsset学习笔记2：运行时</h2></header><div class=entry-content><p>前言 上一篇文章简述了YooAsset资源管理框架的使用，接下来通过代码分析其内部原理。
 整体框架 YooAsset框架主要分为运行时和编辑器部分，运行时实现了资源包加载，Bunlde加载，缓存，下载，从上到下的结构。编辑器部分实现了资源收集，资源构建。这篇文章主要分析运行时的机制，结构如下。
 加载流程 运行时加载流程主要如下，加载开始以后，每一层的模块基本都是轮询实现。
 简单的例子就是调用加载，从上到下，上层等待下层完成自己的步骤，如果完成，再轮询到下个阶段。
@@ -43,7 +43,7 @@ Loader功能：加载Bundle。
 另一个调用是在资源包初始化后，把已经下载的文件验证一遍，记录到缓存系统中。
 后记 运行的框架就是如此，虽然功能很多，但结构清晰，使用了分层处理的思想。
 下一篇将介绍编辑器的逻辑，敬请期待。
-参考 https://github.com/tuyoogame/YooAsset</p></div><footer class=entry-footer><span title='2024-06-14 22:02:52 +0800 CST'>2024年6月14日</span>&nbsp;·&nbsp;Dand</footer><a class=entry-link aria-label="post link to YooAsset学习笔记2：运行时" href=https://dandkong.github.io/posts/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02%E8%BF%90%E8%A1%8C%E6%97%B6/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>YooAsset学习笔记1：接入流程</h2></header><div class=entry-content><p>前言 YooAsset是一套Unity的资源管理方案，类似Unity提供的Addressable资源系统配置好了资源规则，后面只需要用一个“寻址路径”就能透明加载资源，无需关注位于什么bundle包，以及bunlde的依赖关系，也无需关注资源包是位于本地或者远端CDN。
+参考 https://github.com/tuyoogame/YooAsset</p></div><footer class=entry-footer><span title='2024-06-14 22:02:52 +0800 CST'>2024-6-14</span>&nbsp;·&nbsp;Dand</footer><a class=entry-link aria-label="post link to YooAsset学习笔记2：运行时" href=https://dandkong.github.io/posts/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02%E8%BF%90%E8%A1%8C%E6%97%B6/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>YooAsset学习笔记1：接入流程</h2></header><div class=entry-content><p>前言 YooAsset是一套Unity的资源管理方案，类似Unity提供的Addressable资源系统配置好了资源规则，后面只需要用一个“寻址路径”就能透明加载资源，无需关注位于什么bundle包，以及bunlde的依赖关系，也无需关注资源包是位于本地或者远端CDN。
 接入流程 安装YooAsset 参照官网教程即可，这里使用package进行安装。
 资源配置 资源配置是YooAsset系统的亮点所在，这里用一个简单的登录界面作为例子配置一下。
 首先看看文件目录，这里需要加载LoginView，LoginView里用到了test图片，test图片又被收集在图集login中。
@@ -70,7 +70,7 @@ PackageManifest开头的是资源清单文件，只是格式不同，这里打�
 联机运行模式
 WebGL运行模式
 这里使用单机运行模式，如果使用联机运行模式需要CDN和指定更多的初始化参数，具体参考官方教程。
-void Start() { // 初始化资源系统 YooAssets.Initialize(); StartCoroutine(InitializeYooAsset()); } private IEnumerator InitializeYooAsset() { // 创建默认的资源包 var package = YooAssets....</p></div><footer class=entry-footer><span title='2024-05-21 19:54:20 +0800 CST'>2024年5月21日</span>&nbsp;·&nbsp;Dand</footer><a class=entry-link aria-label="post link to YooAsset学习笔记1：接入流程" href=https://dandkong.github.io/posts/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01%E6%8E%A5%E5%85%A5%E6%B5%81%E7%A8%8B/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>《游戏逻辑思想》学习笔记</h2></header><div class=entry-content><p>前言 这本书忘记从哪里下载了，和别的技术书籍不太一样，大多的内容都比较贴合项目开发，所以有一定的参考价值。
+void Start() { // 初始化资源系统 YooAssets.Initialize(); StartCoroutine(InitializeYooAsset()); } private IEnumerator InitializeYooAsset() { // 创建默认的资源包 var package = YooAssets....</p></div><footer class=entry-footer><span title='2024-05-21 19:54:20 +0800 CST'>2024-5-21</span>&nbsp;·&nbsp;Dand</footer><a class=entry-link aria-label="post link to YooAsset学习笔记1：接入流程" href=https://dandkong.github.io/posts/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01%E6%8E%A5%E5%85%A5%E6%B5%81%E7%A8%8B/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>《游戏逻辑思想》学习笔记</h2></header><div class=entry-content><p>前言 这本书忘记从哪里下载了，和别的技术书籍不太一样，大多的内容都比较贴合项目开发，所以有一定的参考价值。
 里面有几个章节觉得有收获的，主要是框架的设计，以及一些解决问题的思路，大致做了笔记或者摘录。
 一、基础内容交流 代码规范 可读代码：由于动态语言的类型灵活性，可以在变量前加上变量类型简称
 正确使用断言与返回 注意什么时候可以为空，不要盲目返回
@@ -80,7 +80,7 @@ addModulePower(nModuleId, nPower); addModulePower(nModuleId,nPower,bSyncMsg,bSen
 优雅的使用外部代码 我们的一个原则就是要尽可能少去直接和引擎进行交互，而是更多的进行局部缓存，把战场拉回到更加通用的逻辑里面。 修改后的代码为： let levelSlider = Core.createBitmapByName("slider_png"); let nSliderX = 0; if(XXX){ nSliderX += 6; } if(XXX){ nSliderX += 8; } if(XXX){ nSliderX -= 2; } levelSlider.x -= nSliderX; 选择简单的接口/参数以及尽量少的使用/调用底层接口就是我们所谓的正确的代码使用方式。 代码审查 取出一个管理器对象。然后直接访问了它的成员函数，这是非常不应该行为。第一个是这个成员不应该是公有的，而应该是私有的，它的公有性质破坏了类的封装。
 从面试的角度看面试 基础能力，逻辑能力，硬核能力
 如何应对代码错误 作为项目的主程，还需要统一思想。这个过程包括要求大家遵循统一的代码命名等，这也是规避错误的一个重要手段。越是相似的代码风格，代码的阅读速度就会越快。
-二、逻辑设计模式式讨论 分层设计 事件的派发遵循从下往上：比如M驱动V 依赖性越强的越靠下层 变化的放上层，底层可以互相依赖，逻辑层不允许相互依赖 主动和被动 被动模式，依赖事件，及时，性能消耗少，当被动模式不在能支持复杂逻辑时，可以考虑主动模式 主动模式，依赖轮询，有点像ESC的系统层监听实体层的感觉了。优点在于可以监听多种条件 阻塞和非阻塞 主要用于资源加载，阻塞速度快...</p></div><footer class=entry-footer><span title='2022-11-12 20:58:13 +0800 CST'>2022年11月12日</span>&nbsp;·&nbsp;Dand</footer><a class=entry-link aria-label="post link to 《游戏逻辑思想》学习笔记" href=https://dandkong.github.io/posts/%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E6%80%9D%E6%83%B3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/></a></article></main><footer class=footer><span>&copy; 2024 <a href=https://dandkong.github.io/>Dand</a></span> ·
+二、逻辑设计模式式讨论 分层设计 事件的派发遵循从下往上：比如M驱动V 依赖性越强的越靠下层 变化的放上层，底层可以互相依赖，逻辑层不允许相互依赖 主动和被动 被动模式，依赖事件，及时，性能消耗少，当被动模式不在能支持复杂逻辑时，可以考虑主动模式 主动模式，依赖轮询，有点像ESC的系统层监听实体层的感觉了。优点在于可以监听多种条件 阻塞和非阻塞 主要用于资源加载，阻塞速度快...</p></div><footer class=entry-footer><span title='2022-11-12 20:58:13 +0800 CST'>2022-11-12</span>&nbsp;·&nbsp;Dand</footer><a class=entry-link aria-label="post link to 《游戏逻辑思想》学习笔记" href=https://dandkong.github.io/posts/%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E6%80%9D%E6%83%B3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/></a></article></main><footer class=footer><span>&copy; 2024 <a href=https://dandkong.github.io/>Dand</a></span> ·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>

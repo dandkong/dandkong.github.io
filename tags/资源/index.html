@@ -6,7 +6,7 @@
 构建管线分为内置管线，可编程管线，原生管线，内置管线和可编程管线的构建步骤基本一致，调用的API有不同。原生管线就是直接复制文件，不构建Bundle。
 总结 编辑器的框架就是如此，先收集再按步骤构建，再配套Reporter和Debugger进行排查分析。
 本系列教程到此结束，感谢阅读。
-参考 https://github.com/tuyoogame/YooAsset</p></div><footer class=entry-footer><span title='2024-06-29 22:02:52 +0800 CST'>2024年6月29日</span>&nbsp;·&nbsp;Dand</footer><a class=entry-link aria-label="post link to YooAsset学习笔记3：编辑器" href=https://dandkong.github.io/posts/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03%E7%BC%96%E8%BE%91%E5%99%A8/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>YooAsset学习笔记2：运行时</h2></header><div class=entry-content><p>前言 上一篇文章简述了YooAsset资源管理框架的使用，接下来通过代码分析其内部原理。
+参考 https://github.com/tuyoogame/YooAsset</p></div><footer class=entry-footer><span title='2024-06-29 22:02:52 +0800 CST'>2024-6-29</span>&nbsp;·&nbsp;Dand</footer><a class=entry-link aria-label="post link to YooAsset学习笔记3：编辑器" href=https://dandkong.github.io/posts/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03%E7%BC%96%E8%BE%91%E5%99%A8/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>YooAsset学习笔记2：运行时</h2></header><div class=entry-content><p>前言 上一篇文章简述了YooAsset资源管理框架的使用，接下来通过代码分析其内部原理。
 整体框架 YooAsset框架主要分为运行时和编辑器部分，运行时实现了资源包加载，Bunlde加载，缓存，下载，从上到下的结构。编辑器部分实现了资源收集，资源构建。这篇文章主要分析运行时的机制，结构如下。
 加载流程 运行时加载流程主要如下，加载开始以后，每一层的模块基本都是轮询实现。
 简单的例子就是调用加载，从上到下，上层等待下层完成自己的步骤，如果完成，再轮询到下个阶段。
@@ -24,7 +24,7 @@ Loader功能：加载Bundle。
 另一个调用是在资源包初始化后，把已经下载的文件验证一遍，记录到缓存系统中。
 后记 运行的框架就是如此，虽然功能很多，但结构清晰，使用了分层处理的思想。
 下一篇将介绍编辑器的逻辑，敬请期待。
-参考 https://github.com/tuyoogame/YooAsset</p></div><footer class=entry-footer><span title='2024-06-14 22:02:52 +0800 CST'>2024年6月14日</span>&nbsp;·&nbsp;Dand</footer><a class=entry-link aria-label="post link to YooAsset学习笔记2：运行时" href=https://dandkong.github.io/posts/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02%E8%BF%90%E8%A1%8C%E6%97%B6/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>YooAsset学习笔记1：接入流程</h2></header><div class=entry-content><p>前言 YooAsset是一套Unity的资源管理方案，类似Unity提供的Addressable资源系统配置好了资源规则，后面只需要用一个“寻址路径”就能透明加载资源，无需关注位于什么bundle包，以及bunlde的依赖关系，也无需关注资源包是位于本地或者远端CDN。
+参考 https://github.com/tuyoogame/YooAsset</p></div><footer class=entry-footer><span title='2024-06-14 22:02:52 +0800 CST'>2024-6-14</span>&nbsp;·&nbsp;Dand</footer><a class=entry-link aria-label="post link to YooAsset学习笔记2：运行时" href=https://dandkong.github.io/posts/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02%E8%BF%90%E8%A1%8C%E6%97%B6/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>YooAsset学习笔记1：接入流程</h2></header><div class=entry-content><p>前言 YooAsset是一套Unity的资源管理方案，类似Unity提供的Addressable资源系统配置好了资源规则，后面只需要用一个“寻址路径”就能透明加载资源，无需关注位于什么bundle包，以及bunlde的依赖关系，也无需关注资源包是位于本地或者远端CDN。
 接入流程 安装YooAsset 参照官网教程即可，这里使用package进行安装。
 资源配置 资源配置是YooAsset系统的亮点所在，这里用一个简单的登录界面作为例子配置一下。
 首先看看文件目录，这里需要加载LoginView，LoginView里用到了test图片，test图片又被收集在图集login中。
@@ -51,7 +51,7 @@ PackageManifest开头的是资源清单文件，只是格式不同，这里打�
 联机运行模式
 WebGL运行模式
 这里使用单机运行模式，如果使用联机运行模式需要CDN和指定更多的初始化参数，具体参考官方教程。
-void Start() { // 初始化资源系统 YooAssets.Initialize(); StartCoroutine(InitializeYooAsset()); } private IEnumerator InitializeYooAsset() { // 创建默认的资源包 var package = YooAssets....</p></div><footer class=entry-footer><span title='2024-05-21 19:54:20 +0800 CST'>2024年5月21日</span>&nbsp;·&nbsp;Dand</footer><a class=entry-link aria-label="post link to YooAsset学习笔记1：接入流程" href=https://dandkong.github.io/posts/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01%E6%8E%A5%E5%85%A5%E6%B5%81%E7%A8%8B/></a></article></main><footer class=footer><span>&copy; 2024 <a href=https://dandkong.github.io/>Dand</a></span> ·
+void Start() { // 初始化资源系统 YooAssets.Initialize(); StartCoroutine(InitializeYooAsset()); } private IEnumerator InitializeYooAsset() { // 创建默认的资源包 var package = YooAssets....</p></div><footer class=entry-footer><span title='2024-05-21 19:54:20 +0800 CST'>2024-5-21</span>&nbsp;·&nbsp;Dand</footer><a class=entry-link aria-label="post link to YooAsset学习笔记1：接入流程" href=https://dandkong.github.io/posts/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01%E6%8E%A5%E5%85%A5%E6%B5%81%E7%A8%8B/></a></article></main><footer class=footer><span>&copy; 2024 <a href=https://dandkong.github.io/>Dand</a></span> ·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
