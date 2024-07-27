@@ -11,8 +11,29 @@
     </image>
     <generator>Hugo -- 0.129.0</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 23 Jul 2024 21:26:26 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 27 Jul 2024 21:37:10 +0800</lastBuildDate>
     <atom:link href="https://dandkong.github.io/tags/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>游戏框架-Tween</title>
+      <link>https://dandkong.github.io/posts/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6-tween/</link>
+      <pubDate>Sat, 27 Jul 2024 21:37:10 +0800</pubDate>
+      <guid>https://dandkong.github.io/posts/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6-tween/</guid>
+      <description>前言 Unity 中的补间动画（Tween Animation）是一种在两个关键帧之间自动生成平滑过渡的动画技术。一般在程序动画中使用，如位置、旋转、缩放、颜色等的变化。
+这里介绍的框架在这基础上，加入了时间节点（延时执行、反复执行）和行为树的概念，把动画抽象在“节点”概念之下。
+节点类型 链式节点 链式节点相当于容器，本身没有具体的执行逻辑，管理了节点列表，在合适的时机标记链式节点为完成状态，根据完成的条件分为以下节点，类似行为树。
+顺序节点：按顺序执行节点，上一个节点执行完才执行下一个，全部完成以后标记完成 并行节点：并行执行节点，全部完成以后标记完成 执行节点 执行完回调以后就标记完成
+条件节点 Update中判断条件，返回True以后标记完成
+时间节点 延后当Timer完成后标记完成，Timer可以简单延迟，也可以反复执行一定次数以后标记完成。
+值节点 值节点才是传统意义上的补间动画，就是通过输入时间，计算出值的结果，每帧执行，下面具体介绍。
+值节点 值节点主要由两个部分组成，一个是缓动函数，一个是插值函数。
+在Update先通过缓动函数，默认为线性函数，根据流逝的时间计算出当前的进度。
+再调用插值函数，根据当前进度算出结果值，默认为线性函数。
+根据值节点派生出的Color、Vector、Float节点，其实就是插值函数不一样。
+缓动函数（Easing Function） 缓动函数是一种用于控制动画或过渡效果速度变化的数学函数。
+它的主要作用是使动画或过渡效果看起来更加自然和真实。在没有缓动函数的情况下，动画可能会以恒定的速度进行，显得生硬和不流畅。
+缓动函数可以改变动画在不同阶段的速度，常见的效果包括：
+加速：动画开始时速度较慢，然后逐渐加快。 减速：动画开始时速度较快，然后逐渐减慢。 先加速后减速：动画开始时加速，然后在接近结束时减速。 先减速后加速：动画开始时减速，然后在中间或接近结束时加速。 //-------------------------------------------------- // Author : David Ochmann // Website：https://easings.net/ //-------------------------------------------------- using System; namespace UniFramework.Tween { /// &amp;lt;summary&amp;gt; /// 公共补间方法 /// &amp;lt;/summary&amp;gt; public static class TweenEase { public static class Linear { public static float Default(float t, float b, float c, float d) { return c * t / d + b; } public static float EaseIn(float t, float b, float c, float d) { return c * t / d + b; } public static float EaseOut(float t, float b, float c, float d) { return c * t / d + b; } public static float EaseInOut(float t, float b, float c, float d) { return c * t / d + b; } } public static class Sine { public static float EaseIn(float t, float b, float c, float d) { return -c * (float)Math.</description>
+    </item>
     <item>
       <title>游戏框架-UI管理器</title>
       <link>https://dandkong.github.io/posts/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6-ui%E7%AE%A1%E7%90%86%E5%99%A8/</link>
