@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Shader on Dand</title>
+    <link>https://dandkong.github.io/tags/shader/</link>
+    <description>Recent content in Shader on Dand</description>
+    <image>
+      <title>Dand</title>
+      <url>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.129.0</generator>
+    <language>zh</language>
+    <lastBuildDate>Wed, 07 Aug 2024 23:03:27 +0800</lastBuildDate>
+    <atom:link href="https://dandkong.github.io/tags/shader/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shader学习笔记-ShaderLab结构</title>
+      <link>https://dandkong.github.io/posts/shader%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-shaderlab%E7%BB%93%E6%9E%84/</link>
+      <pubDate>Wed, 07 Aug 2024 23:03:27 +0800</pubDate>
+      <guid>https://dandkong.github.io/posts/shader%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-shaderlab%E7%BB%93%E6%9E%84/</guid>
+      <description>前言 之前的业务一直对图形学涉及不多，现在打算系统学习一下。
+Shader代码见得多，但也仅限于对着代码猜其功能，具体的结构和写法不求甚解，现在总结下。
+属性 定义可变属性
+Color Vector4 Texture2D 等等 Properties { // 在此处定义您的属性，例如颜色、纹理等 _Color (&amp;#34;Color&amp;#34;, Color) = (1, 1, 1, 1) _MainTex (&amp;#34;Texture&amp;#34;, 2D) = &amp;#34;white&amp;#34; {} } SubShader ShaderLab：定义 Shader 对象 - Unity 手册
+ShaderLab：定义子着色器 - Unity 手册
+子Shader，渲染时会逐个使用，找到第一个生效的，如果都不生效，执行FallBack的Shader。
+Tags（子着色器） ShaderLab：向子着色器分配标签 - Unity 手册
+子着色器标签定义了子着色器块或一个通道在何时以及在何种条件下被执行。
+RenderPipeline RenderPipeline 标签向 Unity 告知子着色器是否与通用渲染管线 (URP) 或高清渲染管线 (HDRP) 兼容。
+Queue Queue 标签向 Unity 告知要用于它渲染的几何体的渲染队列。
+“Queue” = “[queue name] + [offset]” [queue name] Background 指定背景渲染队列。 Geometry 指定几何体渲染队列。 AlphaTest 指定 AlphaTest 渲染队列。 Transparent 指定透明渲染队列。 Overlay 指定覆盖渲染队列。 [offset] 整数 指定 Unity 渲染未命名队列处的索引（相对于命名队列）。 RenderType 在运行时替换着色器 - Unity 手册</description>
+    </item>
+  </channel>
+</rss>
