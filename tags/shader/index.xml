@@ -11,8 +11,22 @@
     </image>
     <generator>Hugo -- 0.129.0</generator>
     <language>zh</language>
-    <lastBuildDate>Wed, 07 Aug 2024 23:03:27 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 01 Sep 2024 23:03:27 +0800</lastBuildDate>
     <atom:link href="https://dandkong.github.io/tags/shader/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shader学习笔记-HLSL</title>
+      <link>https://dandkong.github.io/posts/shader%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-hlsl/</link>
+      <pubDate>Sun, 01 Sep 2024 23:03:27 +0800</pubDate>
+      <guid>https://dandkong.github.io/posts/shader%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-hlsl/</guid>
+      <description>前言 上一篇介绍了ShaderLab的结构，这一篇继续介绍Shader的主要逻辑部分。
+Unity的旧版本用的是CG语言，现在逐步淘汰了，主要用微软的HLSL，并加了一些Unity自己的语法。
+预处理 include include and include_with_pragmas directives in HLSL - Unity 手册
+在 HLSL 中，#include 指令是一种预处理器指令。它们指示编译器将一个 HLSL 文件的内容包含在另一个 HLSL 文件中。它们包含的文件称为包含文件。
+#include_with_pragmas 指令的工作方式与常规 #include 指令相同，但它也允许您在包含文件中使用 #pragma 指令。这意味着 #include_with_pragmas 指令允许您在多个文件之间共享 #pragma 指令。
+在 HLSL 中向着色器编译器提供信息 Provide information to the shader compiler in HLSL - Unity 手册
+#pragma target 3.0 #pragma exclude_renderers vulkan #pragma vertex vert #pragma fragment frag // The rest of your HLSL code goes here 指定着色器阶段
+语句 功能 #pragma vertex &amp;lt;name&amp;gt; Compile the function with the given name as the vertex shader.</description>
+    </item>
     <item>
       <title>Shader学习笔记-ShaderLab结构</title>
       <link>https://dandkong.github.io/posts/shader%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-shaderlab%E7%BB%93%E6%9E%84/</link>
