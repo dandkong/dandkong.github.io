@@ -9,7 +9,7 @@
       <url>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.129.0</generator>
+    <generator>Hugo -- 0.140.2</generator>
     <language>zh</language>
     <lastBuildDate>Sat, 29 Jun 2024 22:02:52 +0800</lastBuildDate>
     <atom:link href="https://dandkong.github.io/tags/%E8%B5%84%E6%BA%90/index.xml" rel="self" type="application/rss+xml" />
@@ -18,39 +18,79 @@
       <link>https://dandkong.github.io/posts/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03%E7%BC%96%E8%BE%91%E5%99%A8/</link>
       <pubDate>Sat, 29 Jun 2024 22:02:52 +0800</pubDate>
       <guid>https://dandkong.github.io/posts/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03%E7%BC%96%E8%BE%91%E5%99%A8/</guid>
-      <description>前言 上一篇文章简述了YooAsset资源管理框架运行时的框架的使用，接下来通过代码分析其内部原理。
-概览 YooAsset框架的编辑器部分包含了四个部分。
-收集：通过过滤规则，资源包名，定位地址，划分打包资源。 构建：根据收集到的资源，同时收集其依赖资源，打包成Bundle包。 Reporter：打包后的资源报告。 Debugger：运行时的资源加载情况。 收集 收集器主要通过过滤规则，资源包名，定位地址来划分资源，具体的用法在使用文档有详细介绍，本系列的第一篇也有介绍。
-构建 资源构建也是和运行时的设计相似，按步骤构建，流程如下图所示。
-构建管线分为内置管线，可编程管线，原生管线，内置管线和可编程管线的构建步骤基本一致，调用的API有不同。原生管线就是直接复制文件，不构建Bundle。
-总结 编辑器的框架就是如此，先收集再按步骤构建，再配套Reporter和Debugger进行排查分析。
-本系列教程到此结束，感谢阅读。
-参考 https://github.com/tuyoogame/YooAsset</description>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;上一篇文章简述了YooAsset资源管理框架运行时的框架的使用，接下来通过代码分析其内部原理。&lt;/p&gt;
+&lt;h2 id=&#34;概览&#34;&gt;概览&lt;/h2&gt;
+&lt;p&gt;YooAsset框架的编辑器部分包含了四个部分。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;收集：通过过滤规则，资源包名，定位地址，划分打包资源。&lt;/li&gt;
+&lt;li&gt;构建：根据收集到的资源，同时收集其依赖资源，打包成Bundle包。&lt;/li&gt;
+&lt;li&gt;Reporter：打包后的资源报告。&lt;/li&gt;
+&lt;li&gt;Debugger：运行时的资源加载情况。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;收集&#34;&gt;收集&lt;/h2&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/dandkong/picgo/main/img/202406302149365.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;收集器主要通过过滤规则，资源包名，定位地址来划分资源，具体的用法在使用文档有详细介绍，本系列的第一篇也有介绍。&lt;/p&gt;
+&lt;h2 id=&#34;构建&#34;&gt;构建&lt;/h2&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/dandkong/picgo/main/img/202406302150989.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;资源构建也是和运行时的设计相似，按步骤构建，流程如下图所示。&lt;/p&gt;
+&lt;p&gt;构建管线分为内置管线，可编程管线，原生管线，内置管线和可编程管线的构建步骤基本一致，调用的API有不同。原生管线就是直接复制文件，不构建Bundle。&lt;/p&gt;
+&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
+&lt;p&gt;编辑器的框架就是如此，先收集再按步骤构建，再配套Reporter和Debugger进行排查分析。&lt;/p&gt;
+&lt;p&gt;本系列教程到此结束，感谢阅读。&lt;/p&gt;
+&lt;h2 id=&#34;参考&#34;&gt;&lt;strong&gt;参考&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/tuyoogame/YooAsset&#34;&gt;https://github.com/tuyoogame/YooAsset&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>YooAsset学习笔记2：运行时</title>
       <link>https://dandkong.github.io/posts/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02%E8%BF%90%E8%A1%8C%E6%97%B6/</link>
       <pubDate>Fri, 14 Jun 2024 22:02:52 +0800</pubDate>
       <guid>https://dandkong.github.io/posts/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02%E8%BF%90%E8%A1%8C%E6%97%B6/</guid>
-      <description>前言 上一篇文章简述了YooAsset资源管理框架的使用，接下来通过代码分析其内部原理。
-整体框架 YooAsset框架主要分为运行时和编辑器部分，运行时实现了资源包加载，Bunlde加载，缓存，下载，从上到下的结构。编辑器部分实现了资源收集，资源构建。这篇文章主要分析运行时的机制，结构如下。
-加载流程 运行时加载流程主要如下，加载开始以后，每一层的模块基本都是轮询实现。
-简单的例子就是调用加载，从上到下，上层等待下层完成自己的步骤，如果完成，再轮询到下个阶段。
-每一层根据加载模式和资源类型的不同派生到不同的对象负责轮询，下面的示例是远程加载AssetBundle的示意流程。
-根据运行模式初始化包 外部调用加载 调用默认包的加载 Provider轮询，等待Bundle加载完成，再从Bundle中加载具体资源 Loader轮询，等待Bundle加载完成 Downloader轮询，等待下载完成 Requeseter轮询，等待请求完成 资源包（ResourcePackage） 资源包是一个比较上层的概念，在游戏初始化时要初始化包和其加载模式。具体的加载模式可以参照上一篇文章。
-定义加载模式 维护版本 维护资源清单 资源管理器（ResourceManager） 资源管理器负责加载具体的资源，根据不同的加载模式和资源类型分成不同的Provider和Loader，并返回对应的Handle。
-Provider功能：从加载好的Bundle中加载具体的资源
-Loader功能：加载Bundle。
-下载系统（DownloadSystem） 下载系统由上层的Loader持有，加载Bundle时，如果还没下载，调用下载系统进行下载。
-下载器根据不同的加载模式和资源类型区分，分类普通文件和Web文件，区别在于Web文件不进行缓存。
-下载功能由Requester承担，分为普通请求和断点续传。
-缓存系统（CacheSystem） 缓存系统是在加载资源时，下载过就不需要再次下载了，直接在本地沙盒目录中读取。
-缓存系统由下载系统调用，当下载完成以后，保存本地文件，并记录到缓存系统。
-如果已有文件，则进行校验再进行记录。
-另一个调用是在资源包初始化后，把已经下载的文件验证一遍，记录到缓存系统中。
-后记 运行的框架就是如此，虽然功能很多，但结构清晰，使用了分层处理的思想。
-下一篇将介绍编辑器的逻辑，敬请期待。
-参考 https://github.com/tuyoogame/YooAsset</description>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;上一篇文章简述了YooAsset资源管理框架的使用，接下来通过代码分析其内部原理。&lt;/p&gt;
+&lt;h2 id=&#34;整体框架&#34;&gt;整体框架&lt;/h2&gt;
+&lt;p&gt;YooAsset框架主要分为运行时和编辑器部分，运行时实现了资源包加载，Bunlde加载，缓存，下载，从上到下的结构。编辑器部分实现了资源收集，资源构建。这篇文章主要分析运行时的机制，结构如下。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/dandkong/picgo/main/img/202406142204257.jpg&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;加载流程&#34;&gt;加载流程&lt;/h2&gt;
+&lt;p&gt;运行时加载流程主要如下，加载开始以后，每一层的模块基本都是轮询实现。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/dandkong/picgo/main/img/202406142204581.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;简单的例子就是调用加载，从上到下，上层等待下层完成自己的步骤，如果完成，再轮询到下个阶段。&lt;/p&gt;
+&lt;p&gt;每一层根据加载模式和资源类型的不同派生到不同的对象负责轮询，下面的示例是远程加载AssetBundle的示意流程。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;根据运行模式初始化包&lt;/li&gt;
+&lt;li&gt;外部调用加载&lt;/li&gt;
+&lt;li&gt;调用默认包的加载&lt;/li&gt;
+&lt;li&gt;Provider轮询，等待Bundle加载完成，再从Bundle中加载具体资源&lt;/li&gt;
+&lt;li&gt;Loader轮询，等待Bundle加载完成&lt;/li&gt;
+&lt;li&gt;Downloader轮询，等待下载完成&lt;/li&gt;
+&lt;li&gt;Requeseter轮询，等待请求完成&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/dandkong/picgo/main/img/202406142205930.jpg&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;资源包resourcepackage&#34;&gt;资源包（ResourcePackage）&lt;/h2&gt;
+&lt;p&gt;资源包是一个比较上层的概念，在游戏初始化时要初始化包和其加载模式。具体的加载模式可以参照上一篇文章。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;定义加载模式&lt;/li&gt;
+&lt;li&gt;维护版本&lt;/li&gt;
+&lt;li&gt;维护资源清单&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;资源管理器resourcemanager&#34;&gt;资源管理器（ResourceManager）&lt;/h2&gt;
+&lt;p&gt;资源管理器负责加载具体的资源，根据不同的加载模式和资源类型分成不同的Provider和Loader，并返回对应的Handle。&lt;/p&gt;
+&lt;p&gt;Provider功能：从加载好的Bundle中加载具体的资源&lt;/p&gt;
+&lt;p&gt;Loader功能：加载Bundle。&lt;/p&gt;
+&lt;h2 id=&#34;下载系统downloadsystem&#34;&gt;下载系统（DownloadSystem）&lt;/h2&gt;
+&lt;p&gt;下载系统由上层的Loader持有，加载Bundle时，如果还没下载，调用下载系统进行下载。&lt;/p&gt;
+&lt;p&gt;下载器根据不同的加载模式和资源类型区分，分类普通文件和Web文件，区别在于Web文件不进行缓存。&lt;/p&gt;
+&lt;p&gt;下载功能由Requester承担，分为普通请求和断点续传。&lt;/p&gt;
+&lt;h2 id=&#34;缓存系统cachesystem&#34;&gt;缓存系统（CacheSystem）&lt;/h2&gt;
+&lt;p&gt;缓存系统是在加载资源时，下载过就不需要再次下载了，直接在本地沙盒目录中读取。&lt;/p&gt;
+&lt;p&gt;缓存系统由下载系统调用，当下载完成以后，保存本地文件，并记录到缓存系统。&lt;/p&gt;
+&lt;p&gt;如果已有文件，则进行校验再进行记录。&lt;/p&gt;
+&lt;p&gt;另一个调用是在资源包初始化后，把已经下载的文件验证一遍，记录到缓存系统中。&lt;/p&gt;
+&lt;h2 id=&#34;后记&#34;&gt;后记&lt;/h2&gt;
+&lt;p&gt;运行的框架就是如此，虽然功能很多，但结构清晰，使用了分层处理的思想。&lt;/p&gt;
+&lt;p&gt;下一篇将介绍编辑器的逻辑，敬请期待。&lt;/p&gt;
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/tuyoogame/YooAsset&#34;&gt;https://github.com/tuyoogame/YooAsset&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>YooAsset学习笔记1：接入流程</title>

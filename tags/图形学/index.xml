@@ -9,7 +9,7 @@
       <url>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.129.0</generator>
+    <generator>Hugo -- 0.140.2</generator>
     <language>zh</language>
     <lastBuildDate>Sun, 01 Sep 2024 23:03:27 +0800</lastBuildDate>
     <atom:link href="https://dandkong.github.io/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
@@ -18,31 +18,127 @@
       <link>https://dandkong.github.io/posts/shader%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-hlsl/</link>
       <pubDate>Sun, 01 Sep 2024 23:03:27 +0800</pubDate>
       <guid>https://dandkong.github.io/posts/shader%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-hlsl/</guid>
-      <description>前言 上一篇介绍了ShaderLab的结构，这一篇继续介绍Shader的主要逻辑部分。
-Unity的旧版本用的是CG语言，现在逐步淘汰了，主要用微软的HLSL，并加了一些Unity自己的语法。
-预处理 include include and include_with_pragmas directives in HLSL - Unity 手册
-在 HLSL 中，#include 指令是一种预处理器指令。它们指示编译器将一个 HLSL 文件的内容包含在另一个 HLSL 文件中。它们包含的文件称为包含文件。
-#include_with_pragmas 指令的工作方式与常规 #include 指令相同，但它也允许您在包含文件中使用 #pragma 指令。这意味着 #include_with_pragmas 指令允许您在多个文件之间共享 #pragma 指令。
-在 HLSL 中向着色器编译器提供信息 Provide information to the shader compiler in HLSL - Unity 手册
-#pragma target 3.0 #pragma exclude_renderers vulkan #pragma vertex vert #pragma fragment frag // The rest of your HLSL code goes here 指定着色器阶段
-语句 功能 #pragma vertex &amp;lt;name&amp;gt; Compile the function with the given name as the vertex shader.</description>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;&lt;strong&gt;前言&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;上一篇介绍了ShaderLab的结构，这一篇继续介绍Shader的主要逻辑部分。&lt;/p&gt;
+&lt;p&gt;Unity的旧版本用的是CG语言，现在逐步淘汰了，主要用微软的HLSL，并加了一些Unity自己的语法。&lt;/p&gt;
+&lt;h2 id=&#34;预处理&#34;&gt;预处理&lt;/h2&gt;
+&lt;h3 id=&#34;include&#34;&gt;&lt;strong&gt;include&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.unity3d.com/cn/2023.2/Manual/shader-include-directives.html&#34;&gt;include and include_with_pragmas directives in HLSL - Unity 手册&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;在 HLSL 中，&lt;code&gt;#include&lt;/code&gt; 指令是一种&lt;a href=&#34;https://docs.unity3d.com/cn/2023.2/Manual/shader-preprocessor-directives.html&#34;&gt;预处理器指令&lt;/a&gt;。它们指示编译器将一个 HLSL 文件的内容包含在另一个 HLSL 文件中。它们包含的文件称为&lt;strong&gt;包含文件&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;#include_with_pragmas&lt;/code&gt; 指令的工作方式与常规 &lt;code&gt;#include&lt;/code&gt; 指令相同，但它也允许您在包含文件中使用 &lt;code&gt;#pragma&lt;/code&gt; 指令。这意味着 &lt;code&gt;#include_with_pragmas&lt;/code&gt; 指令允许您在多个文件之间共享 &lt;code&gt;#pragma&lt;/code&gt; 指令。&lt;/p&gt;
+&lt;h3 id=&#34;在-hlsl-中向着色器编译器提供信息&#34;&gt;&lt;strong&gt;在 HLSL 中向着色器编译器提供信息&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.unity3d.com/cn/2023.2/Manual/SL-PragmaDirectives.html&#34;&gt;Provide information to the shader compiler in HLSL - Unity 手册&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-glsl&#34; data-lang=&#34;glsl&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#pragma target 3.0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#pragma exclude_renderers vulkan&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#pragma vertex vert&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#pragma fragment frag&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// The rest of your HLSL code goes here&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;指定着色器阶段&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;strong&gt;语句&lt;/strong&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;strong&gt;功能&lt;/strong&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;#pragma vertex &amp;lt;name&amp;gt;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Compile the function with the given name as the vertex shader. Replace &lt;!-- raw HTML omitted --&gt; with the function name. This directive is required in regular graphics shaders.将具有给定名称的函数编译为顶点着色器。 替换为函数名称。此指令在常规图形着色器中是必需的。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;#pragma fragment &amp;lt;name&amp;gt;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Compile the function with the given name as the fragment shader. Replace &lt;!-- raw HTML omitted --&gt; with the function name. This directive is required in regular graphics shaders.将具有给定名称的函数编译为片段着色器。 替换为函数名称。此指令在常规图形着色器中是必需的。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;#pragma geometry &amp;lt;name&amp;gt;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Compile the function with the given name as the geometry shader. Replace &lt;!-- raw HTML omitted --&gt; with the function name. This option automatically turns on &lt;code&gt;#pragma require geometry&lt;/code&gt;; for more information, see &lt;a href=&#34;https://docs.unity3d.com/cn/2023.2/Manual/SL-ShaderCompileTargets.html&#34;&gt;Targeting shader models and GPU features in HLSL&lt;/a&gt;.将具有给定名称的函数编译为几何着色器。 替换为函数名称。此选项会自动打开 &lt;code&gt;#pragma 需要几何图形&lt;/code&gt;;有关详细信息，请参阅&lt;a href=&#34;https://docs.unity3d.com/cn/2023.2/Manual/SL-ShaderCompileTargets.html&#34;&gt;在 HLSL 中面向着色器模型和 GPU 功能&lt;/a&gt;。&lt;strong&gt;Note&lt;/strong&gt;: Metal does not support geometry shaders.&lt;strong&gt;注意&lt;/strong&gt;：Metal 不支持几何体着色器。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;#pragma hull &amp;lt;name&amp;gt;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Compile the function with the given name as the DirectX 11 hull shader. Replace &lt;!-- raw HTML omitted --&gt; with the function name. This automatically adds &lt;code&gt;#pragma require tessellation&lt;/code&gt;; for more information, see &lt;a href=&#34;https://docs.unity3d.com/cn/2023.2/Manual/SL-ShaderCompileTargets.html&#34;&gt;Targeting shader models and GPU features in HLSL&lt;/a&gt;.将具有给定名称的函数编译为 DirectX 11 hull 着色器。 替换为函数名称。这会自动添加 &lt;code&gt;#pragma 需要曲面细分&lt;/code&gt;;有关详细信息，请参阅&lt;a href=&#34;https://docs.unity3d.com/cn/2023.2/Manual/SL-ShaderCompileTargets.html&#34;&gt;在 HLSL 中面向着色器模型和 GPU 功能&lt;/a&gt;。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;#pragma domain &amp;lt;name&amp;gt;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Compile the function with the given name as the DirectX 11 domain shader. Replace &lt;!-- raw HTML omitted --&gt; with the function name. This option automatically turns on &lt;code&gt;#pragma require tessellation&lt;/code&gt;; for more information, see &lt;a href=&#34;https://docs.unity3d.com/cn/2023.2/Manual/SL-ShaderCompileTargets.html&#34;&gt;Targeting shader models and GPU features in HLSL&lt;/a&gt;.将具有给定名称的函数编译为 DirectX 11 域着色器。 替换为函数名称。此选项会自动打开 &lt;code&gt;#pragma 需要镶嵌;&lt;/code&gt;有关详细信息，请参阅&lt;a href=&#34;https://docs.unity3d.com/cn/2023.2/Manual/SL-ShaderCompileTargets.html&#34;&gt;在 HLSL 中面向着色器模型和 GPU 功能&lt;/a&gt;。&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;着色器变体和关键字&lt;/p&gt;</description>
     </item>
     <item>
       <title>Shader学习笔记-ShaderLab结构</title>
       <link>https://dandkong.github.io/posts/shader%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-shaderlab%E7%BB%93%E6%9E%84/</link>
       <pubDate>Wed, 07 Aug 2024 23:03:27 +0800</pubDate>
       <guid>https://dandkong.github.io/posts/shader%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-shaderlab%E7%BB%93%E6%9E%84/</guid>
-      <description>前言 之前的业务一直对图形学涉及不多，现在打算系统学习一下。
-Shader代码见得多，但也仅限于对着代码猜其功能，具体的结构和写法不求甚解，现在总结下。
-属性 定义可变属性
-Color Vector4 Texture2D 等等 Properties { // 在此处定义您的属性，例如颜色、纹理等 _Color (&amp;#34;Color&amp;#34;, Color) = (1, 1, 1, 1) _MainTex (&amp;#34;Texture&amp;#34;, 2D) = &amp;#34;white&amp;#34; {} } SubShader ShaderLab：定义 Shader 对象 - Unity 手册
-ShaderLab：定义子着色器 - Unity 手册
-子Shader，渲染时会逐个使用，找到第一个生效的，如果都不生效，执行FallBack的Shader。
-Tags（子着色器） ShaderLab：向子着色器分配标签 - Unity 手册
-子着色器标签定义了子着色器块或一个通道在何时以及在何种条件下被执行。
-RenderPipeline RenderPipeline 标签向 Unity 告知子着色器是否与通用渲染管线 (URP) 或高清渲染管线 (HDRP) 兼容。
-Queue Queue 标签向 Unity 告知要用于它渲染的几何体的渲染队列。
-“Queue” = “[queue name] + [offset]” [queue name] Background 指定背景渲染队列。 Geometry 指定几何体渲染队列。 AlphaTest 指定 AlphaTest 渲染队列。 Transparent 指定透明渲染队列。 Overlay 指定覆盖渲染队列。 [offset] 整数 指定 Unity 渲染未命名队列处的索引（相对于命名队列）。 RenderType 在运行时替换着色器 - Unity 手册</description>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;之前的业务一直对图形学涉及不多，现在打算系统学习一下。&lt;/p&gt;
+&lt;p&gt;Shader代码见得多，但也仅限于对着代码猜其功能，具体的结构和写法不求甚解，现在总结下。&lt;/p&gt;
+&lt;h2 id=&#34;属性&#34;&gt;属性&lt;/h2&gt;
+&lt;p&gt;定义可变属性&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Color&lt;/li&gt;
+&lt;li&gt;Vector4&lt;/li&gt;
+&lt;li&gt;Texture2D&lt;/li&gt;
+&lt;li&gt;等等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-glsl&#34; data-lang=&#34;glsl&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;n&#34;&gt;Properties&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;c1&#34;&gt;// 在此处定义您的属性，例如颜色、纹理等&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;n&#34;&gt;_Color&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Color&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Color&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;n&#34;&gt;_MainTex&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Texture&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;D&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;white&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;subshader&#34;&gt;SubShader&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.unity3d.com/cn/2022.3/Manual/SL-Shader.html&#34;&gt;ShaderLab：定义 Shader 对象 - Unity 手册&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.unity3d.com/cn/2022.3/Manual/SL-SubShader.html&#34;&gt;ShaderLab：定义子着色器 - Unity 手册&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;子Shader，渲染时会逐个使用，找到第一个生效的，如果都不生效，执行FallBack的Shader。&lt;/p&gt;
+&lt;h2 id=&#34;tags子着色器&#34;&gt;Tags（子着色器）&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs-alpha.unity3d.com/cn/current/Manual/SL-SubShaderTags.html&#34;&gt;ShaderLab：向子着色器分配标签 - Unity 手册&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;子着色器标签定义了子着色器块或一个通道在何时以及在何种条件下被执行。&lt;/p&gt;
+&lt;h3 id=&#34;renderpipeline&#34;&gt;&lt;strong&gt;RenderPipeline&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;RenderPipeline&lt;/code&gt; 标签向 Unity 告知子着色器是否与通用渲染管线 (URP) 或高清渲染管线 (HDRP) 兼容。&lt;/p&gt;
+&lt;h3 id=&#34;queue&#34;&gt;&lt;strong&gt;Queue&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;Queue&lt;/code&gt; 标签向 Unity 告知要用于它渲染的几何体的渲染队列。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-glsl&#34; data-lang=&#34;glsl&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;“&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Queue&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;”&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;“&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;queue&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;offset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;”&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;[queue name]&lt;/th&gt;
+          &lt;th&gt;Background&lt;/th&gt;
+          &lt;th&gt;指定背景渲染队列。&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;Geometry&lt;/td&gt;
+          &lt;td&gt;指定几何体渲染队列。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;AlphaTest&lt;/td&gt;
+          &lt;td&gt;指定 AlphaTest 渲染队列。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;Transparent&lt;/td&gt;
+          &lt;td&gt;指定透明渲染队列。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;Overlay&lt;/td&gt;
+          &lt;td&gt;指定覆盖渲染队列。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;[offset]&lt;/td&gt;
+          &lt;td&gt;整数&lt;/td&gt;
+          &lt;td&gt;指定 Unity 渲染未命名队列处的索引（相对于命名队列）。&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;rendertype&#34;&gt;&lt;strong&gt;RenderType&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs-alpha.unity3d.com/cn/current/Manual/SL-ShaderReplacement.html&#34;&gt;在运行时替换着色器 - Unity 手册&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

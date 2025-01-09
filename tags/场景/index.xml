@@ -9,7 +9,7 @@
       <url>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.129.0</generator>
+    <generator>Hugo -- 0.140.2</generator>
     <language>zh</language>
     <lastBuildDate>Mon, 05 Dec 2022 21:31:39 +0800</lastBuildDate>
     <atom:link href="https://dandkong.github.io/tags/%E5%9C%BA%E6%99%AF/index.xml" rel="self" type="application/rss+xml" />
@@ -18,16 +18,40 @@
       <link>https://dandkong.github.io/posts/%E5%9C%BA%E6%99%AF%E6%95%B0%E6%8D%AE%E6%A1%86%E6%9E%B6/</link>
       <pubDate>Mon, 05 Dec 2022 21:31:39 +0800</pubDate>
       <guid>https://dandkong.github.io/posts/%E5%9C%BA%E6%99%AF%E6%95%B0%E6%8D%AE%E6%A1%86%E6%9E%B6/</guid>
-      <description>一、概述 一般MMO的游戏由场景和场景中的对象构成，在设计地图时，就会遇到几个问题。怎么有效直观地配置信息，对象都有什么功能，有什么功能是共有的。针对上面的问题，首先需要解决的是抽象出场景对象结构，在此基础上做编辑器，用图形化的界面展示，修改储存数据，供代码使用。
-二、场景对象结构 场景本事有数据，如场景资源，组队人数限制等等，这种信息改动不大，也比较直观，一般只要存在excel里面就好，需要的话可以做图形编辑器对excel进行读写和修改。
-场景中的对象可以按需分成几类，常见的有npc，采集物，区域，点等等。
-NPC NPC主要承载了显示模型的功能，读取NPC表。
-采集物 采集物和NPC差不多，只是对话交互改成了点击采集。
-区域 区域分成了圆形区域和多边形区域，划分区域可以实现进入和离开区域的逻辑，比如划分了游泳区，飞行区等，进入以后主角切换运动状态。
-点 点的功能比较广泛，主要用于定位，也可以添加触发组件以后实现圆形区域的功能。
-组件 组件是对象上的属性和功能，公用的组件有缩放，大小，显示隐藏条件等，特殊的组件有巡逻，交互按钮等，按需添加，从而赋予对象特性。
-三、场景编辑器 理清了场景对象的结构以后，就可以做编辑器把数据组织起来了，场景编辑器的实现细节不多说，尽量用起来符合直观操作即可，功能如下。
-增删改场景信息 直观展示场景中的对象（位置、模型、范围等） 增删改场景中的对象 修改对象的组件属性 导出程序可用数据 四、数据载体 数据可以直接导出lua，也可以导出成json，xml等，只要方便维护，程序方便调用即可。 目前使用的是先储存到excel，再从excel导出到lua中，供程序调用。 使用excel作为中间载体的原因可能是比较直观，但感觉使用json或者Unity序列化的方法也是可行的。 </description>
+      <description>&lt;h2 id=&#34;一概述&#34;&gt;一、概述&lt;/h2&gt;
+&lt;p&gt;一般MMO的游戏由场景和场景中的对象构成，在设计地图时，就会遇到几个问题。怎么有效直观地配置信息，对象都有什么功能，有什么功能是共有的。针对上面的问题，首先需要解决的是抽象出场景对象结构，在此基础上做编辑器，用图形化的界面展示，修改储存数据，供代码使用。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;二场景对象结构&#34;&gt;二、场景对象结构&lt;/h2&gt;
+&lt;p&gt;场景本事有数据，如场景资源，组队人数限制等等，这种信息改动不大，也比较直观，一般只要存在excel里面就好，需要的话可以做图形编辑器对excel进行读写和修改。&lt;/p&gt;
+&lt;p&gt;场景中的对象可以按需分成几类，常见的有npc，采集物，区域，点等等。&lt;/p&gt;
+&lt;h3 id=&#34;npc&#34;&gt;NPC&lt;/h3&gt;
+&lt;p&gt;NPC主要承载了显示模型的功能，读取NPC表。&lt;/p&gt;
+&lt;h3 id=&#34;采集物&#34;&gt;采集物&lt;/h3&gt;
+&lt;p&gt;采集物和NPC差不多，只是对话交互改成了点击采集。&lt;/p&gt;
+&lt;h3 id=&#34;区域&#34;&gt;区域&lt;/h3&gt;
+&lt;p&gt;区域分成了圆形区域和多边形区域，划分区域可以实现进入和离开区域的逻辑，比如划分了游泳区，飞行区等，进入以后主角切换运动状态。&lt;/p&gt;
+&lt;h3 id=&#34;点&#34;&gt;点&lt;/h3&gt;
+&lt;p&gt;点的功能比较广泛，主要用于定位，也可以添加触发组件以后实现圆形区域的功能。&lt;/p&gt;
+&lt;h3 id=&#34;组件&#34;&gt;组件&lt;/h3&gt;
+&lt;p&gt;组件是对象上的属性和功能，公用的组件有缩放，大小，显示隐藏条件等，特殊的组件有巡逻，交互按钮等，按需添加，从而赋予对象特性。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/dandkong/picgo/main/img/202406142209820.png&#34;&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;三场景编辑器&#34;&gt;三、场景编辑器&lt;/h2&gt;
+&lt;p&gt;理清了场景对象的结构以后，就可以做编辑器把数据组织起来了，场景编辑器的实现细节不多说，尽量用起来符合直观操作即可，功能如下。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;增删改场景信息&lt;/li&gt;
+&lt;li&gt;直观展示场景中的对象（位置、模型、范围等）&lt;/li&gt;
+&lt;li&gt;增删改场景中的对象&lt;/li&gt;
+&lt;li&gt;修改对象的组件属性&lt;/li&gt;
+&lt;li&gt;导出程序可用数据&lt;/li&gt;
+&lt;/ol&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;四数据载体&#34;&gt;四、数据载体&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;数据可以直接导出lua，也可以导出成json，xml等，只要方便维护，程序方便调用即可。&lt;/li&gt;
+&lt;li&gt;目前使用的是先储存到excel，再从excel导出到lua中，供程序调用。&lt;/li&gt;
+&lt;li&gt;使用excel作为中间载体的原因可能是比较直观，但感觉使用json或者Unity序列化的方法也是可行的。&lt;/li&gt;
+&lt;/ol&gt;</description>
     </item>
     <item>
       <title>InstantOC &#43; LOD</title>

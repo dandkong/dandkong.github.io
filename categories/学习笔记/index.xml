@@ -9,7 +9,7 @@
       <url>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.129.0</generator>
+    <generator>Hugo -- 0.140.2</generator>
     <language>zh</language>
     <lastBuildDate>Wed, 17 Jul 2024 22:07:01 +0800</lastBuildDate>
     <atom:link href="https://dandkong.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
@@ -18,65 +18,114 @@
       <link>https://dandkong.github.io/posts/puerts%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</link>
       <pubDate>Wed, 17 Jul 2024 22:07:01 +0800</pubDate>
       <guid>https://dandkong.github.io/posts/puerts%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</guid>
-      <description>前言 最近看到腾讯又出了个游戏脚本的热更方案，相对lua有以下的优势。
-JavaScript生态有众多的库和工具链，结合专业商业引擎的渲染能力，快速打造游戏
-相比游戏领域常用的lua脚本，TypeScript的静态类型检查有助于编写更健壮，可维护性更好的程序
-安装 安装PuerTS | PUER Typescript
-安装包到Unity，在合适的地方接入JSEnv
-自定义加载器 PuerTS自带一个加载器，通过Resource加载JS代码，但是实际开发的时候推荐的是TypeScript，需要转译到JS再执行。
-编辑器中推荐使用TS-Loader，编辑器中直接使用TS进行开发，没有其他需要关注的地方。
-提供一个PuerTS的Loader，使你在Editor下，可以直接读取TS。
-无需研究tsconfig、无需研究ESM、CommonJS，无需自行编译ts，无需理会和调试相关的debugpath/sourceMap/控制台跳转。
-https://github.com/zombieyang/puerts-ts-loader
-编辑器中直接使用TS开发，在发布时还需要编译成JS，参考ts-loader中的TSReleaser-Resources.cs函数，在发布资源前编译成JS。
-编译好的JS要支持热更，所以使用默认的加载器，自己定义一个加载器，传入的参数是JS的路径，返回的是JS的代码内容，结合项目的资源加载返回即可，我的Demo使用了YooAssets框架。
-调试 用类似NodeJs的方式调试即可。
-VSCode Debug 指引 | PUER Typescript
-TS学习 TS拥有静态类型检测，能编写更具有健壮性的代码，也有更多现有的资源。
-深入理解 TypeScript | 深入理解 TypeScript
-Handbook - The TypeScript Handbook
-TypeScript 入门教程
-ES6 入门教程
-前言 | TypeScript手册</description>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最近看到腾讯又出了个游戏脚本的热更方案，相对lua有以下的优势。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;JavaScript生态有众多的库和工具链，结合专业商业引擎的渲染能力，快速打造游戏&lt;/p&gt;
+&lt;p&gt;相比游戏领域常用的lua脚本，TypeScript的静态类型检查有助于编写更健壮，可维护性更好的程序&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://puerts.github.io/docs/puerts/unity/install/&#34;&gt;安装PuerTS | PUER Typescript&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;安装包到Unity，在合适的地方接入JSEnv&lt;/p&gt;
+&lt;h2 id=&#34;自定义加载器&#34;&gt;自定义加载器&lt;/h2&gt;
+&lt;p&gt;PuerTS自带一个加载器，通过Resource加载JS代码，但是实际开发的时候推荐的是TypeScript，需要转译到JS再执行。&lt;/p&gt;
+&lt;p&gt;编辑器中推荐使用TS-Loader，编辑器中直接使用TS进行开发，没有其他需要关注的地方。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;提供一个PuerTS的Loader，使你在Editor下，可以直接读取TS。&lt;/p&gt;
+&lt;p&gt;无需研究tsconfig、无需研究ESM、CommonJS，无需自行编译ts，无需理会和调试相关的debugpath/sourceMap/控制台跳转。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/zombieyang/puerts-ts-loader&#34;&gt;https://github.com/zombieyang/puerts-ts-loader&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;编辑器中直接使用TS开发，在发布时还需要编译成JS，参考ts-loader中的TSReleaser-Resources.cs函数，在发布资源前编译成JS。&lt;/p&gt;
+&lt;p&gt;编译好的JS要支持热更，所以使用默认的加载器，自己定义一个加载器，传入的参数是JS的路径，返回的是JS的代码内容，结合项目的资源加载返回即可，我的Demo使用了YooAssets框架。&lt;/p&gt;
+&lt;h2 id=&#34;调试&#34;&gt;调试&lt;/h2&gt;
+&lt;p&gt;用类似NodeJs的方式调试即可。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://puerts.github.io/docs/puerts/unity/knowjs/debugging&#34;&gt;VSCode Debug 指引 | PUER Typescript&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;ts学习&#34;&gt;TS学习&lt;/h2&gt;
+&lt;p&gt;TS拥有静态类型检测，能编写更具有健壮性的代码，也有更多现有的资源。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://jkchao.github.io/typescript-book-chinese/#why&#34;&gt;深入理解 TypeScript | 深入理解 TypeScript&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.typescriptlang.org/docs/handbook/intro.html&#34;&gt;Handbook - The TypeScript Handbook&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://ts.xcatliu.com/&#34;&gt;TypeScript 入门教程&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://es6.ruanyifeng.com/&#34;&gt;ES6 入门教程&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://bosens-china.github.io/Typescript-manual/describe/&#34;&gt;前言 | TypeScript手册&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>YooAsset学习笔记3：编辑器</title>
       <link>https://dandkong.github.io/posts/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03%E7%BC%96%E8%BE%91%E5%99%A8/</link>
       <pubDate>Sat, 29 Jun 2024 22:02:52 +0800</pubDate>
       <guid>https://dandkong.github.io/posts/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03%E7%BC%96%E8%BE%91%E5%99%A8/</guid>
-      <description>前言 上一篇文章简述了YooAsset资源管理框架运行时的框架的使用，接下来通过代码分析其内部原理。
-概览 YooAsset框架的编辑器部分包含了四个部分。
-收集：通过过滤规则，资源包名，定位地址，划分打包资源。 构建：根据收集到的资源，同时收集其依赖资源，打包成Bundle包。 Reporter：打包后的资源报告。 Debugger：运行时的资源加载情况。 收集 收集器主要通过过滤规则，资源包名，定位地址来划分资源，具体的用法在使用文档有详细介绍，本系列的第一篇也有介绍。
-构建 资源构建也是和运行时的设计相似，按步骤构建，流程如下图所示。
-构建管线分为内置管线，可编程管线，原生管线，内置管线和可编程管线的构建步骤基本一致，调用的API有不同。原生管线就是直接复制文件，不构建Bundle。
-总结 编辑器的框架就是如此，先收集再按步骤构建，再配套Reporter和Debugger进行排查分析。
-本系列教程到此结束，感谢阅读。
-参考 https://github.com/tuyoogame/YooAsset</description>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;上一篇文章简述了YooAsset资源管理框架运行时的框架的使用，接下来通过代码分析其内部原理。&lt;/p&gt;
+&lt;h2 id=&#34;概览&#34;&gt;概览&lt;/h2&gt;
+&lt;p&gt;YooAsset框架的编辑器部分包含了四个部分。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;收集：通过过滤规则，资源包名，定位地址，划分打包资源。&lt;/li&gt;
+&lt;li&gt;构建：根据收集到的资源，同时收集其依赖资源，打包成Bundle包。&lt;/li&gt;
+&lt;li&gt;Reporter：打包后的资源报告。&lt;/li&gt;
+&lt;li&gt;Debugger：运行时的资源加载情况。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;收集&#34;&gt;收集&lt;/h2&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/dandkong/picgo/main/img/202406302149365.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;收集器主要通过过滤规则，资源包名，定位地址来划分资源，具体的用法在使用文档有详细介绍，本系列的第一篇也有介绍。&lt;/p&gt;
+&lt;h2 id=&#34;构建&#34;&gt;构建&lt;/h2&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/dandkong/picgo/main/img/202406302150989.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;资源构建也是和运行时的设计相似，按步骤构建，流程如下图所示。&lt;/p&gt;
+&lt;p&gt;构建管线分为内置管线，可编程管线，原生管线，内置管线和可编程管线的构建步骤基本一致，调用的API有不同。原生管线就是直接复制文件，不构建Bundle。&lt;/p&gt;
+&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
+&lt;p&gt;编辑器的框架就是如此，先收集再按步骤构建，再配套Reporter和Debugger进行排查分析。&lt;/p&gt;
+&lt;p&gt;本系列教程到此结束，感谢阅读。&lt;/p&gt;
+&lt;h2 id=&#34;参考&#34;&gt;&lt;strong&gt;参考&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/tuyoogame/YooAsset&#34;&gt;https://github.com/tuyoogame/YooAsset&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>YooAsset学习笔记2：运行时</title>
       <link>https://dandkong.github.io/posts/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02%E8%BF%90%E8%A1%8C%E6%97%B6/</link>
       <pubDate>Fri, 14 Jun 2024 22:02:52 +0800</pubDate>
       <guid>https://dandkong.github.io/posts/yooasset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02%E8%BF%90%E8%A1%8C%E6%97%B6/</guid>
-      <description>前言 上一篇文章简述了YooAsset资源管理框架的使用，接下来通过代码分析其内部原理。
-整体框架 YooAsset框架主要分为运行时和编辑器部分，运行时实现了资源包加载，Bunlde加载，缓存，下载，从上到下的结构。编辑器部分实现了资源收集，资源构建。这篇文章主要分析运行时的机制，结构如下。
-加载流程 运行时加载流程主要如下，加载开始以后，每一层的模块基本都是轮询实现。
-简单的例子就是调用加载，从上到下，上层等待下层完成自己的步骤，如果完成，再轮询到下个阶段。
-每一层根据加载模式和资源类型的不同派生到不同的对象负责轮询，下面的示例是远程加载AssetBundle的示意流程。
-根据运行模式初始化包 外部调用加载 调用默认包的加载 Provider轮询，等待Bundle加载完成，再从Bundle中加载具体资源 Loader轮询，等待Bundle加载完成 Downloader轮询，等待下载完成 Requeseter轮询，等待请求完成 资源包（ResourcePackage） 资源包是一个比较上层的概念，在游戏初始化时要初始化包和其加载模式。具体的加载模式可以参照上一篇文章。
-定义加载模式 维护版本 维护资源清单 资源管理器（ResourceManager） 资源管理器负责加载具体的资源，根据不同的加载模式和资源类型分成不同的Provider和Loader，并返回对应的Handle。
-Provider功能：从加载好的Bundle中加载具体的资源
-Loader功能：加载Bundle。
-下载系统（DownloadSystem） 下载系统由上层的Loader持有，加载Bundle时，如果还没下载，调用下载系统进行下载。
-下载器根据不同的加载模式和资源类型区分，分类普通文件和Web文件，区别在于Web文件不进行缓存。
-下载功能由Requester承担，分为普通请求和断点续传。
-缓存系统（CacheSystem） 缓存系统是在加载资源时，下载过就不需要再次下载了，直接在本地沙盒目录中读取。
-缓存系统由下载系统调用，当下载完成以后，保存本地文件，并记录到缓存系统。
-如果已有文件，则进行校验再进行记录。
-另一个调用是在资源包初始化后，把已经下载的文件验证一遍，记录到缓存系统中。
-后记 运行的框架就是如此，虽然功能很多，但结构清晰，使用了分层处理的思想。
-下一篇将介绍编辑器的逻辑，敬请期待。
-参考 https://github.com/tuyoogame/YooAsset</description>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;上一篇文章简述了YooAsset资源管理框架的使用，接下来通过代码分析其内部原理。&lt;/p&gt;
+&lt;h2 id=&#34;整体框架&#34;&gt;整体框架&lt;/h2&gt;
+&lt;p&gt;YooAsset框架主要分为运行时和编辑器部分，运行时实现了资源包加载，Bunlde加载，缓存，下载，从上到下的结构。编辑器部分实现了资源收集，资源构建。这篇文章主要分析运行时的机制，结构如下。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/dandkong/picgo/main/img/202406142204257.jpg&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;加载流程&#34;&gt;加载流程&lt;/h2&gt;
+&lt;p&gt;运行时加载流程主要如下，加载开始以后，每一层的模块基本都是轮询实现。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/dandkong/picgo/main/img/202406142204581.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;简单的例子就是调用加载，从上到下，上层等待下层完成自己的步骤，如果完成，再轮询到下个阶段。&lt;/p&gt;
+&lt;p&gt;每一层根据加载模式和资源类型的不同派生到不同的对象负责轮询，下面的示例是远程加载AssetBundle的示意流程。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;根据运行模式初始化包&lt;/li&gt;
+&lt;li&gt;外部调用加载&lt;/li&gt;
+&lt;li&gt;调用默认包的加载&lt;/li&gt;
+&lt;li&gt;Provider轮询，等待Bundle加载完成，再从Bundle中加载具体资源&lt;/li&gt;
+&lt;li&gt;Loader轮询，等待Bundle加载完成&lt;/li&gt;
+&lt;li&gt;Downloader轮询，等待下载完成&lt;/li&gt;
+&lt;li&gt;Requeseter轮询，等待请求完成&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/dandkong/picgo/main/img/202406142205930.jpg&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;资源包resourcepackage&#34;&gt;资源包（ResourcePackage）&lt;/h2&gt;
+&lt;p&gt;资源包是一个比较上层的概念，在游戏初始化时要初始化包和其加载模式。具体的加载模式可以参照上一篇文章。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;定义加载模式&lt;/li&gt;
+&lt;li&gt;维护版本&lt;/li&gt;
+&lt;li&gt;维护资源清单&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;资源管理器resourcemanager&#34;&gt;资源管理器（ResourceManager）&lt;/h2&gt;
+&lt;p&gt;资源管理器负责加载具体的资源，根据不同的加载模式和资源类型分成不同的Provider和Loader，并返回对应的Handle。&lt;/p&gt;
+&lt;p&gt;Provider功能：从加载好的Bundle中加载具体的资源&lt;/p&gt;
+&lt;p&gt;Loader功能：加载Bundle。&lt;/p&gt;
+&lt;h2 id=&#34;下载系统downloadsystem&#34;&gt;下载系统（DownloadSystem）&lt;/h2&gt;
+&lt;p&gt;下载系统由上层的Loader持有，加载Bundle时，如果还没下载，调用下载系统进行下载。&lt;/p&gt;
+&lt;p&gt;下载器根据不同的加载模式和资源类型区分，分类普通文件和Web文件，区别在于Web文件不进行缓存。&lt;/p&gt;
+&lt;p&gt;下载功能由Requester承担，分为普通请求和断点续传。&lt;/p&gt;
+&lt;h2 id=&#34;缓存系统cachesystem&#34;&gt;缓存系统（CacheSystem）&lt;/h2&gt;
+&lt;p&gt;缓存系统是在加载资源时，下载过就不需要再次下载了，直接在本地沙盒目录中读取。&lt;/p&gt;
+&lt;p&gt;缓存系统由下载系统调用，当下载完成以后，保存本地文件，并记录到缓存系统。&lt;/p&gt;
+&lt;p&gt;如果已有文件，则进行校验再进行记录。&lt;/p&gt;
+&lt;p&gt;另一个调用是在资源包初始化后，把已经下载的文件验证一遍，记录到缓存系统中。&lt;/p&gt;
+&lt;h2 id=&#34;后记&#34;&gt;后记&lt;/h2&gt;
+&lt;p&gt;运行的框架就是如此，虽然功能很多，但结构清晰，使用了分层处理的思想。&lt;/p&gt;
+&lt;p&gt;下一篇将介绍编辑器的逻辑，敬请期待。&lt;/p&gt;
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/tuyoogame/YooAsset&#34;&gt;https://github.com/tuyoogame/YooAsset&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>YooAsset学习笔记1：接入流程</title>
@@ -90,17 +139,95 @@ Loader功能：加载Bundle。
       <link>https://dandkong.github.io/posts/%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E6%80%9D%E6%83%B3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Sat, 12 Nov 2022 20:58:13 +0800</pubDate>
       <guid>https://dandkong.github.io/posts/%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E6%80%9D%E6%83%B3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
-      <description>前言 这本书忘记从哪里下载了，和别的技术书籍不太一样，大多的内容都比较贴合项目开发，所以有一定的参考价值。
-里面有几个章节觉得有收获的，主要是框架的设计，以及一些解决问题的思路，大致做了笔记或者摘录。
-一、基础内容交流 代码规范 可读代码：由于动态语言的类型灵活性，可以在变量前加上变量类型简称
-正确使用断言与返回 注意什么时候可以为空，不要盲目返回
-可拓展接口使用 多参数，下面演示了三种写法，最终应该在保留必要参数的情况下，可选参数做成table
-addModulePower(nModuleId, nPower); addModulePower(nModuleId,nPower,bSyncMsg,bSendEvent, bOnlyBoss) if( tOption &amp;amp;&amp;amp; tOption.bSyncMsg){ //做这个参数该干的事情 } 调试的思维与逻辑 正向和逆向思维，逆向更快 不易复现的bug，埋下日志，下次使用 培养敏锐的异常反应 注意生命周期的创建与销毁
-代码修改与重构 我们在项目中秉持一个原则，如果有个接口让你不舒服，比如说多传了几个参数，那么我们一定要提出来，那一定是接口的设计不够简单或者没有提供更简单的接口形式。
-优雅的使用外部代码 我们的一个原则就是要尽可能少去直接和引擎进行交互，而是更多的进行局部缓存，把战场拉回到更加通用的逻辑里面。 修改后的代码为： let levelSlider = Core.createBitmapByName(&amp;#34;slider_png&amp;#34;); let nSliderX = 0; if(XXX){ nSliderX += 6; } if(XXX){ nSliderX += 8; } if(XXX){ nSliderX -= 2; } levelSlider.x -= nSliderX; 选择简单的接口/参数以及尽量少的使用/调用底层接口就是我们所谓的正确的代码使用方式。 代码审查 取出一个管理器对象。然后直接访问了它的成员函数，这是非常不应该行为。第一个是这个成员不应该是公有的，而应该是私有的，它的公有性质破坏了类的封装。
-从面试的角度看面试 基础能力，逻辑能力，硬核能力
-如何应对代码错误 作为项目的主程，还需要统一思想。这个过程包括要求大家遵循统一的代码命名等，这也是规避错误的一个重要手段。越是相似的代码风格，代码的阅读速度就会越快。
-二、逻辑设计模式式讨论 分层设计 事件的派发遵循从下往上：比如M驱动V 依赖性越强的越靠下层 变化的放上层，底层可以互相依赖，逻辑层不允许相互依赖 主动和被动 被动模式，依赖事件，及时，性能消耗少，当被动模式不在能支持复杂逻辑时，可以考虑主动模式 主动模式，依赖轮询，有点像ESC的系统层监听实体层的感觉了。优点在于可以监听多种条件 阻塞和非阻塞 主要用于资源加载，阻塞速度快</description>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;这本书忘记从哪里下载了，和别的技术书籍不太一样，大多的内容都比较贴合项目开发，所以有一定的参考价值。&lt;/p&gt;
+&lt;p&gt;里面有几个章节觉得有收获的，主要是框架的设计，以及一些解决问题的思路，大致做了笔记或者摘录。&lt;/p&gt;
+&lt;h2 id=&#34;一基础内容交流&#34;&gt;一、基础内容交流&lt;/h2&gt;
+&lt;h3 id=&#34;代码规范&#34;&gt;代码规范&lt;/h3&gt;
+&lt;p&gt;可读代码：由于动态语言的类型灵活性，可以在变量前加上变量类型简称&lt;/p&gt;
+&lt;h3 id=&#34;正确使用断言与返回&#34;&gt;正确使用断言与返回&lt;/h3&gt;
+&lt;p&gt;注意什么时候可以为空，不要盲目返回&lt;/p&gt;
+&lt;h3 id=&#34;可拓展接口使用&#34;&gt;可拓展接口使用&lt;/h3&gt;
+&lt;p&gt;多参数，下面演示了三种写法，最终应该在保留必要参数的情况下，可选参数做成table&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-lua&#34; data-lang=&#34;lua&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;addModulePower&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;nModuleId&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nPower&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;addModulePower&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;nModuleId&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;nPower&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bSyncMsg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bSendEvent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bOnlyBoss&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tOption&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tOption.bSyncMsg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;//&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;做这个参数该干的事情&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;调试的思维与逻辑&#34;&gt;调试的思维与逻辑&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;正向和逆向思维，逆向更快&lt;/li&gt;
+&lt;li&gt;不易复现的bug，埋下日志，下次使用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;培养敏锐的异常反应&#34;&gt;培养敏锐的异常反应&lt;/h3&gt;
+&lt;p&gt;注意生命周期的创建与销毁&lt;/p&gt;
+&lt;h3 id=&#34;代码修改与重构&#34;&gt;代码修改与重构&lt;/h3&gt;
+&lt;p&gt;我们在项目中秉持一个原则，如果有个接口让你不舒服，比如说多传了几个参数，那么我们一定要提出来，那一定是接口的设计不够简单或者没有提供更简单的接口形式。&lt;/p&gt;
+&lt;h3 id=&#34;优雅的使用外部代码&#34;&gt;优雅的使用外部代码&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;我们的一个原则就是要尽可能少去直接和引擎进行交互，而是更多的进行局部缓存，把战场拉回到更加通用的逻辑里面。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-lua&#34; data-lang=&#34;lua&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;修改后的代码为：&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;levelSlider&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Core.createBitmapByName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;slider_png&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nSliderX&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;XXX&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;nSliderX&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;XXX&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;nSliderX&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;XXX&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;nSliderX&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;levelSlider.x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nSliderX&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;选择简单的接口/参数以及尽量少的使用/调用底层接口就是我们所谓的正确的代码使用方式。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;代码审查&#34;&gt;代码审查&lt;/h3&gt;
+&lt;p&gt;取出一个管理器对象。然后直接访问了它的成员函数，这是非常不应该行为。第一个是这个成员不应该是公有的，而应该是私有的，它的公有性质破坏了类的封装。&lt;/p&gt;
+&lt;h3 id=&#34;从面试的角度看面试&#34;&gt;从面试的角度看面试&lt;/h3&gt;
+&lt;p&gt;基础能力，逻辑能力，硬核能力&lt;/p&gt;
+&lt;h3 id=&#34;如何应对代码错误&#34;&gt;如何应对代码错误&lt;/h3&gt;
+&lt;p&gt;作为项目的主程，还需要统一思想。这个过程包括要求大家遵循统一的代码命名等，这也是规避错误的一个重要手段。越是相似的代码风格，代码的阅读速度就会越快。&lt;/p&gt;
+&lt;h2 id=&#34;二逻辑设计模式式讨论&#34;&gt;二、逻辑设计模式式讨论&lt;/h2&gt;
+&lt;h3 id=&#34;分层设计&#34;&gt;分层设计&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;事件的派发遵循从下往上：比如M驱动V&lt;/li&gt;
+&lt;li&gt;依赖性越强的越靠下层&lt;/li&gt;
+&lt;li&gt;变化的放上层，底层可以互相依赖，逻辑层不允许相互依赖&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;主动和被动&#34;&gt;主动和被动&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;被动模式，依赖事件，及时，性能消耗少，当被动模式不在能支持复杂逻辑时，可以考虑主动模式&lt;/li&gt;
+&lt;li&gt;主动模式，依赖轮询，有点像ESC的系统层监听实体层的感觉了。优点在于可以监听多种条件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;阻塞和非阻塞&#34;&gt;阻塞和非阻塞&lt;/h3&gt;
+&lt;p&gt;主要用于资源加载，阻塞速度快&lt;/p&gt;
+&lt;h3 id=&#34;统一与非统一&#34;&gt;统一与非统一&lt;/h3&gt;
+&lt;p&gt;效率没有打到一定程度的影响时，推荐考虑统一性&lt;/p&gt;
+&lt;h2 id=&#34;三框架设计初步&#34;&gt;三、框架设计初步&lt;/h2&gt;
+&lt;h3 id=&#34;基类&#34;&gt;基类&lt;/h3&gt;
+&lt;p&gt;存活状态，唯一ID&lt;/p&gt;
+&lt;h3 id=&#34;框架代码结构&#34;&gt;框架代码结构&lt;/h3&gt;
+&lt;p&gt;子类关注的基类接口一定是个空的实现，意味着子类不需要考虑去调用父类同名的接口。&lt;/p&gt;
+&lt;h3 id=&#34;框架设计&#34;&gt;框架设计&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;配置化编程：消除重复代码，如协议监听，按钮监听等等&lt;/li&gt;
+&lt;li&gt;自动化平衡处理：如果没有销毁，帮忙擦下屁股&lt;/li&gt;
+&lt;li&gt;机制有助于实现全局性的功能，尤其处理大规模需要重复代码的东西&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;框架拓展的思路&#34;&gt;框架拓展的思路&lt;/h3&gt;
+&lt;p&gt;基础能力，封装类，继承到框架中&lt;/p&gt;
+&lt;h2 id=&#34;四逻辑设计原理&#34;&gt;四、逻辑设计原理&lt;/h2&gt;
+&lt;h3 id=&#34;缓存的设计&#34;&gt;缓存的设计&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;缓存存放的东西有限，不能所有的东西都放缓存。&lt;/li&gt;
+&lt;li&gt;缓存应该具备清理功能。&lt;/li&gt;
+&lt;li&gt;缓存系统应该具备一定的匹配能力。&lt;/li&gt;
+&lt;li&gt;缓存具备最小保留数量以及预先创建的能力&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;分线漫谈&#34;&gt;分线漫谈&lt;/h3&gt;
+&lt;p&gt;分线，是将玩家划分到不同的频道中，不同频道的玩家互不可见，且不会互相同步消息。分线在程序方面主要用于减少网络包，在策划层面会有一些其他的应用。分线是基于场景的，我们的可见性，以及消息同步默认以场景为单位。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
