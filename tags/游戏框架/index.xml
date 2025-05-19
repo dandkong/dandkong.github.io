@@ -9,10 +9,17 @@
       <url>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.140.2</generator>
+    <generator>Hugo -- 0.147.3</generator>
     <language>zh</language>
-    <lastBuildDate>Sat, 27 Jul 2024 21:37:10 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 19 May 2025 17:39:19 +0800</lastBuildDate>
     <atom:link href="https://dandkong.github.io/tags/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>行为树框架</title>
+      <link>https://dandkong.github.io/posts/%E8%A1%8C%E4%B8%BA%E6%A0%91%E6%A1%86%E6%9E%B6/</link>
+      <pubDate>Mon, 19 May 2025 17:39:19 +0800</pubDate>
+      <guid>https://dandkong.github.io/posts/%E8%A1%8C%E4%B8%BA%E6%A0%91%E6%A1%86%E6%9E%B6/</guid>
+      <description>行为树概念介绍</description>
+    </item>
     <item>
       <title>游戏框架-Tween</title>
       <link>https://dandkong.github.io/posts/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6-tween/</link>
@@ -338,8 +345,7 @@
 &lt;p&gt;最近看到腾讯又出了个游戏脚本的热更方案，相对lua有以下的优势。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;JavaScript生态有众多的库和工具链，结合专业商业引擎的渲染能力，快速打造游戏&lt;/p&gt;
-&lt;p&gt;相比游戏领域常用的lua脚本，TypeScript的静态类型检查有助于编写更健壮，可维护性更好的程序&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;相比游戏领域常用的lua脚本，TypeScript的静态类型检查有助于编写更健壮，可维护性更好的程序&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://puerts.github.io/docs/puerts/unity/install/&#34;&gt;安装PuerTS | PUER Typescript&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;安装包到Unity，在合适的地方接入JSEnv&lt;/p&gt;
@@ -348,8 +354,7 @@
 &lt;p&gt;编辑器中推荐使用TS-Loader，编辑器中直接使用TS进行开发，没有其他需要关注的地方。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;提供一个PuerTS的Loader，使你在Editor下，可以直接读取TS。&lt;/p&gt;
-&lt;p&gt;无需研究tsconfig、无需研究ESM、CommonJS，无需自行编译ts，无需理会和调试相关的debugpath/sourceMap/控制台跳转。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;无需研究tsconfig、无需研究ESM、CommonJS，无需自行编译ts，无需理会和调试相关的debugpath/sourceMap/控制台跳转。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/zombieyang/puerts-ts-loader&#34;&gt;https://github.com/zombieyang/puerts-ts-loader&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;编辑器中直接使用TS开发，在发布时还需要编译成JS，参考ts-loader中的TSReleaser-Resources.cs函数，在发布资源前编译成JS。&lt;/p&gt;
 &lt;p&gt;编译好的JS要支持热更，所以使用默认的加载器，自己定义一个加载器，传入的参数是JS的路径，返回的是JS的代码内容，结合项目的资源加载返回即可，我的Demo使用了YooAssets框架。&lt;/p&gt;
@@ -404,7 +409,6 @@
 &lt;li&gt;所以需要设计一套副本系统可以灵活配置副本功能，想法是把副本里的每个行为，判断都作为一个节点，类型行为树的概念，从开始节点一直执行到结束节点，这个副本进程就结束了，进入下个副本进程。&lt;/li&gt;
 &lt;li&gt;编辑器使用连线的方式操作，每个节点的前后置关系，导出lua配置供程序使用，服务端控制执行流程，客户端只需要执行节点逻辑。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;例子&#34;&gt;例子&lt;/h2&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/dandkong/picgo/main/img/20221209133618.png&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -412,13 +416,11 @@
 &lt;li&gt;端口定义了每个节点间的关系，也就是图中的连线，控制流程走向，比如刷怪战斗节点，输入端口连接“判断组队人数”，有两个输出端口，分别是胜利和失败，连接对应的节点。&lt;/li&gt;
 &lt;li&gt;把副本流程解构成一个个节点以后，只需要维护节点的行为和端口逻辑即可，组合由策划完成，只有在添加新节点时程序才需要上场。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;编辑器&#34;&gt;编辑器&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;编辑器可以用网上的开源例子&lt;a href=&#34;https://github.com/Siccity/xNode&#34;&gt;xnode&lt;/a&gt;组织节点，也可自己实现。&lt;/li&gt;
 &lt;li&gt;导出的数据包括了节点的类型，参数，前后置节点等一切代码需要的信息。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;副本流程&#34;&gt;副本流程&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;服务端推送当前节点信息&lt;/li&gt;
@@ -434,7 +436,6 @@
       <guid>https://dandkong.github.io/posts/%E5%9C%BA%E6%99%AF%E6%95%B0%E6%8D%AE%E6%A1%86%E6%9E%B6/</guid>
       <description>&lt;h2 id=&#34;一概述&#34;&gt;一、概述&lt;/h2&gt;
 &lt;p&gt;一般MMO的游戏由场景和场景中的对象构成，在设计地图时，就会遇到几个问题。怎么有效直观地配置信息，对象都有什么功能，有什么功能是共有的。针对上面的问题，首先需要解决的是抽象出场景对象结构，在此基础上做编辑器，用图形化的界面展示，修改储存数据，供代码使用。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;二场景对象结构&#34;&gt;二、场景对象结构&lt;/h2&gt;
 &lt;p&gt;场景本事有数据，如场景资源，组队人数限制等等，这种信息改动不大，也比较直观，一般只要存在excel里面就好，需要的话可以做图形编辑器对excel进行读写和修改。&lt;/p&gt;
 &lt;p&gt;场景中的对象可以按需分成几类，常见的有npc，采集物，区域，点等等。&lt;/p&gt;
@@ -449,7 +450,6 @@
 &lt;h3 id=&#34;组件&#34;&gt;组件&lt;/h3&gt;
 &lt;p&gt;组件是对象上的属性和功能，公用的组件有缩放，大小，显示隐藏条件等，特殊的组件有巡逻，交互按钮等，按需添加，从而赋予对象特性。&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/dandkong/picgo/main/img/202406142209820.png&#34;&gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;三场景编辑器&#34;&gt;三、场景编辑器&lt;/h2&gt;
 &lt;p&gt;理清了场景对象的结构以后，就可以做编辑器把数据组织起来了，场景编辑器的实现细节不多说，尽量用起来符合直观操作即可，功能如下。&lt;/p&gt;
 &lt;ol&gt;
@@ -459,7 +459,6 @@
 &lt;li&gt;修改对象的组件属性&lt;/li&gt;
 &lt;li&gt;导出程序可用数据&lt;/li&gt;
 &lt;/ol&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;四数据载体&#34;&gt;四、数据载体&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;数据可以直接导出lua，也可以导出成json，xml等，只要方便维护，程序方便调用即可。&lt;/li&gt;
@@ -474,19 +473,14 @@
       <guid>https://dandkong.github.io/posts/%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E6%A1%86%E6%9E%B6/</guid>
       <description>&lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;
 &lt;p&gt;游戏对象管理一般是通过总分结构，管理器为RoleMgr，对象为Role，Role的功能由各种功能组件实现，从而实现继承和解耦。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;rolemgr&#34;&gt;RoleMgr&lt;/h2&gt;
 &lt;p&gt;管理类管理游戏中所有的Role，负责Role的创建、查找、销毁，一般配合UID生成器，给每一个Role分配一个唯一ID作为唯一的标识。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;role&#34;&gt;Role&lt;/h2&gt;
 &lt;p&gt;Role是游戏中的对象，可以是角色，特效，建筑等等游戏中的一切实体，由BaseRole派生。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;baserole&#34;&gt;BaseRole&lt;/h2&gt;
 &lt;p&gt;基类，定义Role的最基本信息，如GameObject，Transform信息，显示隐藏状态等等。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;派生&#34;&gt;派生&lt;/h2&gt;
 &lt;p&gt;对BaseRole进行派生就是具体的游戏对象，如添加了控制器以后就是角色，再添加主动移动的控制器以后就是主角，通过绑定不同的组件实现Role的不同方向功能。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;role的功能&#34;&gt;Role的功能&lt;/h2&gt;
 &lt;p&gt;Role的功能都由挂载的组件实现，常用的组件有&lt;/p&gt;
 &lt;ul&gt;
@@ -498,7 +492,6 @@
 &lt;li&gt;头顶文本组件&lt;/li&gt;
 &lt;li&gt;还有各种项目中需要实现的功能&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;role的结构&#34;&gt;Role的结构&lt;/h2&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/dandkong/picgo/main/img/20221127085411.png&#34;&gt;&lt;/p&gt;</description>
     </item>

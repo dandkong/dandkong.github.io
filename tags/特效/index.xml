@@ -9,7 +9,7 @@
       <url>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.140.2</generator>
+    <generator>Hugo -- 0.147.3</generator>
     <language>zh</language>
     <lastBuildDate>Thu, 06 Jun 2024 22:45:30 +0800</lastBuildDate>
     <atom:link href="https://dandkong.github.io/tags/%E7%89%B9%E6%95%88/index.xml" rel="self" type="application/rss+xml" />
@@ -27,8 +27,7 @@
 &lt;h2 id=&#34;原理&#34;&gt;原理&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;This package utilizes the new &lt;code&gt;APIsMeshBake/MashTrailBake&lt;/code&gt;(introduced with Unity 2018.2) to render particles through CanvasRenderer.&lt;/p&gt;
-&lt;p&gt;You can render, mask, and sort your ParticleSystems for UI without the necessity of an additional Camera, RenderTexture, or Canvas.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;You can render, mask, and sort your ParticleSystems for UI without the necessity of an additional Camera, RenderTexture, or Canvas.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;这是项目首页的原理，具体就是通过一个API让例子特效通过&lt;code&gt;CanvasRender&lt;/code&gt;进行渲染，这样就和普通的UI没什么不同了。&lt;/p&gt;
 &lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
 &lt;p&gt;按官方的教程，直接引入包，添加组件到特效上，直接拖到UI中即可。&lt;/p&gt;

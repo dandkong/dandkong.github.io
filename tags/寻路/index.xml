@@ -9,7 +9,7 @@
       <url>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.140.2</generator>
+    <generator>Hugo -- 0.147.3</generator>
     <language>zh</language>
     <lastBuildDate>Mon, 12 Dec 2022 19:51:11 +0800</lastBuildDate>
     <atom:link href="https://dandkong.github.io/tags/%E5%AF%BB%E8%B7%AF/index.xml" rel="self" type="application/rss+xml" />
@@ -20,7 +20,6 @@
       <guid>https://dandkong.github.io/posts/%E4%BA%BA%E7%89%A9%E7%A7%BB%E5%8A%A8%E6%A8%A1%E5%9D%97/</guid>
       <description>&lt;h2 id=&#34;一概述&#34;&gt;一、概述&lt;/h2&gt;
 &lt;p&gt;游戏中角色移动分为了主动和被动，主动主要由玩家通过摇杆或者键盘进行操作，被动移动主要应用于自动寻路，通过寻路点行动。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;二主动移动&#34;&gt;二、主动移动&lt;/h2&gt;
 &lt;h3 id=&#34;移动组件&#34;&gt;移动组件&lt;/h3&gt;
 &lt;p&gt;移动组件主要用到Unity的移动组件&lt;strong&gt;Character Controller&lt;/strong&gt;，主要属性如下&lt;/p&gt;
@@ -83,7 +82,6 @@
 &lt;li&gt;状态机维护当前角色状态（普通，跳跃），设置对应动画状态&lt;/li&gt;
 &lt;li&gt;计算下一帧移动方向&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;三自动寻路&#34;&gt;三、自动寻路&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;自动寻路主要是计算出起始点到目标点的一连串的中间点，每次走一小段直线，从而完成寻路的过程，逻辑比较简单，&lt;/li&gt;

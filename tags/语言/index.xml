@@ -9,7 +9,7 @@
       <url>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.140.2</generator>
+    <generator>Hugo -- 0.147.3</generator>
     <language>zh</language>
     <lastBuildDate>Wed, 17 Jul 2024 22:07:01 +0800</lastBuildDate>
     <atom:link href="https://dandkong.github.io/tags/%E8%AF%AD%E8%A8%80/index.xml" rel="self" type="application/rss+xml" />
@@ -22,8 +22,7 @@
 &lt;p&gt;最近看到腾讯又出了个游戏脚本的热更方案，相对lua有以下的优势。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;JavaScript生态有众多的库和工具链，结合专业商业引擎的渲染能力，快速打造游戏&lt;/p&gt;
-&lt;p&gt;相比游戏领域常用的lua脚本，TypeScript的静态类型检查有助于编写更健壮，可维护性更好的程序&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;相比游戏领域常用的lua脚本，TypeScript的静态类型检查有助于编写更健壮，可维护性更好的程序&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://puerts.github.io/docs/puerts/unity/install/&#34;&gt;安装PuerTS | PUER Typescript&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;安装包到Unity，在合适的地方接入JSEnv&lt;/p&gt;
@@ -32,8 +31,7 @@
 &lt;p&gt;编辑器中推荐使用TS-Loader，编辑器中直接使用TS进行开发，没有其他需要关注的地方。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;提供一个PuerTS的Loader，使你在Editor下，可以直接读取TS。&lt;/p&gt;
-&lt;p&gt;无需研究tsconfig、无需研究ESM、CommonJS，无需自行编译ts，无需理会和调试相关的debugpath/sourceMap/控制台跳转。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;无需研究tsconfig、无需研究ESM、CommonJS，无需自行编译ts，无需理会和调试相关的debugpath/sourceMap/控制台跳转。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/zombieyang/puerts-ts-loader&#34;&gt;https://github.com/zombieyang/puerts-ts-loader&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;编辑器中直接使用TS开发，在发布时还需要编译成JS，参考ts-loader中的TSReleaser-Resources.cs函数，在发布资源前编译成JS。&lt;/p&gt;
 &lt;p&gt;编译好的JS要支持热更，所以使用默认的加载器，自己定义一个加载器，传入的参数是JS的路径，返回的是JS的代码内容，结合项目的资源加载返回即可，我的Demo使用了YooAssets框架。&lt;/p&gt;

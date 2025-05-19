@@ -9,7 +9,7 @@
       <url>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.140.2</generator>
+    <generator>Hugo -- 0.147.3</generator>
     <language>zh</language>
     <lastBuildDate>Sun, 27 Nov 2022 08:51:40 +0800</lastBuildDate>
     <atom:link href="https://dandkong.github.io/tags/%E8%A7%92%E8%89%B2/index.xml" rel="self" type="application/rss+xml" />
@@ -20,19 +20,14 @@
       <guid>https://dandkong.github.io/posts/%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E6%A1%86%E6%9E%B6/</guid>
       <description>&lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;
 &lt;p&gt;游戏对象管理一般是通过总分结构，管理器为RoleMgr，对象为Role，Role的功能由各种功能组件实现，从而实现继承和解耦。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;rolemgr&#34;&gt;RoleMgr&lt;/h2&gt;
 &lt;p&gt;管理类管理游戏中所有的Role，负责Role的创建、查找、销毁，一般配合UID生成器，给每一个Role分配一个唯一ID作为唯一的标识。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;role&#34;&gt;Role&lt;/h2&gt;
 &lt;p&gt;Role是游戏中的对象，可以是角色，特效，建筑等等游戏中的一切实体，由BaseRole派生。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;baserole&#34;&gt;BaseRole&lt;/h2&gt;
 &lt;p&gt;基类，定义Role的最基本信息，如GameObject，Transform信息，显示隐藏状态等等。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;派生&#34;&gt;派生&lt;/h2&gt;
 &lt;p&gt;对BaseRole进行派生就是具体的游戏对象，如添加了控制器以后就是角色，再添加主动移动的控制器以后就是主角，通过绑定不同的组件实现Role的不同方向功能。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;role的功能&#34;&gt;Role的功能&lt;/h2&gt;
 &lt;p&gt;Role的功能都由挂载的组件实现，常用的组件有&lt;/p&gt;
 &lt;ul&gt;
@@ -44,7 +39,6 @@
 &lt;li&gt;头顶文本组件&lt;/li&gt;
 &lt;li&gt;还有各种项目中需要实现的功能&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;role的结构&#34;&gt;Role的结构&lt;/h2&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/dandkong/picgo/main/img/20221127085411.png&#34;&gt;&lt;/p&gt;</description>
     </item>

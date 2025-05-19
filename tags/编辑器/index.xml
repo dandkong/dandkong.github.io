@@ -9,7 +9,7 @@
       <url>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.140.2</generator>
+    <generator>Hugo -- 0.147.3</generator>
     <language>zh</language>
     <lastBuildDate>Sat, 16 Mar 2024 20:14:29 +0800</lastBuildDate>
     <atom:link href="https://dandkong.github.io/tags/%E7%BC%96%E8%BE%91%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
@@ -39,7 +39,6 @@
 &lt;li&gt;所以需要设计一套副本系统可以灵活配置副本功能，想法是把副本里的每个行为，判断都作为一个节点，类型行为树的概念，从开始节点一直执行到结束节点，这个副本进程就结束了，进入下个副本进程。&lt;/li&gt;
 &lt;li&gt;编辑器使用连线的方式操作，每个节点的前后置关系，导出lua配置供程序使用，服务端控制执行流程，客户端只需要执行节点逻辑。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;例子&#34;&gt;例子&lt;/h2&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/dandkong/picgo/main/img/20221209133618.png&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -47,13 +46,11 @@
 &lt;li&gt;端口定义了每个节点间的关系，也就是图中的连线，控制流程走向，比如刷怪战斗节点，输入端口连接“判断组队人数”，有两个输出端口，分别是胜利和失败，连接对应的节点。&lt;/li&gt;
 &lt;li&gt;把副本流程解构成一个个节点以后，只需要维护节点的行为和端口逻辑即可，组合由策划完成，只有在添加新节点时程序才需要上场。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;编辑器&#34;&gt;编辑器&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;编辑器可以用网上的开源例子&lt;a href=&#34;https://github.com/Siccity/xNode&#34;&gt;xnode&lt;/a&gt;组织节点，也可自己实现。&lt;/li&gt;
 &lt;li&gt;导出的数据包括了节点的类型，参数，前后置节点等一切代码需要的信息。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;副本流程&#34;&gt;副本流程&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;服务端推送当前节点信息&lt;/li&gt;
@@ -69,7 +66,6 @@
       <guid>https://dandkong.github.io/posts/%E5%9C%BA%E6%99%AF%E6%95%B0%E6%8D%AE%E6%A1%86%E6%9E%B6/</guid>
       <description>&lt;h2 id=&#34;一概述&#34;&gt;一、概述&lt;/h2&gt;
 &lt;p&gt;一般MMO的游戏由场景和场景中的对象构成，在设计地图时，就会遇到几个问题。怎么有效直观地配置信息，对象都有什么功能，有什么功能是共有的。针对上面的问题，首先需要解决的是抽象出场景对象结构，在此基础上做编辑器，用图形化的界面展示，修改储存数据，供代码使用。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;二场景对象结构&#34;&gt;二、场景对象结构&lt;/h2&gt;
 &lt;p&gt;场景本事有数据，如场景资源，组队人数限制等等，这种信息改动不大，也比较直观，一般只要存在excel里面就好，需要的话可以做图形编辑器对excel进行读写和修改。&lt;/p&gt;
 &lt;p&gt;场景中的对象可以按需分成几类，常见的有npc，采集物，区域，点等等。&lt;/p&gt;
@@ -84,7 +80,6 @@
 &lt;h3 id=&#34;组件&#34;&gt;组件&lt;/h3&gt;
 &lt;p&gt;组件是对象上的属性和功能，公用的组件有缩放，大小，显示隐藏条件等，特殊的组件有巡逻，交互按钮等，按需添加，从而赋予对象特性。&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/dandkong/picgo/main/img/202406142209820.png&#34;&gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;三场景编辑器&#34;&gt;三、场景编辑器&lt;/h2&gt;
 &lt;p&gt;理清了场景对象的结构以后，就可以做编辑器把数据组织起来了，场景编辑器的实现细节不多说，尽量用起来符合直观操作即可，功能如下。&lt;/p&gt;
 &lt;ol&gt;
@@ -94,7 +89,6 @@
 &lt;li&gt;修改对象的组件属性&lt;/li&gt;
 &lt;li&gt;导出程序可用数据&lt;/li&gt;
 &lt;/ol&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;四数据载体&#34;&gt;四、数据载体&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;数据可以直接导出lua，也可以导出成json，xml等，只要方便维护，程序方便调用即可。&lt;/li&gt;
@@ -111,7 +105,6 @@
 &lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;上半年的大半年时间都在用FGUI，最近又用回了UGUI，发现FGUI的一些工具还是很高效的，比如对齐工具，想着说移植到UGUI里面去，上网搜了一圈还真有，原理并不复杂，就是进行一些数学计算出最终的位置。&lt;/p&gt;
 &lt;p&gt;不过也没有完全适合项目需求，针对原项目基础上添加了三个功能，下面介绍一下。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;一撤销功能&#34;&gt;一、撤销功能&lt;/h2&gt;
 &lt;p&gt;原项目的工具在修改后，习惯性就按下Ctrl+Z，发现并不能撤销原来的操作，查询了Unity的API后，发现有个Undo的类，可以实现撤销功能，有很多方法，主要用到了RecordObject，代码如下&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c#&#34; data-lang=&#34;c#&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SetTranPos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Transform&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tran&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Vector3&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
@@ -119,16 +112,14 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;Undo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;RecordObject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tran&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;modify posstion&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;tran&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;position&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
-&lt;h2 id=&#34;二selectiongameobjects不是按选择顺序的&#34;&gt;二、Selection.GameObjects不是按选择顺序的&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;二selectiongameobjects不是按选择顺序的&#34;&gt;二、Selection.GameObjects不是按选择顺序的&lt;/h2&gt;
 &lt;p&gt;API中的Selection.GameObjects用于获取当前选中的物件，数组的顺序和我选择的顺序无关，所以不能实现灵活的对齐，查询网上文章可以用Selection.Objects替代，里面的第一个元素就是Ctrl选中的第一个元素，以此类推，代码如下&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//按选中顺序获取GameObjects&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;GameObject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;GetOrderedSelctionObjs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Selection&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;objects&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;OfType&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GameObject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;().&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ToArray&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
-&lt;h2 id=&#34;三添加对父节点对齐&#34;&gt;三、添加对父节点对齐&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;三添加对父节点对齐&#34;&gt;三、添加对父节点对齐&lt;/h2&gt;
 &lt;p&gt;功能就是和标题一样，原项目是没有的，代码如下&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c#&#34; data-lang=&#34;c#&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//如果只选中一个，对父节点对齐&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;rects&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Count&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
@@ -138,8 +129,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;rects&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Insert&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rects&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;].&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;parent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GetComponent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;RectTransform&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;());&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
-&lt;h2 id=&#34;四代码&#34;&gt;四、代码&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;四代码&#34;&gt;四、代码&lt;/h2&gt;
 &lt;h3 id=&#34;uguialign&#34;&gt;UGUIAlign&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;System.Collections.Generic&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;System.Linq&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
@@ -430,8 +420,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;maxY&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
-&lt;h2 id=&#34;五代码下载&#34;&gt;五、代码下载&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;五代码下载&#34;&gt;五、代码下载&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/dandkong/UGUIAlign&#34;&gt;https://github.com/dandkong/UGUIAlign&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>

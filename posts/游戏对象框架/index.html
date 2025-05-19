@@ -1,19 +1,14 @@
 <!doctype html><html lang=zh dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>游戏对象框架 | Dand</title>
 <meta name=keywords content="游戏框架,角色"><meta name=description content="概述
 游戏对象管理一般是通过总分结构，管理器为RoleMgr，对象为Role，Role的功能由各种功能组件实现，从而实现继承和解耦。
-
 RoleMgr
 管理类管理游戏中所有的Role，负责Role的创建、查找、销毁，一般配合UID生成器，给每一个Role分配一个唯一ID作为唯一的标识。
-
 Role
 Role是游戏中的对象，可以是角色，特效，建筑等等游戏中的一切实体，由BaseRole派生。
-
 BaseRole
 基类，定义Role的最基本信息，如GameObject，Transform信息，显示隐藏状态等等。
-
 派生
 对BaseRole进行派生就是具体的游戏对象，如添加了控制器以后就是角色，再添加主动移动的控制器以后就是主角，通过绑定不同的组件实现Role的不同方向功能。
-
 Role的功能
 Role的功能都由挂载的组件实现，常用的组件有
 
@@ -24,7 +19,6 @@ Role的功能都由挂载的组件实现，常用的组件有
 范围触发组件（当玩家走进时会触发回调）
 头顶文本组件
 还有各种项目中需要实现的功能
-
 
 Role的结构
 "><meta name=author content="Dand"><link rel=canonical href=https://dandkong.github.io/posts/%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E6%A1%86%E6%9E%B6/><link crossorigin=anonymous href=/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as=style><link rel=icon href=https://dandkong.github.io/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://dandkong.github.io/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://dandkong.github.io/favicon-32x32.png><link rel=apple-touch-icon href=https://dandkong.github.io/apple-touch-icon.png><link rel=mask-icon href=https://dandkong.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=zh href=https://dandkong.github.io/posts/%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E6%A1%86%E6%9E%B6/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:url" content="https://dandkong.github.io/posts/%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E6%A1%86%E6%9E%B6/"><meta property="og:site_name" content="Dand"><meta property="og:title" content="游戏对象框架"><meta property="og:description" content="概述 游戏对象管理一般是通过总分结构，管理器为RoleMgr，对象为Role，Role的功能由各种功能组件实现，从而实现继承和解耦。
@@ -35,19 +29,14 @@ BaseRole 基类，定义Role的最基本信息，如GameObject，Transform信息
 Role的功能 Role的功能都由挂载的组件实现，常用的组件有
 模型组件 被动移动组件 主动移动组件 显示隐藏组件（多条件） 范围触发组件（当玩家走进时会触发回调） 头顶文本组件 还有各种项目中需要实现的功能 Role的结构 "><meta property="og:locale" content="zh"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-11-27T08:51:40+08:00"><meta property="article:modified_time" content="2022-11-27T08:51:40+08:00"><meta property="article:tag" content="游戏框架"><meta property="article:tag" content="角色"><meta property="og:image" content="https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta name=twitter:title content="游戏对象框架"><meta name=twitter:description content="概述
 游戏对象管理一般是通过总分结构，管理器为RoleMgr，对象为Role，Role的功能由各种功能组件实现，从而实现继承和解耦。
-
 RoleMgr
 管理类管理游戏中所有的Role，负责Role的创建、查找、销毁，一般配合UID生成器，给每一个Role分配一个唯一ID作为唯一的标识。
-
 Role
 Role是游戏中的对象，可以是角色，特效，建筑等等游戏中的一切实体，由BaseRole派生。
-
 BaseRole
 基类，定义Role的最基本信息，如GameObject，Transform信息，显示隐藏状态等等。
-
 派生
 对BaseRole进行派生就是具体的游戏对象，如添加了控制器以后就是角色，再添加主动移动的控制器以后就是主角，通过绑定不同的组件实现Role的不同方向功能。
-
 Role的功能
 Role的功能都由挂载的组件实现，常用的组件有
 
@@ -58,7 +47,6 @@ Role的功能都由挂载的组件实现，常用的组件有
 范围触发组件（当玩家走进时会触发回调）
 头顶文本组件
 还有各种项目中需要实现的功能
-
 
 Role的结构
 "><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://dandkong.github.io/posts/"},{"@type":"ListItem","position":2,"name":"游戏对象框架","item":"https://dandkong.github.io/posts/%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E6%A1%86%E6%9E%B6/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"游戏对象框架","name":"游戏对象框架","description":"概述 游戏对象管理一般是通过总分结构，管理器为RoleMgr，对象为Role，Role的功能由各种功能组件实现，从而实现继承和解耦。\nRoleMgr 管理类管理游戏中所有的Role，负责Role的创建、查找、销毁，一般配合UID生成器，给每一个Role分配一个唯一ID作为唯一的标识。\nRole Role是游戏中的对象，可以是角色，特效，建筑等等游戏中的一切实体，由BaseRole派生。\nBaseRole 基类，定义Role的最基本信息，如GameObject，Transform信息，显示隐藏状态等等。\n派生 对BaseRole进行派生就是具体的游戏对象，如添加了控制器以后就是角色，再添加主动移动的控制器以后就是主角，通过绑定不同的组件实现Role的不同方向功能。\nRole的功能 Role的功能都由挂载的组件实现，常用的组件有\n模型组件 被动移动组件 主动移动组件 显示隐藏组件（多条件） 范围触发组件（当玩家走进时会触发回调） 头顶文本组件 还有各种项目中需要实现的功能 Role的结构 ","keywords":["游戏框架","角色"],"articleBody":"概述 游戏对象管理一般是通过总分结构，管理器为RoleMgr，对象为Role，Role的功能由各种功能组件实现，从而实现继承和解耦。\nRoleMgr 管理类管理游戏中所有的Role，负责Role的创建、查找、销毁，一般配合UID生成器，给每一个Role分配一个唯一ID作为唯一的标识。\nRole Role是游戏中的对象，可以是角色，特效，建筑等等游戏中的一切实体，由BaseRole派生。\nBaseRole 基类，定义Role的最基本信息，如GameObject，Transform信息，显示隐藏状态等等。\n派生 对BaseRole进行派生就是具体的游戏对象，如添加了控制器以后就是角色，再添加主动移动的控制器以后就是主角，通过绑定不同的组件实现Role的不同方向功能。\nRole的功能 Role的功能都由挂载的组件实现，常用的组件有\n模型组件 被动移动组件 主动移动组件 显示隐藏组件（多条件） 范围触发组件（当玩家走进时会触发回调） 头顶文本组件 还有各种项目中需要实现的功能 Role的结构 ","wordCount":"20","inLanguage":"zh","image":"https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E","datePublished":"2022-11-27T08:51:40+08:00","dateModified":"2022-11-27T08:51:40+08:00","author":{"@type":"Person","name":"Dand"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dandkong.github.io/posts/%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E6%A1%86%E6%9E%B6/"},"publisher":{"@type":"Organization","name":"Dand","logo":{"@type":"ImageObject","url":"https://dandkong.github.io/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://dandkong.github.io/ accesskey=h title="Dand (Alt + H)"><img src=https://dandkong.github.io/images/avatar.png alt aria-label=logo height=35>Dand</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://dandkong.github.io/archives/ title=归档><span>归档</span></a></li><li><a href=https://dandkong.github.io/categories/ title=分类><span>分类</span></a></li><li><a href=https://dandkong.github.io/tags/ title=标签><span>标签</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://dandkong.github.io/>主页</a>&nbsp;»&nbsp;<a href=https://dandkong.github.io/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">游戏对象框架</h1><div class=post-meta><span title='2022-11-27 08:51:40 +0800 CST'>2022-11-27</span>&nbsp;·&nbsp;Dand</div></header><div class=toc><details><summary accesskey=c title="(Alt + C)"><span class=details>目录</span></summary><div class=inner><ul><li><a href=#%e6%a6%82%e8%bf%b0 aria-label=概述>概述</a></li><li><a href=#rolemgr aria-label=RoleMgr>RoleMgr</a></li><li><a href=#role aria-label=Role>Role</a></li><li><a href=#baserole aria-label=BaseRole>BaseRole</a></li><li><a href=#%e6%b4%be%e7%94%9f aria-label=派生>派生</a></li><li><a href=#role%e7%9a%84%e5%8a%9f%e8%83%bd aria-label=Role的功能>Role的功能</a></li><li><a href=#role%e7%9a%84%e7%bb%93%e6%9e%84 aria-label=Role的结构>Role的结构</a></li></ul></div></details></div><div class=post-content><h2 id=概述>概述<a hidden class=anchor aria-hidden=true href=#概述>#</a></h2><p>游戏对象管理一般是通过总分结构，管理器为RoleMgr，对象为Role，Role的功能由各种功能组件实现，从而实现继承和解耦。</p><h2 id=rolemgr>RoleMgr<a hidden class=anchor aria-hidden=true href=#rolemgr>#</a></h2><p>管理类管理游戏中所有的Role，负责Role的创建、查找、销毁，一般配合UID生成器，给每一个Role分配一个唯一ID作为唯一的标识。</p><h2 id=role>Role<a hidden class=anchor aria-hidden=true href=#role>#</a></h2><p>Role是游戏中的对象，可以是角色，特效，建筑等等游戏中的一切实体，由BaseRole派生。</p><h2 id=baserole>BaseRole<a hidden class=anchor aria-hidden=true href=#baserole>#</a></h2><p>基类，定义Role的最基本信息，如GameObject，Transform信息，显示隐藏状态等等。</p><h2 id=派生>派生<a hidden class=anchor aria-hidden=true href=#派生>#</a></h2><p>对BaseRole进行派生就是具体的游戏对象，如添加了控制器以后就是角色，再添加主动移动的控制器以后就是主角，通过绑定不同的组件实现Role的不同方向功能。</p><h2 id=role的功能>Role的功能<a hidden class=anchor aria-hidden=true href=#role的功能>#</a></h2><p>Role的功能都由挂载的组件实现，常用的组件有</p><ul><li>模型组件</li><li>被动移动组件</li><li>主动移动组件</li><li>显示隐藏组件（多条件）</li><li>范围触发组件（当玩家走进时会触发回调）</li><li>头顶文本组件</li><li>还有各种项目中需要实现的功能</li></ul><h2 id=role的结构>Role的结构<a hidden class=anchor aria-hidden=true href=#role的结构>#</a></h2><p><img loading=lazy src=https://raw.githubusercontent.com/dandkong/picgo/main/img/20221127085411.png></p></div><footer class=post-footer><ul class=post-tags><li><a href=https://dandkong.github.io/tags/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6/>游戏框架</a></li><li><a href=https://dandkong.github.io/tags/%E8%A7%92%E8%89%B2/>角色</a></li></ul><nav class=paginav><a class=prev href=https://dandkong.github.io/posts/%E5%9C%BA%E6%99%AF%E6%95%B0%E6%8D%AE%E6%A1%86%E6%9E%B6/><span class=title>« 上一页</span><br><span>场景数据框架</span>

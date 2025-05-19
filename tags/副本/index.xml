@@ -9,7 +9,7 @@
       <url>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.140.2</generator>
+    <generator>Hugo -- 0.147.3</generator>
     <language>zh</language>
     <lastBuildDate>Fri, 09 Dec 2022 13:37:15 +0800</lastBuildDate>
     <atom:link href="https://dandkong.github.io/tags/%E5%89%AF%E6%9C%AC/index.xml" rel="self" type="application/rss+xml" />
@@ -25,7 +25,6 @@
 &lt;li&gt;所以需要设计一套副本系统可以灵活配置副本功能，想法是把副本里的每个行为，判断都作为一个节点，类型行为树的概念，从开始节点一直执行到结束节点，这个副本进程就结束了，进入下个副本进程。&lt;/li&gt;
 &lt;li&gt;编辑器使用连线的方式操作，每个节点的前后置关系，导出lua配置供程序使用，服务端控制执行流程，客户端只需要执行节点逻辑。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;例子&#34;&gt;例子&lt;/h2&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/dandkong/picgo/main/img/20221209133618.png&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -33,13 +32,11 @@
 &lt;li&gt;端口定义了每个节点间的关系，也就是图中的连线，控制流程走向，比如刷怪战斗节点，输入端口连接“判断组队人数”，有两个输出端口，分别是胜利和失败，连接对应的节点。&lt;/li&gt;
 &lt;li&gt;把副本流程解构成一个个节点以后，只需要维护节点的行为和端口逻辑即可，组合由策划完成，只有在添加新节点时程序才需要上场。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;编辑器&#34;&gt;编辑器&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;编辑器可以用网上的开源例子&lt;a href=&#34;https://github.com/Siccity/xNode&#34;&gt;xnode&lt;/a&gt;组织节点，也可自己实现。&lt;/li&gt;
 &lt;li&gt;导出的数据包括了节点的类型，参数，前后置节点等一切代码需要的信息。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;副本流程&#34;&gt;副本流程&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;服务端推送当前节点信息&lt;/li&gt;

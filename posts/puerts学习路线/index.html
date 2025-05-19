@@ -4,7 +4,6 @@
 
 JavaScript生态有众多的库和工具链，结合专业商业引擎的渲染能力，快速打造游戏
 相比游戏领域常用的lua脚本，TypeScript的静态类型检查有助于编写更健壮，可维护性更好的程序
-
 安装
 安装PuerTS | PUER Typescript
 安装包到Unity，在合适的地方接入JSEnv
@@ -14,7 +13,6 @@ PuerTS自带一个加载器，通过Resource加载JS代码，但是实际开发�
 
 提供一个PuerTS的Loader，使你在Editor下，可以直接读取TS。
 无需研究tsconfig、无需研究ESM、CommonJS，无需自行编译ts，无需理会和调试相关的debugpath/sourceMap/控制台跳转。
-
 https://github.com/zombieyang/puerts-ts-loader
 编辑器中直接使用TS开发，在发布时还需要编译成JS，参考ts-loader中的TSReleaser-Resources.cs函数，在发布资源前编译成JS。
 编译好的JS要支持热更，所以使用默认的加载器，自己定义一个加载器，传入的参数是JS的路径，返回的是JS的代码内容，结合项目的资源加载返回即可，我的Demo使用了YooAssets框架。
@@ -51,7 +49,6 @@ ES6 入门教程
 
 JavaScript生态有众多的库和工具链，结合专业商业引擎的渲染能力，快速打造游戏
 相比游戏领域常用的lua脚本，TypeScript的静态类型检查有助于编写更健壮，可维护性更好的程序
-
 安装
 安装PuerTS | PUER Typescript
 安装包到Unity，在合适的地方接入JSEnv
@@ -61,7 +58,6 @@ PuerTS自带一个加载器，通过Resource加载JS代码，但是实际开发�
 
 提供一个PuerTS的Loader，使你在Editor下，可以直接读取TS。
 无需研究tsconfig、无需研究ESM、CommonJS，无需自行编译ts，无需理会和调试相关的debugpath/sourceMap/控制台跳转。
-
 https://github.com/zombieyang/puerts-ts-loader
 编辑器中直接使用TS开发，在发布时还需要编译成JS，参考ts-loader中的TSReleaser-Resources.cs函数，在发布资源前编译成JS。
 编译好的JS要支持热更，所以使用默认的加载器，自己定义一个加载器，传入的参数是JS的路径，返回的是JS的代码内容，结合项目的资源加载返回即可，我的Demo使用了YooAssets框架。

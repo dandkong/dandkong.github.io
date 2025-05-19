@@ -9,10 +9,17 @@
       <url>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://dandkong.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.140.2</generator>
+    <generator>Hugo -- 0.147.3</generator>
     <language>zh</language>
-    <lastBuildDate>Thu, 09 Jan 2025 15:24:03 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 19 May 2025 17:39:19 +0800</lastBuildDate>
     <atom:link href="https://dandkong.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>行为树框架</title>
+      <link>https://dandkong.github.io/posts/%E8%A1%8C%E4%B8%BA%E6%A0%91%E6%A1%86%E6%9E%B6/</link>
+      <pubDate>Mon, 19 May 2025 17:39:19 +0800</pubDate>
+      <guid>https://dandkong.github.io/posts/%E8%A1%8C%E4%B8%BA%E6%A0%91%E6%A1%86%E6%9E%B6/</guid>
+      <description>行为树概念介绍</description>
+    </item>
     <item>
       <title>Laya性能分析工具</title>
       <link>https://dandkong.github.io/posts/laya%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/</link>
@@ -500,8 +507,7 @@
 &lt;p&gt;最近看到腾讯又出了个游戏脚本的热更方案，相对lua有以下的优势。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;JavaScript生态有众多的库和工具链，结合专业商业引擎的渲染能力，快速打造游戏&lt;/p&gt;
-&lt;p&gt;相比游戏领域常用的lua脚本，TypeScript的静态类型检查有助于编写更健壮，可维护性更好的程序&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;相比游戏领域常用的lua脚本，TypeScript的静态类型检查有助于编写更健壮，可维护性更好的程序&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://puerts.github.io/docs/puerts/unity/install/&#34;&gt;安装PuerTS | PUER Typescript&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;安装包到Unity，在合适的地方接入JSEnv&lt;/p&gt;
@@ -510,8 +516,7 @@
 &lt;p&gt;编辑器中推荐使用TS-Loader，编辑器中直接使用TS进行开发，没有其他需要关注的地方。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;提供一个PuerTS的Loader，使你在Editor下，可以直接读取TS。&lt;/p&gt;
-&lt;p&gt;无需研究tsconfig、无需研究ESM、CommonJS，无需自行编译ts，无需理会和调试相关的debugpath/sourceMap/控制台跳转。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;无需研究tsconfig、无需研究ESM、CommonJS，无需自行编译ts，无需理会和调试相关的debugpath/sourceMap/控制台跳转。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/zombieyang/puerts-ts-loader&#34;&gt;https://github.com/zombieyang/puerts-ts-loader&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;编辑器中直接使用TS开发，在发布时还需要编译成JS，参考ts-loader中的TSReleaser-Resources.cs函数，在发布资源前编译成JS。&lt;/p&gt;
 &lt;p&gt;编译好的JS要支持热更，所以使用默认的加载器，自己定义一个加载器，传入的参数是JS的路径，返回的是JS的代码内容，结合项目的资源加载返回即可，我的Demo使用了YooAssets框架。&lt;/p&gt;
@@ -732,8 +737,7 @@
 &lt;h2 id=&#34;原理&#34;&gt;原理&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;This package utilizes the new &lt;code&gt;APIsMeshBake/MashTrailBake&lt;/code&gt;(introduced with Unity 2018.2) to render particles through CanvasRenderer.&lt;/p&gt;
-&lt;p&gt;You can render, mask, and sort your ParticleSystems for UI without the necessity of an additional Camera, RenderTexture, or Canvas.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;You can render, mask, and sort your ParticleSystems for UI without the necessity of an additional Camera, RenderTexture, or Canvas.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;这是项目首页的原理，具体就是通过一个API让例子特效通过&lt;code&gt;CanvasRender&lt;/code&gt;进行渲染，这样就和普通的UI没什么不同了。&lt;/p&gt;
 &lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
 &lt;p&gt;按官方的教程，直接引入包，添加组件到特效上，直接拖到UI中即可。&lt;/p&gt;
@@ -913,7 +917,6 @@
       <guid>https://dandkong.github.io/posts/%E4%BA%BA%E7%89%A9%E7%A7%BB%E5%8A%A8%E6%A8%A1%E5%9D%97/</guid>
       <description>&lt;h2 id=&#34;一概述&#34;&gt;一、概述&lt;/h2&gt;
 &lt;p&gt;游戏中角色移动分为了主动和被动，主动主要由玩家通过摇杆或者键盘进行操作，被动移动主要应用于自动寻路，通过寻路点行动。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;二主动移动&#34;&gt;二、主动移动&lt;/h2&gt;
 &lt;h3 id=&#34;移动组件&#34;&gt;移动组件&lt;/h3&gt;
 &lt;p&gt;移动组件主要用到Unity的移动组件&lt;strong&gt;Character Controller&lt;/strong&gt;，主要属性如下&lt;/p&gt;
@@ -976,7 +979,6 @@
 &lt;li&gt;状态机维护当前角色状态（普通，跳跃），设置对应动画状态&lt;/li&gt;
 &lt;li&gt;计算下一帧移动方向&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;三自动寻路&#34;&gt;三、自动寻路&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;自动寻路主要是计算出起始点到目标点的一连串的中间点，每次走一小段直线，从而完成寻路的过程，逻辑比较简单，&lt;/li&gt;
@@ -997,7 +999,6 @@
 &lt;li&gt;所以需要设计一套副本系统可以灵活配置副本功能，想法是把副本里的每个行为，判断都作为一个节点，类型行为树的概念，从开始节点一直执行到结束节点，这个副本进程就结束了，进入下个副本进程。&lt;/li&gt;
 &lt;li&gt;编辑器使用连线的方式操作，每个节点的前后置关系，导出lua配置供程序使用，服务端控制执行流程，客户端只需要执行节点逻辑。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;例子&#34;&gt;例子&lt;/h2&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/dandkong/picgo/main/img/20221209133618.png&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -1005,13 +1006,11 @@
 &lt;li&gt;端口定义了每个节点间的关系，也就是图中的连线，控制流程走向，比如刷怪战斗节点，输入端口连接“判断组队人数”，有两个输出端口，分别是胜利和失败，连接对应的节点。&lt;/li&gt;
 &lt;li&gt;把副本流程解构成一个个节点以后，只需要维护节点的行为和端口逻辑即可，组合由策划完成，只有在添加新节点时程序才需要上场。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;编辑器&#34;&gt;编辑器&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;编辑器可以用网上的开源例子&lt;a href=&#34;https://github.com/Siccity/xNode&#34;&gt;xnode&lt;/a&gt;组织节点，也可自己实现。&lt;/li&gt;
 &lt;li&gt;导出的数据包括了节点的类型，参数，前后置节点等一切代码需要的信息。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;副本流程&#34;&gt;副本流程&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;服务端推送当前节点信息&lt;/li&gt;
@@ -1027,7 +1026,6 @@
       <guid>https://dandkong.github.io/posts/%E5%9C%BA%E6%99%AF%E6%95%B0%E6%8D%AE%E6%A1%86%E6%9E%B6/</guid>
       <description>&lt;h2 id=&#34;一概述&#34;&gt;一、概述&lt;/h2&gt;
 &lt;p&gt;一般MMO的游戏由场景和场景中的对象构成，在设计地图时，就会遇到几个问题。怎么有效直观地配置信息，对象都有什么功能，有什么功能是共有的。针对上面的问题，首先需要解决的是抽象出场景对象结构，在此基础上做编辑器，用图形化的界面展示，修改储存数据，供代码使用。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;二场景对象结构&#34;&gt;二、场景对象结构&lt;/h2&gt;
 &lt;p&gt;场景本事有数据，如场景资源，组队人数限制等等，这种信息改动不大，也比较直观，一般只要存在excel里面就好，需要的话可以做图形编辑器对excel进行读写和修改。&lt;/p&gt;
 &lt;p&gt;场景中的对象可以按需分成几类，常见的有npc，采集物，区域，点等等。&lt;/p&gt;
@@ -1042,7 +1040,6 @@
 &lt;h3 id=&#34;组件&#34;&gt;组件&lt;/h3&gt;
 &lt;p&gt;组件是对象上的属性和功能，公用的组件有缩放，大小，显示隐藏条件等，特殊的组件有巡逻，交互按钮等，按需添加，从而赋予对象特性。&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/dandkong/picgo/main/img/202406142209820.png&#34;&gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;三场景编辑器&#34;&gt;三、场景编辑器&lt;/h2&gt;
 &lt;p&gt;理清了场景对象的结构以后，就可以做编辑器把数据组织起来了，场景编辑器的实现细节不多说，尽量用起来符合直观操作即可，功能如下。&lt;/p&gt;
 &lt;ol&gt;
@@ -1052,7 +1049,6 @@
 &lt;li&gt;修改对象的组件属性&lt;/li&gt;
 &lt;li&gt;导出程序可用数据&lt;/li&gt;
 &lt;/ol&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;四数据载体&#34;&gt;四、数据载体&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;数据可以直接导出lua，也可以导出成json，xml等，只要方便维护，程序方便调用即可。&lt;/li&gt;
@@ -1067,19 +1063,14 @@
       <guid>https://dandkong.github.io/posts/%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E6%A1%86%E6%9E%B6/</guid>
       <description>&lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;
 &lt;p&gt;游戏对象管理一般是通过总分结构，管理器为RoleMgr，对象为Role，Role的功能由各种功能组件实现，从而实现继承和解耦。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;rolemgr&#34;&gt;RoleMgr&lt;/h2&gt;
 &lt;p&gt;管理类管理游戏中所有的Role，负责Role的创建、查找、销毁，一般配合UID生成器，给每一个Role分配一个唯一ID作为唯一的标识。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;role&#34;&gt;Role&lt;/h2&gt;
 &lt;p&gt;Role是游戏中的对象，可以是角色，特效，建筑等等游戏中的一切实体，由BaseRole派生。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;baserole&#34;&gt;BaseRole&lt;/h2&gt;
 &lt;p&gt;基类，定义Role的最基本信息，如GameObject，Transform信息，显示隐藏状态等等。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;派生&#34;&gt;派生&lt;/h2&gt;
 &lt;p&gt;对BaseRole进行派生就是具体的游戏对象，如添加了控制器以后就是角色，再添加主动移动的控制器以后就是主角，通过绑定不同的组件实现Role的不同方向功能。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;role的功能&#34;&gt;Role的功能&lt;/h2&gt;
 &lt;p&gt;Role的功能都由挂载的组件实现，常用的组件有&lt;/p&gt;
 &lt;ul&gt;
@@ -1091,7 +1082,6 @@
 &lt;li&gt;头顶文本组件&lt;/li&gt;
 &lt;li&gt;还有各种项目中需要实现的功能&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;role的结构&#34;&gt;Role的结构&lt;/h2&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/dandkong/picgo/main/img/20221127085411.png&#34;&gt;&lt;/p&gt;</description>
     </item>
@@ -1103,13 +1093,11 @@
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;UI是游戏中很重要的一部分，工作大多是繁复的，所以有一套功能强大，操作简单直观的UI解决方案是非常有必要的。&lt;/p&gt;
 &lt;p&gt;上半年一直在用FGUI，和之前用的UGUI相比下来，各有优缺点，对比分析记录一下。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;一介绍&#34;&gt;一、介绍&lt;/h2&gt;
 &lt;h3 id=&#34;ugui&#34;&gt;UGUI&lt;/h3&gt;
 &lt;p&gt;UGUI是Unity原生提供的UI方案，提供了基本的UI组件，如图片，文本，按钮，复选框，进度条等等，正是因为UGUI是面向普遍开发，所以没有封装很多高级的组件，比如虚拟列表。&lt;/p&gt;
 &lt;h3 id=&#34;fgui&#34;&gt;FGUI&lt;/h3&gt;
 &lt;p&gt;FairyGUI（下来简称FGUI）号称易上手，直观，零代码，有一个独立的编辑器，封装了很多高级的UI组件，用起来不需要自己造轮子。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;二编辑器使用体验&#34;&gt;二、编辑器使用体验&lt;/h2&gt;
 &lt;h3 id=&#34;ugui-1&#34;&gt;UGUI&lt;/h3&gt;
 &lt;p&gt;优点：稳定。&lt;/p&gt;
@@ -1118,7 +1106,6 @@
 &lt;p&gt;优点：有单独的编辑器，所有资源统一管理，美术策划也能很快上手使用。&lt;/p&gt;
 &lt;p&gt;缺点：不稳定，经常会莫名卡住，导出的时候经常报错。&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/dandkong/picgo/main/img/20221120114909.png&#34;&gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;三基础组件&#34;&gt;三、基础组件&lt;/h2&gt;
 &lt;p&gt;基础组件上面因为FGUI实现很多的高级功能，所以使用起来体验要么一样，要么好点。&lt;/p&gt;
 &lt;h3 id=&#34;文本&#34;&gt;文本&lt;/h3&gt;
@@ -1129,7 +1116,6 @@
 &lt;p&gt;字体上FGUI提供了工具制作美术字，只要把资源拖进去专用的编辑器就能很快做出一个美术字体。&lt;/p&gt;
 &lt;h3 id=&#34;动效系统&#34;&gt;动效系统&lt;/h3&gt;
 &lt;p&gt;两者都有动效系统，UGUI上叫Animation，功能上差不多，都很强大。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;四对齐系统&#34;&gt;四、对齐系统&lt;/h2&gt;
 &lt;p&gt;对齐系统这一块，FGUI是很大的亮点。&lt;/p&gt;
 &lt;h3 id=&#34;ugui-2&#34;&gt;UGUI&lt;/h3&gt;
@@ -1140,7 +1126,6 @@
 &lt;p&gt;优点：FGUI的对齐系统叫做关联系统，第一个优点是不局限与与父节点对齐，可以对任意两个元素进行对齐。第二个优点是在拓展了对齐的维度，可以以上下左右边缘为基准，可以以上下左右为基准拉伸，复杂一点，但是学会以后可以很方便实现一些效果，比如一张图片随着文字的变长而往右移动。&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/dandkong/picgo/main/img/202406142211585.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;缺点：垂直布局和水平布局功能太单一；锚点在左上角各种反人类。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;五fgui特色功能&#34;&gt;五、FGUI特色功能&lt;/h2&gt;
 &lt;h3 id=&#34;资源引用查找工具&#34;&gt;资源引用查找工具&lt;/h3&gt;
 &lt;p&gt;可以轻易找到组件（图片）和其他组件的引用关系。&lt;/p&gt;
@@ -1149,7 +1134,15 @@
 &lt;h3 id=&#34;控制器系统&#34;&gt;控制器系统&lt;/h3&gt;
 &lt;p&gt;控制器系统一般用于控制显示一些UI元素的状态，可以配合动效和Tab使用，UGUI一般要通过代码控制或者自己实现一个类似的系统。&lt;/p&gt;
 &lt;h3 id=&#34;多平台&#34;&gt;多平台&lt;/h3&gt;
-&lt;p&gt;FGUI可以一套UI，应用到不同的游戏引擎去，比如Unity和Unreal，对于后期可能更换引擎的项目，节省掉很多成本。&lt;/p&gt;</description>
+&lt;p&gt;FGUI可以一套UI，应用到不同的游戏引擎去，比如Unity和Unreal，对于后期可能更换引擎的项目，节省掉很多成本。&lt;/p&gt;
+&lt;h3 id=&#34;插入3d物体&#34;&gt;插入3D物体&lt;/h3&gt;
+&lt;p&gt;支持在UI层中插入任何3D物体，例如模型、粒子、骨骼动画等，UGUI中要通过修改特效和UI的渲染顺序实现，比较麻烦。&lt;/p&gt;
+&lt;h2 id=&#34;六拓展性&#34;&gt;六、拓展性&lt;/h2&gt;
+&lt;p&gt;两者都有拓展性，FGUI的拓展性在于代码是开源的，可以在底层定制适合项目的功能，但是编辑器是不开源的，所以编辑器里面的东西改不了，虽然编辑器提供了脚本拓展支持，但能实现的东西不多。&lt;/p&gt;
+&lt;p&gt;UGUI的拓展性在于可以轻松地对编辑器进行拓展，也可以加上各种效果，一般也不会动到底层的如网格重构和渲染的代码，真想修改的话可能要和Unity进行合作然后项目搞一个魔改版的Unity。&lt;/p&gt;
+&lt;h2 id=&#34;七总结&#34;&gt;七、总结&lt;/h2&gt;
+&lt;p&gt;总的来说两种UI解决方案都可以商用，不会有特别大的问题。&lt;/p&gt;
+&lt;p&gt;要是策划美术拼UI的话，可以选择FGUI，相反要是程序负责的话，两者都可以，但个人感觉Unity上的操作更加熟悉一点，程序员也可以在平时的UI流程中，吸收一些FGUI的思想，做些工具提高UI的开发效率。&lt;/p&gt;</description>
     </item>
     <item>
       <title>UGUI对齐工具</title>
@@ -1160,7 +1153,6 @@
 &lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;上半年的大半年时间都在用FGUI，最近又用回了UGUI，发现FGUI的一些工具还是很高效的，比如对齐工具，想着说移植到UGUI里面去，上网搜了一圈还真有，原理并不复杂，就是进行一些数学计算出最终的位置。&lt;/p&gt;
 &lt;p&gt;不过也没有完全适合项目需求，针对原项目基础上添加了三个功能，下面介绍一下。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;一撤销功能&#34;&gt;一、撤销功能&lt;/h2&gt;
 &lt;p&gt;原项目的工具在修改后，习惯性就按下Ctrl+Z，发现并不能撤销原来的操作，查询了Unity的API后，发现有个Undo的类，可以实现撤销功能，有很多方法，主要用到了RecordObject，代码如下&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c#&#34; data-lang=&#34;c#&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SetTranPos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Transform&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tran&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Vector3&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
@@ -1168,16 +1160,14 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;Undo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;RecordObject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tran&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;modify posstion&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;tran&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;position&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
-&lt;h2 id=&#34;二selectiongameobjects不是按选择顺序的&#34;&gt;二、Selection.GameObjects不是按选择顺序的&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;二selectiongameobjects不是按选择顺序的&#34;&gt;二、Selection.GameObjects不是按选择顺序的&lt;/h2&gt;
 &lt;p&gt;API中的Selection.GameObjects用于获取当前选中的物件，数组的顺序和我选择的顺序无关，所以不能实现灵活的对齐，查询网上文章可以用Selection.Objects替代，里面的第一个元素就是Ctrl选中的第一个元素，以此类推，代码如下&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//按选中顺序获取GameObjects&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;GameObject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;GetOrderedSelctionObjs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Selection&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;objects&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;OfType&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GameObject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;().&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ToArray&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
-&lt;h2 id=&#34;三添加对父节点对齐&#34;&gt;三、添加对父节点对齐&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;三添加对父节点对齐&#34;&gt;三、添加对父节点对齐&lt;/h2&gt;
 &lt;p&gt;功能就是和标题一样，原项目是没有的，代码如下&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c#&#34; data-lang=&#34;c#&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//如果只选中一个，对父节点对齐&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;rects&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Count&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
@@ -1187,8 +1177,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;rects&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Insert&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rects&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;].&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;parent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GetComponent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;RectTransform&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;());&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
-&lt;h2 id=&#34;四代码&#34;&gt;四、代码&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;四代码&#34;&gt;四、代码&lt;/h2&gt;
 &lt;h3 id=&#34;uguialign&#34;&gt;UGUIAlign&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;System.Collections.Generic&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;System.Linq&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
@@ -1479,8 +1468,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;maxY&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
-&lt;h2 id=&#34;五代码下载&#34;&gt;五、代码下载&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;五代码下载&#34;&gt;五、代码下载&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/dandkong/UGUIAlign&#34;&gt;https://github.com/dandkong/UGUIAlign&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
